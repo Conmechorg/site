@@ -91,12 +91,15 @@ img{ height:auto; }
 }
 
 /* Header logo MUST be hard-bounded (prevents intrinsic-size blowouts) */
+
+/* Header logo (default / desktop) */
 .brand-logo{
-  width: 24px;
-  height: 24px;
-  max-width: 24px;
-  max-height: 24px;
+  width: 32px;
+  height: 32px;
+  max-width: 32px;
+  max-height: 32px;
   object-fit: contain;
+  display: block;
   flex: 0 0 auto;
 }
 
@@ -463,6 +466,27 @@ input[type="email"]:focus{
 
 @media (max-width: 720px){
   :root{ --gutter: 16px; }
+
+@media (max-width: 720px){
+  .brand-logo{
+    width: 40px;
+    height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+  }
+
+  /* make the header row feel balanced */
+  .brand{
+    min-width: 0;          /* important: stops weird spacing */
+    gap: 10px;
+    align-items: center;
+  }
+
+  /* optional: tighten the brand text a touch */
+  .brand span{
+    line-height: 1.1;
+  }
+}
 
   /* Header stacks cleanly */
   .header-inner{
