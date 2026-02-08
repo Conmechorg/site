@@ -46,6 +46,8 @@ img, svg{
   display: block;
 }
 
+img{ height:auto; }
+
 /* Utility container */
 .container{
   max-width: var(--max);
@@ -96,6 +98,18 @@ img, svg{
   max-height: 24px;
   object-fit: contain;
   flex: 0 0 auto;
+}
+
+/* HARD CLAMP: header logo must never grow */
+.brand-logo{
+  width: 22px !important;
+  height: 22px !important;
+  max-width: 22px !important;
+  max-height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
+  object-fit: contain;
+  display: block;
 }
 
 /* Extra safety: if anything inside header is an image, constrain it */
