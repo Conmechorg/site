@@ -6,7 +6,6 @@
 
 /* ---------- CSS Variables ---------- */
 :root{
-  /* Brand palette (cool steel teal + warm orange) */
   --bg-deep: #0f2f3a;
   --bg-mid:  #134152;
   --panel:   #ffffff;
@@ -26,7 +25,7 @@
   --gutter: 22px;
 }
 
-/* ---------- Base Reset ---------- */
+/* ---------- Base Reset / Safety ---------- */
 *{ box-sizing: border-box; }
 html,body{ height:100%; }
 
@@ -38,6 +37,13 @@ body{
     radial-gradient(1000px 600px at 20% 10%, rgba(11,127,132,.28), transparent 60%),
     radial-gradient(900px 650px at 80% 30%, rgba(245,155,0,.12), transparent 55%),
     linear-gradient(180deg, var(--bg-deep), #0b2530 60%, #081c24);
+}
+
+/* IMPORTANT: prevents “giant image blows out layout” on mobile */
+img, svg{
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Utility container */
@@ -63,10 +69,7 @@ body{
   gap: 16px;
 }
 
-.top{
-  min-height: 56px;
-}
-
+/* Brand block */
 .brand{
   display:flex;
   align-items:center;
@@ -85,11 +88,23 @@ body{
   box-shadow: 0 0 0 6px rgba(245,155,0,.18);
 }
 
+/* Header logo MUST be hard-bounded (prevents intrinsic-size blowouts) */
 .brand-logo{
-  max-width: 28px;
-  max-height: 28px;
+  width: 24px;
+  height: 24px;
+  max-width: 24px;
+  max-height: 24px;
+  object-fit: contain;
+  flex: 0 0 auto;
 }
 
+/* Extra safety: if anything inside header is an image, constrain it */
+.site-header img{
+  max-width: 24px;
+  max-height: 24px;
+}
+
+/* Nav pills */
 .nav{
   display:flex;
   gap:10px;
@@ -113,23 +128,12 @@ body{
   box-shadow: 0 0 0 4px rgba(245,155,0,.08);
 }
 
-.brand-logo{
-  width: 24px;
-  height: 24px;
-  max-width: 24px;
-  max-height: 24px;
-  object-fit: contain;
-  display: block;
-  flex: 0 0 auto;
-}
-
-
 /* ============================
    Main layout
    ============================ */
 .main{
   padding-top: 18px;
-  padding-bottom: 70px;
+  padding-bottom: 60px;
 }
 
 /* two-column area: hero + signup */
@@ -165,7 +169,6 @@ body{
   pointer-events:none;
   opacity:.9;
 }
-
 .hero > *{ position: relative; }
 
 .kicker{
@@ -267,10 +270,9 @@ body{
 }
 
 .cm-logo{
-  max-width: 100%;
+  width: 100%;
+  max-width: 520px; /* desktop restraint */
   height: auto;
-  display:block;
-  /* the actual size control happens via logo-box + mobile rules */
 }
 
 .panel-title{
@@ -347,7 +349,7 @@ input[type="email"]:focus{
    Features (below fold)
    ============================ */
 .below{
-  padding-bottom: 80px;
+  padding-bottom: 44px; /* reduced dead space */
 }
 
 .features{
@@ -364,6 +366,14 @@ input[type="email"]:focus{
   border: 1px solid rgba(255,255,255,.12);
   color: rgba(234,246,247,.9);
   box-shadow: 0 14px 30px rgba(0,0,0,.18);
+
+  /* Make badge + text sit side-by-side and reduce height */
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 12px;
+  row-gap: 4px;
+  align-content: start;
 }
 
 .feature-badge{
@@ -378,19 +388,26 @@ input[type="email"]:focus{
   color: #fff;
   font-weight: 850;
   opacity: 0.92;
+
+  grid-column: 1;
+  grid-row: 1 / span 2;
 }
 
 .feature-card h3{
-  margin: 10px 0 6px;
+  margin: 0;
   font-size: 16px;
   letter-spacing: -0.01em;
+  grid-column: 2;
+  grid-row: 1;
 }
 
 .feature-card p{
   margin: 0;
   font-size: 14px;
-  line-height: 1.55;
+  line-height: 1.45;
   color: rgba(234,246,247,.82);
+  grid-column: 2;
+  grid-row: 2;
 }
 
 /* ============================
@@ -402,6 +419,7 @@ input[type="email"]:focus{
   color: rgba(234,246,247,.72);
   font-size: 13px;
   border-top: 1px solid rgba(255,255,255,.10);
+  margin-top: 14px; /* avoids visual “overlap” feeling */
 }
 
 .footer-inner{
@@ -425,19 +443,12 @@ input[type="email"]:focus{
    Responsive
    ============================ */
 @media (max-width: 940px){
-  .main-grid{
-    grid-template-columns: 1fr;
-  }
-  .features{
-    grid-template-columns: 1fr;
-  }
+  .main-grid{ grid-template-columns: 1fr; }
+  .features{ grid-template-columns: 1fr; }
 }
 
 @media (max-width: 720px){
-
-  :root{
-    --gutter: 16px;
-  }
+  :root{ --gutter: 16px; }
 
   /* Header stacks cleanly */
   .header-inner{
@@ -446,7 +457,7 @@ input[type="email"]:focus{
     gap: 10px;
   }
 
-  /* Nav becomes single-row scroll instead of wrapping */
+  /* Nav becomes single-row scroll */
   .nav{
     width: 100%;
     flex-wrap: nowrap;
@@ -454,20 +465,24 @@ input[type="email"]:focus{
     -webkit-overflow-scrolling: touch;
     padding-bottom: 4px;
   }
-
-  .nav::-webkit-scrollbar{
-    height: 0;
-  }
+  .nav::-webkit-scrollbar{ height: 0; }
 
   .nav-link{
     padding: 7px 12px;
     font-size: 0.9rem;
   }
 
-  /* Hero tightening */
-  .hero{
-    padding: 18px;
+  /* Make header logo even safer on small screens */
+  .brand-logo,
+  .site-header img{
+    width: 22px;
+    height: 22px;
+    max-width: 22px;
+    max-height: 22px;
   }
+
+  /* Hero tightening */
+  .hero{ padding: 18px; }
 
   .hero-title{
     font-size: 2.1rem;
@@ -494,20 +509,16 @@ input[type="email"]:focus{
     justify-content:center;
   }
 
-  /* Signup card tightening */
+  /* Signup tightening */
   .panel{
     padding: 16px;
     border-radius: 18px;
   }
 
+  /* You asked: move big logo out of the panel on mobile.
+     We'll hide the panel logo-box entirely on mobile. */
   .logo-box{
-    padding: 14px;
-  }
-
-  .cm-logo{
-    width: 100%;
-    max-height: 140px;
-    object-fit: contain;
+    display: none;
   }
 
   .form-row{
@@ -516,27 +527,9 @@ input[type="email"]:focus{
     gap: 10px;
   }
 
-  .btn-submit{
-    width: 100%;
-  }
+  .btn-submit{ width: 100%; }
 
-  /* Feature cards */
-  .feature-card{
-    padding: 16px;
-    border-radius: 18px;
-  }
-  .brand{
-    gap: 10px;
-  }
-  .brand-logo{
-    width: 24px;
-    height: 24px;
-  }
-
-@media (max-width: 720px){
-  .brand-logo{
-    width: 22px;
-    height: 22px;
-  }
-}
+  /* Reduce dead space between notify panel and features */
+  .main{ padding-bottom: 34px; }
+  .below{ padding-bottom: 24px; }
 }
