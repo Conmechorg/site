@@ -81,6 +81,11 @@ body{
   box-shadow: 0 0 0 6px rgba(245,155,0,.18);
 }
 
+.brand-logo{
+  max-width: 28px;
+  max-height: 28px;
+}
+
 .nav{
   display:flex;
   gap:10px;
