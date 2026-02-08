@@ -4,10 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
+
   <title>Consciousness Mechanics (CM) — Coming Soon</title>
   <meta name="description" content="Consciousness Mechanics (CM): a mechanistic framework for cognition and control. Join the list to be notified on release." />
   <meta name="robots" content="index,follow" />
@@ -16,438 +17,158 @@
   <meta property="og:title" content="Consciousness Mechanics (CM) — Coming Soon" />
   <meta property="og:description" content="A mechanistic framework for cognition and control. Get notified when CM launches." />
   <meta property="og:type" content="website" />
-  <!-- Optional: add an absolute URL once you have a domain -->
-  <!-- <meta property="og:url" content="https://YOURDOMAIN.com" /> -->
-  <!-- Optional: add a share image once you have one -->
-  <!-- <meta property="og:image" content="https://YOURDOMAIN.com/og-image.png" /> -->
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Consciousness Mechanics (CM) — Coming Soon" />
   <meta name="twitter:description" content="A mechanistic framework for cognition and control. Get notified when CM launches." />
 
-  <style>
-    :root{
-      /* Brand-ish palette (cool steel teal + warm orange) */
-      --bg-deep: #0f2f3a;      /* deep blue-green */
-      --bg-mid:  #134152;      /* slightly lighter */
-      --panel:   #ffffff;      /* content panels */
-      --ink:     #142127;      /* near-black text */
-      --muted:   #5a6b73;      /* secondary text */
-      --teal:    #0b7f84;      /* primary teal */
-      --teal-2:  #0a6d72;      /* darker teal */
-      --orange:  #f59b00;      /* activation */
-      --ring:    rgba(245,155,0,.35);
-
-      --radius: 18px;
-      --shadow: 0 20px 60px rgba(0,0,0,.25);
-      --shadow2: 0 10px 25px rgba(0,0,0,.12);
-      --max: 1080px;
-    }
-
-    *{ box-sizing: border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color: var(--ink);
-      background:
-        radial-gradient(1000px 600px at 20% 10%, rgba(11,127,132,.28), transparent 60%),
-        radial-gradient(900px 650px at 80% 30%, rgba(245,155,0,.12), transparent 55%),
-        linear-gradient(180deg, var(--bg-deep), #0b2530 60%, #081c24);
-    }
-
-    /* Top bar */
-    .top{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 18px 22px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 16px;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap: 12px;
-      color: #eaf6f7;
-      letter-spacing: .02em;
-      font-weight: 650;
-    }
-    .brand .dot{
-      width:10px;height:10px;border-radius:2px;
-      background: var(--orange);
-      box-shadow: 0 0 0 6px rgba(245,155,0,.18);
-    }
-    .nav{
-      display:flex; gap:10px; flex-wrap:wrap;
-    }
-    .pill{
-      padding: 8px 12px;
-      font-size: 13px;
-      color: rgba(234,246,247,.9);
-      border: 1px solid rgba(234,246,247,.18);
-      border-radius: 999px;
-      text-decoration:none;
-      transition: .2s ease;
-      background: rgba(255,255,255,.04);
-    }
-    .pill:hover{ border-color: rgba(245,155,0,.55); box-shadow: 0 0 0 4px rgba(245,155,0,.08); }
-
-    /* Hero */
-    .wrap{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 36px 22px 70px;
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 22px;
-      align-items: start;
-    }
-    @media (max-width: 940px){
-      .wrap{ grid-template-columns: 1fr; }
-    }
-
-    .hero{
-      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      position: relative;
-      overflow:hidden;
-    }
-    .hero:before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(600px 250px at 20% 0%, rgba(245,155,0,.18), transparent 60%),
-                  radial-gradient(700px 300px at 80% 20%, rgba(11,127,132,.22), transparent 60%);
-      pointer-events:none;
-      opacity:.9;
-    }
-    .hero > *{ position: relative; }
-
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      color: rgba(234,246,247,.92);
-      background: rgba(0,0,0,.18);
-      border: 1px solid rgba(255,255,255,.12);
-    }
-    .kicker .chip{
-      width: 10px; height: 10px;
-      background: var(--orange);
-      border-radius: 2px;
-    }
-    h1{
-      margin: 16px 0 10px;
-      line-height: 1.02;
-      font-size: clamp(34px, 4vw, 56px);
-      letter-spacing: -0.03em;
-      color: #f2fbfc;
-    }
-    .sub{
-      max-width: 62ch;
-      margin: 0 0 18px;
-      color: rgba(234,246,247,.85);
-      font-size: 16px;
-      line-height: 1.55;
-    }
-
-    .ctaRow{
-      display:flex; gap: 12px; flex-wrap:wrap;
-      align-items:center;
-      margin-top: 18px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.06);
-      color: #f2fbfc;
-      text-decoration:none;
-      font-weight: 650;
-      transition: .2s ease;
-    }
-    .btn:hover{
-      border-color: rgba(245,155,0,.65);
-      box-shadow: 0 0 0 5px rgba(245,155,0,.10);
-      transform: translateY(-1px);
-    }
-    .btn.primary{
-      background: var(--orange);
-      color: #162126;
-      border-color: rgba(0,0,0,.10);
-      box-shadow: 0 10px 22px rgba(245,155,0,.18);
-    }
-    .btn.primary:hover{
-      box-shadow: 0 0 0 5px rgba(245,155,0,.18), 0 14px 26px rgba(245,155,0,.22);
-    }
-
-    /* Right panel */
-    .panel{
-      background: var(--panel);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: var(--shadow2);
-      border: 1px solid rgba(20,33,39,.06);
-    }
-    .logoBox{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border-radius: 14px;
-      padding: 18px;
-      border: 1px dashed rgba(20,33,39,.18);
-      background: linear-gradient(180deg, rgba(11,127,132,.08), rgba(245,155,0,.05));
-      margin-bottom: 16px;
-    }
-    .logoBox img{
-      max-width: 100%;
-      height: auto;
-      display:block;
-    }
-    .panel h2{
-      margin: 8px 0 6px;
-      font-size: 18px;
-      letter-spacing: -0.015em;
-    }
-    .panel p{
-      margin: 0 0 14px;
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: 14.5px;
-    }
-
-    form{
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: stretch;
-    }
-    .field{
-      flex: 1 1 220px;
-      position: relative;
-    }
-    input[type="email"]{
-      width: 100%;
-      padding: 12px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(20,33,39,.18);
-      outline: none;
-      font-size: 15px;
-      transition: .15s ease;
-    }
-    input[type="email"]:focus{
-      border-color: rgba(245,155,0,.85);
-      box-shadow: 0 0 0 5px var(--ring);
-    }
-
-    button{
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(0,0,0,.10);
-      background: var(--orange);
-      color: #162126;
-      font-weight: 750;
-      cursor: pointer;
-      transition: .2s ease;
-      flex: 0 0 auto;
-    }
-    button:hover{ transform: translateY(-1px); box-shadow: 0 10px 22px rgba(245,155,0,.18); }
-
-    .fine{
-      margin-top: 10px;
-      font-size: 12.5px;
-      color: rgba(20,33,39,.72);
-      line-height: 1.45;
-    }
-
-    /* Below fold sections */
-    .below{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 22px 80px;
-    }
-    .grid3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    @media (max-width: 940px){
-      .grid3{ grid-template-columns: 1fr; }
-    }
-    .card{
-      border-radius: var(--radius);
-      padding: 18px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      color: rgba(234,246,247,.9);
-      box-shadow: 0 14px 30px rgba(0,0,0,.18);
-    }
-    .card h3{
-      margin: 6px 0 6px;
-      font-size: 16px;
-      letter-spacing: -0.01em;
-    }
-    .card p{
-      margin: 0;
-      font-size: 14px;
-      line-height: 1.55;
-      color: rgba(234,246,247,.82);
-    }
-    .icon{
-      width: 34px; height: 34px;
-      border-radius: 10px;
-      display:inline-flex;
-      align-items:center; justify-content:center;
-      background: rgba(245,155,0,.16);
-      border: 1px solid rgba(245,155,0,.28);
-      color: #fff;
-      font-weight: 850;
-    }
-
-    footer{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 18px 22px 28px;
-      color: rgba(234,246,247,.72);
-      display:flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      font-size: 13px;
-      border-top: 1px solid rgba(255,255,255,.10);
-    }
-    footer a{
-      color: rgba(234,246,247,.85);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(245,155,0,.35);
-    }
-    footer a:hover{ border-bottom-color: rgba(245,155,0,.75); }
-  </style>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 
 <body>
-  <header class="top">
-    <div class="brand">
-      <span class="dot" aria-hidden="true"></span>
-      <span>Consciousness Mechanics</span>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand" aria-label="Site brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span>Consciousness Mechanics</span>
+      </div>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#notify">Notify me</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
     </div>
-    <nav class="nav" aria-label="Primary">
-      <a class="pill" href="#about">About</a>
-      <a class="pill" href="#notify">Notify me</a>
-      <a class="pill" href="#contact">Contact</a>
-    </nav>
   </header>
 
-  <main class="wrap">
-    <section class="hero" id="about">
-      <div class="kicker"><span class="chip" aria-hidden="true"></span> CM — a mechanistic framework for cognition & control</div>
-      <h1>Consciousness Mechanics (CM)</h1>
-      <p class="sub">
-        A rigor-first model that treats cognition as a layered control architecture.
-        CM focuses on discrete capabilities, gating, and mechanistic build-up — designed for clarity, not mystique.
-      </p>
+  <!-- Main -->
+  <main class="main">
+    <div class="container main-grid">
 
-      <div class="ctaRow">
-        <a class="btn primary" href="#notify">Get launch updates</a>
-        <a class="btn" href="#contact">Ask a question</a>
-      </div>
-    </section>
-
-    <aside class="panel" id="notify">
-      <div class="logoBox">
-        <!-- Replace src with your real file path -->
-        <img
-          src="/assets/logo/cm-logo.png"
-          alt="Consciousness Mechanics (CM) logo"
-          class="cm-logo"
-        />
-      </div>
-
-      <h2>Be notified on release</h2>
-      <p>Leave your email and I’ll send a single update when the public material goes live.</p>
-
-      <!-- OPTION A: Formspree (quick). Replace YOUR_FORM_ID. -->
-      <!-- <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST"> -->
-
-      <!-- OPTION B: Netlify Forms (if hosted on Netlify). Uncomment and remove action/method. -->
-      <!-- <form name="cm-notify" method="POST" data-netlify="true"> -->
-      <!--   <input type="hidden" name="form-name" value="cm-notify" /> -->
-
-      <!-- OPTION C: Placeholder (no backend). Keeps UI working and shows success message locally. -->
-      <form id="notifyForm">
-        <div class="field">
-          <input name="email" id="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+      <!-- Hero -->
+      <section class="hero" id="about">
+        <div class="kicker">
+          <span class="kicker-chip" aria-hidden="true"></span>
+          <span>CM — a mechanistic framework for cognition &amp; control</span>
         </div>
-        <button type="submit">Notify me</button>
-      </form>
 
-      <div class="fine" id="fineprint">
-        No spam. No tracking pixels. Just a launch notification.
-        If you later want a full privacy policy, add a page and link it in the footer.
-      </div>
+        <h1 class="hero-title">Consciousness Mechanics (CM)</h1>
 
-      <div class="fine" id="status" aria-live="polite" style="display:none; margin-top:10px;"></div>
-    </aside>
+        <p class="hero-sub">
+          A rigor-first model that treats cognition as a layered control architecture.
+          CM focuses on discrete capabilities, gating, and mechanistic build-up — designed for clarity, not mystique.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#notify">Get launch updates</a>
+          <a class="btn" href="#contact">Ask a question</a>
+        </div>
+      </section>
+
+      <!-- Signup Panel -->
+      <aside class="panel" id="notify" aria-label="Notify me panel">
+        <div class="logo-box">
+          <img
+            src="/assets/logo/cm-logo.png"
+            alt="Consciousness Mechanics (CM) logo"
+            class="cm-logo"
+            loading="eager"
+          />
+        </div>
+
+        <h2 class="panel-title">Be notified on release</h2>
+        <p class="panel-text">Leave your email and I’ll send a single update when the public material goes live.</p>
+
+        <!-- OPTION A: Formspree (quick). Replace YOUR_FORM_ID. -->
+        <!-- <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="form-row"> -->
+
+        <!-- OPTION B: Netlify Forms -->
+        <!-- <form name="cm-notify" method="POST" data-netlify="true" class="form-row"> -->
+        <!--   <input type="hidden" name="form-name" value="cm-notify" /> -->
+
+        <!-- OPTION C: Placeholder / demo mode -->
+        <form id="notifyForm" class="form-row">
+          <div class="field">
+            <input
+              name="email"
+              id="email"
+              type="email"
+              autocomplete="email"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+          <button class="btn-submit" type="submit">Notify me</button>
+        </form>
+
+        <div class="fine" id="fineprint">
+          No spam. No tracking pixels. Just a launch notification.
+          If you later want a full privacy policy, add a page and link it in the footer.
+        </div>
+
+        <div class="status" id="status" aria-live="polite"></div>
+      </aside>
+
+    </div>
   </main>
 
+  <!-- Features -->
   <section class="below">
-    <div class="grid3">
-      <div class="card">
-        <div class="icon">1</div>
-        <h3>Mechanistic, not mystical</h3>
-        <p>Flat claims, explicit constraints, and architecture-first definitions.</p>
-      </div>
-      <div class="card">
-        <div class="icon">2</div>
-        <h3>Layered control stack</h3>
-        <p>Capabilities build incrementally, with clear gating and scope boundaries.</p>
-      </div>
-      <div class="card">
-        <div class="icon">3</div>
-        <h3>Designed for publication</h3>
-        <p>Readable figures, consistent terms, and traceable component evolution.</p>
+    <div class="container">
+      <div class="features">
+
+        <div class="feature-card">
+          <div class="feature-badge">1</div>
+          <h3>Mechanistic, not mystical</h3>
+          <p>Flat claims, explicit constraints, and architecture-first definitions.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-badge">2</div>
+          <h3>Layered control stack</h3>
+          <p>Capabilities build incrementally, with clear gating and scope boundaries.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-badge">3</div>
+          <h3>Designed for publication</h3>
+          <p>Readable figures, consistent terms, and traceable component evolution.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <footer id="contact">
-    <div>© <span id="year"></span> Consciousness Mechanics</div>
-    <div>
-      <a href="mailto:info@conmech.org">info@conmech.org</a>
-      <!--&nbsp;•&nbsp; -->
-      <!-- <a href="#notify">Notify</a> -->
+  <!-- Footer -->
+  <footer class="site-footer" id="contact">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Consciousness Mechanics</div>
+      <div>
+        <a href="mailto:info@conmech.org">info@conmech.org</a>
+      </div>
     </div>
   </footer>
 
   <script>
-    // Basic niceties
+    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // Placeholder form behaviour (Option C).
-    // If you wire Formspree or Netlify, remove this script block or adjust accordingly.
+    // If you wire Formspree or Netlify, remove or adapt this.
     const form = document.getElementById("notifyForm");
     const statusEl = document.getElementById("status");
 
-    if (form) {
+    if (form && statusEl) {
       form.addEventListener("submit", (e) => {
         e.preventDefault();
-        const email = document.getElementById("email").value.trim();
 
-        // Extremely light validation (browser already validates type=email)
+        const emailEl = document.getElementById("email");
+        const email = (emailEl?.value || "").trim();
+
         if (!email || !email.includes("@")) return;
 
         statusEl.style.display = "block";
@@ -458,5 +179,6 @@
       });
     }
   </script>
+
 </body>
 </html>
