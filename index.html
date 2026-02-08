@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -13,32 +12,30 @@
   <meta name="description" content="Consciousness Mechanics (CM): a mechanistic framework for cognition and control. Join the list to be notified on release." />
   <meta name="robots" content="index,follow" />
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Consciousness Mechanics (CM) — Coming Soon" />
   <meta property="og:description" content="A mechanistic framework for cognition and control. Get notified when CM launches." />
   <meta property="og:type" content="website" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Consciousness Mechanics (CM) — Coming Soon" />
   <meta name="twitter:description" content="A mechanistic framework for cognition and control. Get notified when CM launches." />
 
-  <!-- External CSS -->
+  <!-- External CSS (single source of truth) -->
   <link rel="stylesheet" href="/styles.css" />
 </head>
 
 <body>
 
-  <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <div class="brand" aria-label="Site brand">
-        <img class="brand-logo" src="/assets/logo/cm-logo.png" alt="CM" />
+      <div class="brand" aria-label="Consciousness Mechanics">
+        <!-- Small top-corner logo (this is the one that was blowing out) -->
+        <img class="brand-logo" src="/assets/logo/cm-logo.svg" alt="CM logo" />
         <span class="brand-dot" aria-hidden="true"></span>
         <span>Consciousness Mechanics</span>
       </div>
 
-      <nav class="nav" aria-label="Primary navigation">
+      <nav class="nav" aria-label="Primary">
         <a class="nav-link" href="#about">About</a>
         <a class="nav-link" href="#notify">Notify me</a>
         <a class="nav-link" href="#contact">Contact</a>
@@ -46,15 +43,12 @@
     </div>
   </header>
 
-  <!-- Main -->
   <main class="main">
     <div class="container main-grid">
-
-      <!-- Hero -->
       <section class="hero" id="about">
         <div class="kicker">
           <span class="kicker-chip" aria-hidden="true"></span>
-          <span>CM — a mechanistic framework for cognition &amp; control</span>
+          CM — a mechanistic framework for cognition &amp; control
         </div>
 
         <h1 class="hero-title">Consciousness Mechanics (CM)</h1>
@@ -70,38 +64,18 @@
         </div>
       </section>
 
-      <!-- Signup Panel -->
-      <aside class="panel" id="notify" aria-label="Notify me panel">
-        <div class="logo-box">
-          <img
-            src="/assets/logo/cm-logo.png"
-            alt="Consciousness Mechanics (CM) logo"
-            class="cm-logo"
-            loading="eager"
-          />
+      <aside class="panel" id="notify" aria-label="Notify me">
+        <!-- Desktop-only (hidden on mobile via CSS) -->
+        <div class="logo-box" aria-hidden="true">
+          <img src="/assets/logo/cm-logo.png" alt="" class="cm-logo" />
         </div>
 
         <h2 class="panel-title">Be notified on release</h2>
         <p class="panel-text">Leave your email and I’ll send a single update when the public material goes live.</p>
 
-        <!-- OPTION A: Formspree (quick). Replace YOUR_FORM_ID. -->
-        <!-- <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="form-row"> -->
-
-        <!-- OPTION B: Netlify Forms -->
-        <!-- <form name="cm-notify" method="POST" data-netlify="true" class="form-row"> -->
-        <!--   <input type="hidden" name="form-name" value="cm-notify" /> -->
-
-        <!-- OPTION C: Placeholder / demo mode -->
         <form id="notifyForm" class="form-row">
           <div class="field">
-            <input
-              name="email"
-              id="email"
-              type="email"
-              autocomplete="email"
-              placeholder="you@example.com"
-              required
-            />
+            <input name="email" id="email" type="email" autocomplete="email" placeholder="you@example.com" required />
           </div>
           <button class="btn-submit" type="submit">Notify me</button>
         </form>
@@ -111,17 +85,14 @@
           If you later want a full privacy policy, add a page and link it in the footer.
         </div>
 
-        <div class="status" id="status" aria-live="polite"></div>
+        <div class="status fine" id="status" aria-live="polite"></div>
       </aside>
-
     </div>
   </main>
 
-  <!-- Features -->
   <section class="below">
     <div class="container">
-      <div class="features">
-
+      <div class="features" aria-label="Key principles">
         <div class="feature-card">
           <div class="feature-badge">1</div>
           <h3>Mechanistic, not mystical</h3>
@@ -139,12 +110,10 @@
           <h3>Designed for publication</h3>
           <p>Readable figures, consistent terms, and traceable component evolution.</p>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="site-footer" id="contact">
     <div class="container footer-inner">
       <div>© <span id="year"></span> Consciousness Mechanics</div>
@@ -155,21 +124,15 @@
   </footer>
 
   <script>
-    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Placeholder form behaviour (Option C).
-    // If you wire Formspree or Netlify, remove or adapt this.
     const form = document.getElementById("notifyForm");
     const statusEl = document.getElementById("status");
 
-    if (form && statusEl) {
+    if (form) {
       form.addEventListener("submit", (e) => {
         e.preventDefault();
-
-        const emailEl = document.getElementById("email");
-        const email = (emailEl?.value || "").trim();
-
+        const email = document.getElementById("email").value.trim();
         if (!email || !email.includes("@")) return;
 
         statusEl.style.display = "block";
