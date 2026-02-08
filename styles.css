@@ -6,3 +6,12 @@ body {
   height: auto;
   display: block;
 }
+
+header {
+  display: flex;
+  align-items: center;
+}
+
+header .nav {
+  margin-top: 2px; /* tiny nudge down */
+}
