@@ -103,6 +103,13 @@ body{
   border-color: rgba(245,155,0,.55);
   box-shadow: 0 0 0 4px rgba(245,155,0,.08);
 }
+.brand-logo{
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  display: block;
+  border-radius: 6px;
+}
 
 /* ============================
    Main layout
@@ -504,5 +511,12 @@ input[type="email"]:focus{
   .feature-card{
     padding: 16px;
     border-radius: 18px;
+  }
+  .brand{
+    gap: 10px;
+  }
+  .brand-logo{
+    width: 24px;
+    height: 24px;
   }
 }
