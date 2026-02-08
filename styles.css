@@ -15,3 +15,188 @@ header {
 header .nav {
   margin-top: 2px; /* tiny nudge down */
 }
+.nav a {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+}
+.hero h1 {
+  line-height: 1.1;
+}
+
+.hero p {
+  max-width: 42ch;
+}
+.signup-card {
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+.signup-card img {
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+.button-primary {
+  box-shadow: 0 4px 12px rgba(240,160,60,0.35);
+}
+
+.button-secondary {
+  opacity: 0.85;
+}
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+}
+.feature-number {
+  opacity: 0.7;
+  transform: scale(0.9);
+}
+footer {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 16px;
+  font-size: 0.85rem;
+}
+/* ============================
+   Mobile polish
+   ============================ */
+@media (max-width: 720px) {
+
+  /* Page gutters */
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* Make nav a single row; allow horizontal scroll instead of wrapping */
+  header .nav {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+
+  header .nav::-webkit-scrollbar {
+    height: 0; /* hide scrollbar on mobile */
+  }
+
+  /* Slightly smaller pills */
+  header .nav a {
+    white-space: nowrap;
+    padding: 7px 12px;
+    font-size: 0.9rem;
+    border-radius: 999px;
+  }
+
+  /* ---------- Hero layout ---------- */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 8px;
+  }
+
+  .hero-left,
+  .hero-right {
+    width: 100%;
+  }
+
+  /* Reduce glass padding */
+  .hero-left {
+    padding: 18px;
+  }
+
+  /* Headline sizing for mobile */
+  .hero h1 {
+    font-size: 2.1rem;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 60ch; /* let it breathe */
+    margin-bottom: 14px;
+  }
+
+  /* CTA buttons stack cleanly */
+  .hero .cta-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .hero .cta-row a,
+  .hero .cta-row button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ---------- Signup card ---------- */
+  .signup-card {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  /* Logo: constrain height and keep centered */
+  .signup-card img {
+    width: 100%;
+    height: auto;
+    max-height: 140px;   /* key fix */
+    object-fit: contain; /* prevents cropping */
+    margin: 6px auto 12px;
+    display: block;
+  }
+
+  /* Form field + button stack */
+  .signup-card .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .signup-card input[type="email"] {
+    width: 100%;
+  }
+
+  .signup-card button,
+  .signup-card .button {
+    width: 100%;
+  }
+
+  /* ---------- Features ---------- */
+  .features {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .feature-card {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  /* Reduce badge dominance */
+  .feature-number {
+    transform: scale(0.9);
+    opacity: 0.75;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding-top: 16px;
+    padding-bottom: 18px;
+    font-size: 0.85rem;
+  }
+}
