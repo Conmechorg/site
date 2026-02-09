@@ -1,7 +1,7 @@
 /* ============================
    Consciousness Mechanics (CM)
    Landing page stylesheet
-   Single source of truth
+   Clean single source of truth
    ============================ */
 
 /* ---------- CSS Variables ---------- */
@@ -39,14 +39,12 @@ body{
     linear-gradient(180deg, var(--bg-deep), #0b2530 60%, #081c24);
 }
 
-/* IMPORTANT: prevents “giant image blows out layout” on mobile */
+/* Global image safety: never let images blow out layout */
 img, svg{
   max-width: 100%;
   height: auto;
   display: block;
 }
-
-img{ height:auto; }
 
 /* Utility container */
 .container{
@@ -66,12 +64,16 @@ img{ height:auto; }
 
 .header-inner{
   display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 16px;
+  align-items:flex-start;
+  justify-content:flex-start;
 }
 
-/* Brand block */
+/*
+  Desktop: brand is a simple row (logo + title)
+  Mobile: brand becomes a 2x2 grid:
+    [logo spans 2 rows] [title]
+                          [nav]
+*/
 .brand{
   display:flex;
   align-items:center;
@@ -79,9 +81,10 @@ img{ height:auto; }
   color: #eaf6f7;
   letter-spacing: .02em;
   font-weight: 650;
-  min-width: 220px;
+  min-width: 0;
 }
 
+/* If you are using a dot as well, keep it (optional) */
 .brand-dot{
   width:10px;
   height:10px;
@@ -90,35 +93,19 @@ img{ height:auto; }
   box-shadow: 0 0 0 6px rgba(245,155,0,.18);
 }
 
-/* Header logo MUST be hard-bounded (prevents intrinsic-size blowouts) */
-
-/* Header logo (default / desktop) */
+/* Header logo: bounded, stable */
 .brand-logo{
   width: 32px;
   height: 32px;
-  max-width: 32px;
-  max-height: 32px;
-  object-fit: contain;
-  display: block;
   flex: 0 0 auto;
-}
-
-/* HARD CLAMP: header logo must never grow */
-.brand-logo{
-  width: 32px !important;
-  height: 32px !important;
-  max-width: 32px !important;
-  max-height: 32px !important;
-  min-width: 32px !important;
-  min-height: 32px !important;
   object-fit: contain;
-  display: block;
 }
 
-/* Extra safety: if anything inside header is an image, constrain it */
-.site-header img{
-  max-width: 24px;
-  max-height: 24px;
+/* Brand name (if you wrap it in a span/div with class brand-name) */
+.brand-name{
+  font-size: 16px;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
 /* Nav pills */
@@ -153,7 +140,6 @@ img{ height:auto; }
   padding-bottom: 60px;
 }
 
-/* two-column area: hero + signup */
 .main-grid{
   display:grid;
   grid-template-columns: 1.1fr .9fr;
@@ -186,6 +172,7 @@ img{ height:auto; }
   pointer-events:none;
   opacity:.9;
 }
+
 .hero > *{ position: relative; }
 
 .kicker{
@@ -288,7 +275,7 @@ img{ height:auto; }
 
 .cm-logo{
   width: 100%;
-  max-width: 520px; /* desktop restraint */
+  max-width: 520px;
   height: auto;
 }
 
@@ -366,7 +353,7 @@ input[type="email"]:focus{
    Features (below fold)
    ============================ */
 .below{
-  padding-bottom: 44px; /* reduced dead space */
+  padding-bottom: 44px;
 }
 
 .features{
@@ -384,7 +371,7 @@ input[type="email"]:focus{
   color: rgba(234,246,247,.9);
   box-shadow: 0 14px 30px rgba(0,0,0,.18);
 
-  /* Make badge + text sit side-by-side and reduce height */
+  /* Badge + text side-by-side for shorter height */
   display: grid;
   grid-template-columns: 40px 1fr;
   grid-template-rows: auto auto;
@@ -405,7 +392,6 @@ input[type="email"]:focus{
   color: #fff;
   font-weight: 850;
   opacity: 0.92;
-
   grid-column: 1;
   grid-row: 1 / span 2;
 }
@@ -436,7 +422,7 @@ input[type="email"]:focus{
   color: rgba(234,246,247,.72);
   font-size: 13px;
   border-top: 1px solid rgba(255,255,255,.10);
-  margin-top: 14px; /* avoids visual “overlap” feeling */
+  margin-top: 14px;
 }
 
 .footer-inner{
@@ -467,42 +453,53 @@ input[type="email"]:focus{
 @media (max-width: 720px){
   :root{ --gutter: 16px; }
 
-@media (max-width: 720px){
-  .brand-logo{
-    width: 40px;
-    height: 40px;
-    max-width: 40px;
-    max-height: 40px;
-  }
-
-  /* make the header row feel balanced */
+  /* --- MOBILE HEADER: 2 rows / 2 columns with logo spanning rows --- */
   .brand{
-    min-width: 0;          /* important: stops weird spacing */
-    gap: 10px;
-    align-items: center;
+    display:grid;
+    grid-template-columns: 52px 1fr;  /* left = logo column */
+    grid-template-rows: auto auto;    /* title row + nav row */
+    column-gap: 12px;
+    row-gap: 8px;
+    align-items:center;
   }
 
-  /* optional: tighten the brand text a touch */
-  .brand span{
+  .brand-logo{
+    grid-column: 1;
+    grid-row: 1 / span 2; /* spans both rows */
+    width: 46px;
+    height: 46px;
+    max-width: 46px;
+    max-height: 46px;
+    object-fit: contain;
+  }
+
+  /* If you have brand-dot, keep it from pushing layout weirdly */
+  .brand-dot{
+    display:none; /* optional: hide dot on mobile for cleaner header */
+  }
+
+  /* If your title is plain text inside brand, it will sit in row 1 automatically */
+  .brand-name{
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 16px;
     line-height: 1.1;
-  }
-}
-
-  /* Header stacks cleanly */
-  .header-inner{
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  /* Nav becomes single-row scroll */
   .nav{
+    grid-column: 2;
+    grid-row: 2;
+
     width: 100%;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    flex-wrap: nowrap;      /* single row */
+    overflow-x: auto;       /* scroll */
     -webkit-overflow-scrolling: touch;
     padding-bottom: 4px;
   }
+
   .nav::-webkit-scrollbar{ height: 0; }
 
   .nav-link{
@@ -510,16 +507,7 @@ input[type="email"]:focus{
     font-size: 0.9rem;
   }
 
-  /* Make header logo even safer on small screens */
-  .brand-logo,
-  .site-header img{
-    width: 22px;
-    height: 22px;
-    max-width: 22px;
-    max-height: 22px;
-  }
-
-  /* Hero tightening */
+  /* --- HERO tightening --- */
   .hero{ padding: 18px; }
 
   .hero-title{
@@ -547,16 +535,21 @@ input[type="email"]:focus{
     justify-content:center;
   }
 
-  /* Signup tightening */
+  /* --- Signup tightening --- */
   .panel{
     padding: 16px;
     border-radius: 18px;
   }
 
-  /* You asked: move big logo out of the panel on mobile.
-     We'll hide the panel logo-box entirely on mobile. */
+  /* Keep logo in the signup panel visible on mobile, but bounded */
   .logo-box{
-    display: none;
+    padding: 14px;
+    margin-bottom: 12px;
+  }
+
+  .cm-logo{
+    max-height: 160px;
+    object-fit: contain;
   }
 
   .form-row{
@@ -567,7 +560,7 @@ input[type="email"]:focus{
 
   .btn-submit{ width: 100%; }
 
-  /* Reduce dead space between notify panel and features */
+  /* Reduce dead space between notify and features */
   .main{ padding-bottom: 34px; }
   .below{ padding-bottom: 24px; }
 }
