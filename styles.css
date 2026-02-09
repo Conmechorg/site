@@ -39,7 +39,7 @@ body{
     linear-gradient(180deg, var(--bg-deep), #0b2530 60%, #081c24);
 }
 
-/* Global image safety: never let images blow out layout */
+/* Never let images blow out layout */
 img, svg{
   max-width: 100%;
   height: auto;
@@ -68,12 +68,7 @@ img, svg{
   justify-content:flex-start;
 }
 
-/*
-  Desktop: brand is a simple row (logo + title)
-  Mobile: brand becomes a 2x2 grid:
-    [logo spans 2 rows] [title]
-                          [nav]
-*/
+/* Desktop header layout */
 .brand{
   display:flex;
   align-items:center;
@@ -84,16 +79,7 @@ img, svg{
   min-width: 0;
 }
 
-/* If you are using a dot as well, keep it (optional) */
-.brand-dot{
-  width:10px;
-  height:10px;
-  border-radius:2px;
-  background: var(--orange);
-  box-shadow: 0 0 0 6px rgba(245,155,0,.18);
-}
-
-/* Header logo: bounded, stable */
+/* Header logo: bounded + stable */
 .brand-logo{
   width: 32px;
   height: 32px;
@@ -101,7 +87,14 @@ img, svg{
   object-fit: contain;
 }
 
-/* Brand name (if you wrap it in a span/div with class brand-name) */
+/* Holds title + nav */
+.brand-stack{
+  display:flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
 .brand-name{
   font-size: 16px;
   line-height: 1.1;
@@ -371,7 +364,6 @@ input[type="email"]:focus{
   color: rgba(234,246,247,.9);
   box-shadow: 0 14px 30px rgba(0,0,0,.18);
 
-  /* Badge + text side-by-side for shorter height */
   display: grid;
   grid-template-columns: 40px 1fr;
   grid-template-rows: auto auto;
@@ -453,35 +445,31 @@ input[type="email"]:focus{
 @media (max-width: 720px){
   :root{ --gutter: 16px; }
 
-  /* --- MOBILE HEADER: 2 rows / 2 columns with logo spanning rows --- */
+  /* MOBILE HEADER: 2 columns (logo | stack), stack has 2 rows (title + nav) */
   .brand{
     display:grid;
-    grid-template-columns: 52px 1fr;  /* left = logo column */
-    grid-template-rows: auto auto;    /* title row + nav row */
+    grid-template-columns: 56px 1fr;
     column-gap: 12px;
-    row-gap: 8px;
     align-items:center;
   }
 
   .brand-logo{
-    grid-column: 1;
-    grid-row: 1 / span 2; /* spans both rows */
-    width: 46px;
-    height: 46px;
-    max-width: 46px;
-    max-height: 46px;
-    object-fit: contain;
+    width: 48px;
+    height: 48px;
+    max-width: 48px;
+    max-height: 48px;
+    align-self: stretch;        /* visually spans the two rows */
+    justify-self: start;
   }
 
-  /* If you have brand-dot, keep it from pushing layout weirdly */
-  .brand-dot{
-    display:none; /* optional: hide dot on mobile for cleaner header */
+  .brand-stack{
+    display:grid;
+    grid-template-rows: auto auto;
+    row-gap: 8px;
+    min-width: 0;
   }
 
-  /* If your title is plain text inside brand, it will sit in row 1 automatically */
   .brand-name{
-    grid-column: 2;
-    grid-row: 1;
     font-size: 16px;
     line-height: 1.1;
     white-space: nowrap;
@@ -490,12 +478,8 @@ input[type="email"]:focus{
   }
 
   .nav{
-    grid-column: 2;
-    grid-row: 2;
-
-    width: 100%;
-    flex-wrap: nowrap;      /* single row */
-    overflow-x: auto;       /* scroll */
+    flex-wrap: nowrap;
+    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 4px;
   }
@@ -507,7 +491,7 @@ input[type="email"]:focus{
     font-size: 0.9rem;
   }
 
-  /* --- HERO tightening --- */
+  /* Hero tightening */
   .hero{ padding: 18px; }
 
   .hero-title{
@@ -535,13 +519,12 @@ input[type="email"]:focus{
     justify-content:center;
   }
 
-  /* --- Signup tightening --- */
+  /* Signup tightening */
   .panel{
     padding: 16px;
     border-radius: 18px;
   }
 
-  /* Keep logo in the signup panel visible on mobile, but bounded */
   .logo-box{
     padding: 14px;
     margin-bottom: 12px;
@@ -560,7 +543,6 @@ input[type="email"]:focus{
 
   .btn-submit{ width: 100%; }
 
-  /* Reduce dead space between notify and features */
   .main{ padding-bottom: 34px; }
   .below{ padding-bottom: 24px; }
 }
