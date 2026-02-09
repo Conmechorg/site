@@ -106,6 +106,7 @@ img, svg{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
+  align-items:center;
 }
 
 .nav-link{
@@ -445,50 +446,57 @@ input[type="email"]:focus{
 @media (max-width: 720px){
   :root{ --gutter: 16px; }
 
-  /* MOBILE HEADER: 2 columns (logo | stack), stack has 2 rows (title + nav) */
+  /* MOBILE HEADER: 2 cols (logo | stack), stack has 2 rows (title + nav) */
   .brand{
     display:grid;
-    grid-template-columns: 56px 1fr;
-    column-gap: 12px;
+    grid-template-columns: 92px 1fr; /* leaves room for a bigger logo */
+    column-gap: 14px;
     align-items:center;
+    width: 100%;
   }
 
+  /* ~2x bigger than 48px */
   .brand-logo{
-    width: 48px;
-    height: 48px;
-    max-width: 48px;
-    max-height: 48px;
-    align-self: stretch;        /* visually spans the two rows */
+    width: 88px;
+    height: 88px;
+    max-width: 88px;
+    max-height: 88px;
     justify-self: start;
   }
 
   .brand-stack{
     display:grid;
     grid-template-rows: auto auto;
-    row-gap: 8px;
+    row-gap: 10px;
     min-width: 0;
   }
 
+  /* Title aligned with pills */
   .brand-name{
-    font-size: 16px;
-    line-height: 1.1;
+    font-size: 18px;
+    line-height: 1.05;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin: 0; /* ensure no odd offset */
+    padding: 0;
   }
 
+  /* Pills aligned to same left edge as title, and sit nicely under it */
   .nav{
+    width: 100%;
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 4px;
+    margin: 0;
   }
 
   .nav::-webkit-scrollbar{ height: 0; }
 
   .nav-link{
-    padding: 7px 12px;
-    font-size: 0.9rem;
+    padding: 8px 14px;
+    font-size: 0.95rem;
   }
 
   /* Hero tightening */
