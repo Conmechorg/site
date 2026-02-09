@@ -12,44 +12,34 @@
   <meta name="description" content="Consciousness Mechanics (CM): a mechanistic framework for cognition and control. Join the list to be notified on release." />
   <meta name="robots" content="index,follow" />
 
-  <meta property="og:title" content="Consciousness Mechanics (CM) — Coming Soon" />
-  <meta property="og:description" content="A mechanistic framework for cognition and control. Get notified when CM launches." />
-  <meta property="og:type" content="website" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Consciousness Mechanics (CM) — Coming Soon" />
-  <meta name="twitter:description" content="A mechanistic framework for cognition and control. Get notified when CM launches." />
-
-  <!-- External CSS (single source of truth) -->
   <link rel="stylesheet" href="/styles.css" />
 </head>
 
 <body>
 
- <header class="site-header">
-  <div class="container header-inner">
-    <div class="brand">
+  <!-- SaaS-style header -->
+  <header class="site-header">
+    <div class="container header-inner">
       <img class="brand-logo" src="/assets/logo/cm-logo.png" alt="CM logo" />
-      <div class="brand-stack">
-        <div class="brand-name">Consciousness Mechanics</div>
 
+      <div class="brand-name">Consciousness Mechanics</div>
+
+      <div class="header-actions">
         <nav class="nav" aria-label="Primary">
           <a class="nav-link" href="#about">About</a>
-          <a class="nav-link" href="#notify">Notify me</a>
+          <a class="nav-link" href="#notify">Notify</a>
           <a class="nav-link" href="#contact">Contact</a>
         </nav>
+
+        <a class="header-cta" href="#notify">Notify me</a>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
   <main class="main">
     <div class="container main-grid">
       <section class="hero" id="about">
-        <div class="kicker">
-          <span class="kicker-chip" aria-hidden="true"></span>
-          CM — a mechanistic framework for cognition &amp; control
-        </div>
+        <div class="kicker"><span class="kicker-chip" aria-hidden="true"></span> CM — a mechanistic framework for cognition &amp; control</div>
 
         <h1 class="hero-title">Consciousness Mechanics (CM)</h1>
 
@@ -64,10 +54,13 @@
         </div>
       </section>
 
-      <aside class="panel" id="notify" aria-label="Notify me">
-        <!-- Desktop-only (hidden on mobile via CSS) -->
-        <div class="logo-box" aria-hidden="true">
-          <img src="/assets/logo/cm-logo.png" alt="" class="cm-logo" />
+      <aside class="panel" id="notify">
+        <div class="logo-box">
+          <img
+            src="/assets/logo/cm-logo.png"
+            alt="Consciousness Mechanics (CM) logo"
+            class="cm-logo"
+          />
         </div>
 
         <h2 class="panel-title">Be notified on release</h2>
@@ -85,31 +78,29 @@
           If you later want a full privacy policy, add a page and link it in the footer.
         </div>
 
-        <div class="status fine" id="status" aria-live="polite"></div>
+        <div class="status" id="status" aria-live="polite"></div>
       </aside>
     </div>
   </main>
 
   <section class="below">
-    <div class="container">
-      <div class="features" aria-label="Key principles">
-        <div class="feature-card">
-          <div class="feature-badge">1</div>
-          <h3>Mechanistic, not mystical</h3>
-          <p>Flat claims, explicit constraints, and architecture-first definitions.</p>
-        </div>
+    <div class="container features">
+      <div class="feature-card">
+        <div class="feature-badge">1</div>
+        <h3>Mechanistic, not mystical</h3>
+        <p>Flat claims, explicit constraints, and architecture-first definitions.</p>
+      </div>
 
-        <div class="feature-card">
-          <div class="feature-badge">2</div>
-          <h3>Layered control stack</h3>
-          <p>Capabilities build incrementally, with clear gating and scope boundaries.</p>
-        </div>
+      <div class="feature-card">
+        <div class="feature-badge">2</div>
+        <h3>Layered control stack</h3>
+        <p>Capabilities build incrementally, with clear gating and scope boundaries.</p>
+      </div>
 
-        <div class="feature-card">
-          <div class="feature-badge">3</div>
-          <h3>Designed for publication</h3>
-          <p>Readable figures, consistent terms, and traceable component evolution.</p>
-        </div>
+      <div class="feature-card">
+        <div class="feature-badge">3</div>
+        <h3>Designed for publication</h3>
+        <p>Readable figures, consistent terms, and traceable component evolution.</p>
       </div>
     </div>
   </section>
@@ -117,15 +108,14 @@
   <footer class="site-footer" id="contact">
     <div class="container footer-inner">
       <div>© <span id="year"></span> Consciousness Mechanics</div>
-      <div>
-        <a href="mailto:info@conmech.org">info@conmech.org</a>
-      </div>
+      <div><a href="mailto:info@conmech.org">info@conmech.org</a></div>
     </div>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Demo-only form behaviour
     const form = document.getElementById("notifyForm");
     const statusEl = document.getElementById("status");
 
