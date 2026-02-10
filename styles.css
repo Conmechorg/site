@@ -468,23 +468,34 @@ input[type="email"]:focus{
   margin-top: 10px;
 }
 
-.coming-media{
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+.coming-layout{
+  display: grid;
+  grid-template-columns: 280px 1fr;    /* left column width for image */
+  grid-template-rows: auto 1fr;        /* row 1 title, row 2 image */
+  column-gap: 22px;
+  row-gap: 12px;
+  align-items: start;                  /* top-align everything */
 }
 
-.coming-media img{
-  width: 100%;
-  max-width: 260px;
-  height: auto;
+.coming-title{
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0;                           /* important for alignment */
+}
+
+.coming-media{
+  grid-column: 1;
+  grid-row: 2;
 }
 
 .coming-content{
-  min-width: 0; /* prevents overflow in grid */
+  grid-column: 2;
+  grid-row: 1 / span 2;                /* THIS is the merge */
+  align-self: start;
 }
 
-.coming-content .panel-title{
+/* Ensure the text doesn't have a sneaky top margin */
+.coming-content > *:first-child{
   margin-top: 0;
 }
 
@@ -602,4 +613,14 @@ input[type="email"]:focus{
   }
 
   .btn-submit{ width: 100%; }
+
+  .coming-layout{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    row-gap: 12px;
+  }
+
+  .coming-title{ grid-column: 1; grid-row: 1; }
+  .coming-media{ grid-column: 1; grid-row: 2; }
+  .coming-content{ grid-column: 1; grid-row: 3; }
 }
