@@ -27,13 +27,20 @@
   /* Header tuning */
   --header-logo: 112px;
   --header-nav-size: 14.5px;
-  --rhythm: 18px; /* global vertical spacing unit */
+
+  /* Layout rhythm */
+  --rhythm: 18px;          /* global vertical spacing unit */
+  --section-pad: 22px;     /* padding above/below below-fold sections */
+  --stack-gap: 16px;       /* consistent vertical gap between blocks */
 }
 
 /* ---------- Base Reset / Safety ---------- */
 *{ box-sizing: border-box; }
 html,body{ height:100%; }
 html{ scroll-behavior: smooth; }
+
+/* Make anchor jumps feel clean under header */
+:target{ scroll-margin-top: 90px; }
 
 body{
   margin:0;
@@ -65,7 +72,7 @@ img, svg{
    ============================ */
 .site-header{
   padding-top: var(--rhythm);
-  padding-bottom: calc(var(--rhythm) * 0.5); /* was 18px */
+  padding-bottom: calc(var(--rhythm) * 0.5);
 }
 
 .header-inner{
@@ -113,9 +120,7 @@ img, svg{
   margin: 0;
   padding: 0;
 
-  /* This is the key alignment fix:
-     nudge menu down so it visually aligns with the brand-name,
-     not the top of the tall logo. */
+  /* Align menu with brand-name rather than top of tall logo */
   transform: translateY(10px);
 }
 
@@ -173,7 +178,7 @@ img, svg{
   display:grid;
   grid-template-columns: 1fr 1fr;
   gap: 22px;
-  align-items: stretch; /* keeps hero/panel matching */
+  align-items: stretch;
 }
 
 /* ============================
@@ -306,8 +311,7 @@ img, svg{
 }
 
 .panel-title{
-  margin: 8px 0 6px;
-  margin-bottom: 12px; /* tightened */
+  margin: 8px 0 12px;
   font-size: 18px;
   letter-spacing: -0.015em;
 }
@@ -377,18 +381,35 @@ input[type="email"]:focus{
 }
 
 /* ============================
-   Features / below fold
+   Below fold sections (Overview / Approach / Coming)
+   - Normalize vertical rhythm
    ============================ */
 .below{
-  padding-top: var(--rhythm);
-  padding-bottom: 44px;
+  padding-top: var(--section-pad);
+  padding-bottom: var(--section-pad);
 }
 
+/* Consistent spacing between “blocks” inside sections */
+.below .container > * + *{
+  margin-top: var(--stack-gap);
+}
+
+/* Keep panels from “sticking” to top when first in a section */
+.below .panel{
+  margin-top: 0;
+}
+
+/* ============================
+   Feature tiles
+   ============================ */
 .features{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   align-items: stretch;
+
+  /* Let section stacking rules handle vertical spacing */
+  margin: 0;
 }
 
 .feature-card{
@@ -446,10 +467,13 @@ input[type="email"]:focus{
   box-shadow: 0 18px 40px rgba(0,0,0,.22);
 }
 
-/* Wide content panel (for “What’s coming”) */
+/* ============================
+   Wide content panel (e.g. “What’s coming”)
+   - Drop watermark entirely for now
+   ============================ */
 .wide-panel{
   width: 100%;
-  margin-top: var(--rhythm);
+  margin-top: 0; /* spacing handled by section stacking rules */
 }
 
 /* If you keep using .panel for that section, this prevents it looking “stuck on” */
@@ -458,43 +482,55 @@ input[type="email"]:focus{
 }
 
 /* ============================
-   Life-scale background
-   ("What's coming" panel only)
+   Overview / Approach helper styles (orange bullets + dividers)
+   - Works with your HTML additions
    ============================ */
-
-.wide-panel.panel{
-  position: relative;
-  overflow: hidden; /* contain background */
-  z-index: 0;            /* <-- key: creates reliable stacking context */
+.section-divider{
+  height: 1px;
+  opacity: 0.12;
+  margin: 20px 0;
+  background: linear-gradient(90deg, transparent, rgba(20,33,39,0.35), transparent);
 }
 
-/* Atmospheric evolutionary backdrop */
-.wide-panel.panel::before{
+.kicker{
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  margin: 0 0 8px;
+  color: rgba(14,23,27,.92);
+}
+
+.chunk-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 12px;
+}
+
+/* Orange bullet list (not default UL bullets) */
+.orange-points{
+  list-style: none;
+  padding-left: 0;
+  margin: 12px 0 0;
+  display: grid;
+  gap: 10px;
+}
+
+.orange-points li{
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  align-items: start;
+  column-gap: 10px;
+}
+
+.orange-points li::before{
   content: "";
-  position: absolute;
-  inset: 0;                 /* fills the entire white panel */
-  
-  background-image: url("/assets/life_scale.png");
-  background-repeat: no-repeat;
-
-  /* Full width watermark behaviour */
-  background-size: 100% auto;     /* span full width */
-  background-position: center 68%; /* tweak this % to move up/down */
-
-  pointer-events: none;
-  z-index: 0;
-
-  /* Leave opacity to you */
-  opacity: 0.3;
-  filter: grayscale(100%) contrast(1.1);
+  width: 10px;
+  height: 10px;
+  margin-top: 6px;
+  border-radius: 999px;
+  background: var(--orange);
+  box-shadow: 0 0 0 3px rgba(245,155,0,.18);
 }
-
-/* Ensure all content renders above background */
-.wide-panel.panel > *{
-  position: relative;
-  z-index: 1;
-}
-
 
 /* ============================
    What’s coming: image + text grid
@@ -509,17 +545,17 @@ input[type="email"]:focus{
 
 .coming-layout{
   display: grid;
-  grid-template-columns: 280px 1fr;    /* left column width for image */
-  grid-template-rows: auto 1fr;        /* row 1 title, row 2 image */
+  grid-template-columns: 280px 1fr;
+  grid-template-rows: auto 1fr;
   column-gap: 22px;
   row-gap: 12px;
-  align-items: start;                  /* top-align everything */
+  align-items: start;
 }
 
 .coming-title{
   grid-column: 1;
   grid-row: 1;
-  margin: 0;                           /* important for alignment */
+  margin: 0;
 }
 
 .coming-media{
@@ -529,11 +565,10 @@ input[type="email"]:focus{
 
 .coming-content{
   grid-column: 2;
-  grid-row: 1 / span 2;                /* THIS is the merge */
+  grid-row: 1 / span 2;
   align-self: start;
 }
 
-/* Ensure the text doesn't have a sneaky top margin */
 .coming-content > *:first-child{
   margin-top: 0;
 }
@@ -581,7 +616,7 @@ input[type="email"]:focus{
   }
 
   .nav{
-    transform: none; /* don’t nudge on stacked header */
+    transform: none;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     gap: 18px;
@@ -590,7 +625,7 @@ input[type="email"]:focus{
 
   .nav::-webkit-scrollbar{ height: 0; }
 
-    .coming-grid{
+  .coming-grid{
     grid-template-columns: 1fr;
   }
 
@@ -602,6 +637,9 @@ input[type="email"]:focus{
     max-width: 320px;
   }
 
+  .chunk-grid{
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 720px){
