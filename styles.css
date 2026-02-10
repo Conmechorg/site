@@ -6,8 +6,10 @@
 
 /* ---------- CSS Variables ---------- */
 :root{
-  --bg-deep: #0f2f3a;
-  --bg-mid:  #134152;
+  /* Lifted background palette (closer to CM logo teal; less "mysterious") */
+  --bg-deep: #1b4f5f;   /* was #0f2f3a */
+  --bg-mid:  #1f6174;   /* was #134152 */
+
   --panel:   #ffffff;
   --ink:     #142127;
   --muted:   #5a6b73;
@@ -18,8 +20,8 @@
   --ring:    rgba(245,155,0,.35);
 
   --radius: 18px;
-  --shadow: 0 20px 60px rgba(0,0,0,.25);
-  --shadow2: 0 10px 25px rgba(0,0,0,.12);
+  --shadow: 0 20px 60px rgba(0,0,0,.22);  /* slightly softened */
+  --shadow2: 0 10px 25px rgba(0,0,0,.11);
 
   --max: 1080px;
   --gutter: 22px;
@@ -29,9 +31,9 @@
   --header-nav-size: 14.5px;
 
   /* Layout rhythm */
-  --rhythm: 18px;          /* global vertical spacing unit */
-  --section-pad: 22px;     /* padding above/below below-fold sections */
-  --stack-gap: 16px;       /* consistent vertical gap between blocks */
+  --rhythm: 18px;
+  --section-pad: 18px;   /* tightened */
+  --stack-gap: 14px;     /* tightened */
 }
 
 /* ---------- Base Reset / Safety ---------- */
@@ -46,10 +48,12 @@ body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
   color: var(--ink);
+
+  /* Lifted background treatment (brighter teal field + gentle orange) */
   background:
-    radial-gradient(1000px 600px at 20% 10%, rgba(11,127,132,.28), transparent 60%),
-    radial-gradient(900px 650px at 80% 30%, rgba(245,155,0,.12), transparent 55%),
-    linear-gradient(180deg, var(--bg-deep), #0b2530 60%, #081c24);
+    radial-gradient(1100px 700px at 18% 12%, rgba(11,127,132,.34), transparent 62%),
+    radial-gradient(900px 650px at 82% 28%, rgba(245,155,0,.13), transparent 58%),
+    linear-gradient(180deg, var(--bg-mid), var(--bg-deep) 55%, #133c49);
 }
 
 /* Never let images blow out layout */
@@ -125,7 +129,7 @@ img, svg{
 }
 
 .nav-link{
-  color: rgba(234,246,247,.88);
+  color: rgba(234,246,247,.90);
   text-decoration: none;
   font-size: var(--header-nav-size);
   font-weight: 700;
@@ -134,7 +138,7 @@ img, svg{
   border-bottom: 2px solid transparent;
   transition: .18s ease;
   white-space: nowrap;
-  opacity: 0.9;
+  opacity: 0.92;
 }
 
 .nav-link:hover{
@@ -171,7 +175,7 @@ img, svg{
    ============================ */
 .main{
   padding-top: calc(var(--rhythm) * 0.5);
-  padding-bottom: 48px;
+  padding-bottom: 44px; /* slightly tighter */
 }
 
 .main-grid{
@@ -185,8 +189,8 @@ img, svg{
    Hero card
    ============================ */
 .hero{
-  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
-  border: 1px solid rgba(255,255,255,.12);
+  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.045));
+  border: 1px solid rgba(255,255,255,.14);
   border-radius: var(--radius);
   padding: 28px;
   box-shadow: var(--shadow);
@@ -206,16 +210,16 @@ img, svg{
   position:absolute;
   inset:-2px;
   background:
-    radial-gradient(600px 250px at 20% 0%, rgba(245,155,0,.18), transparent 60%),
-    radial-gradient(700px 300px at 80% 20%, rgba(11,127,132,.22), transparent 60%);
+    radial-gradient(640px 260px at 18% 0%, rgba(245,155,0,.17), transparent 62%),
+    radial-gradient(760px 320px at 82% 20%, rgba(11,127,132,.25), transparent 62%);
   pointer-events:none;
-  opacity:.9;
+  opacity:.92;
 }
 
 .hero > *{ position: relative; }
 
 .hero-title{
-  margin: 16px 0 10px;
+  margin: 14px 0 10px; /* slightly tighter */
   line-height: 1.05;
   font-size: clamp(34px, 4vw, 56px);
   letter-spacing: -0.03em;
@@ -224,8 +228,8 @@ img, svg{
 
 .hero-sub{
   max-width: 62ch;
-  margin: 0 0 18px;
-  color: rgba(234,246,247,.85);
+  margin: 0 0 16px; /* tighter */
+  color: rgba(234,246,247,.88);
   font-size: 16px;
   line-height: 1.55;
 }
@@ -242,7 +246,7 @@ img, svg{
   gap: 12px;
   flex-wrap:wrap;
   align-items:center;
-  margin-top: 18px;
+  margin-top: 16px;
 }
 
 .btn{
@@ -301,7 +305,7 @@ img, svg{
   padding: 18px;
   border: 1px dashed rgba(20,33,39,.18);
   background: linear-gradient(180deg, rgba(11,127,132,.08), rgba(245,155,0,.05));
-  margin-bottom: 12px;
+  margin-bottom: 10px; /* tighter */
 }
 
 .cm-logo{
@@ -311,13 +315,13 @@ img, svg{
 }
 
 .panel-title{
-  margin: 8px 0 12px;
+  margin: 6px 0 10px; /* tighter */
   font-size: 18px;
   letter-spacing: -0.015em;
 }
 
 .panel-text{
-  margin: 0 0 14px;
+  margin: 0 0 12px; /* tighter */
   color: rgba(14, 23, 27, 0.78);
   line-height: 1.55;
   font-size: 14.5px;
@@ -367,7 +371,7 @@ input[type="email"]:focus{
 }
 
 .fine{
-  margin-top: 10px;
+  margin-top: 8px; /* tighter */
   font-size: 12.5px;
   color: rgba(20,33,39,.72);
   line-height: 1.45;
@@ -375,7 +379,7 @@ input[type="email"]:focus{
 
 .status{
   display:none;
-  margin-top: 10px;
+  margin-top: 8px; /* tighter */
   font-size: 12.5px;
   line-height: 1.45;
 }
@@ -394,11 +398,6 @@ input[type="email"]:focus{
   margin-top: var(--stack-gap);
 }
 
-/* Keep panels from “sticking” to top when first in a section */
-.below .panel{
-  margin-top: 0;
-}
-
 /* ============================
    Feature tiles
    ============================ */
@@ -407,8 +406,6 @@ input[type="email"]:focus{
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   align-items: stretch;
-
-  /* Let section stacking rules handle vertical spacing */
   margin: 0;
 }
 
@@ -469,50 +466,48 @@ input[type="email"]:focus{
 
 /* ============================
    Wide content panel (e.g. “What’s coming”)
-   - Drop watermark entirely for now
+   - No watermark
    ============================ */
 .wide-panel{
   width: 100%;
   margin-top: 0; /* spacing handled by section stacking rules */
 }
 
-/* If you keep using .panel for that section, this prevents it looking “stuck on” */
 .wide-panel.panel{
   box-shadow: 0 18px 44px rgba(0,0,0,.18);
 }
 
 /* ============================
    Overview / Approach helper styles (orange bullets + dividers)
-   - Works with your HTML additions
    ============================ */
 .section-divider{
   height: 1px;
   opacity: 0.12;
-  margin: 20px 0;
+  margin: 14px 0; /* tightened (was 20px) */
   background: linear-gradient(90deg, transparent, rgba(20,33,39,0.35), transparent);
 }
 
 .kicker{
   font-weight: 800;
   letter-spacing: 0.2px;
-  margin: 0 0 8px;
+  margin: 0 0 6px; /* tighter */
   color: rgba(14,23,27,.92);
 }
 
 .chunk-grid{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px;
-  margin-top: 12px;
+  gap: 16px;        /* tighter */
+  margin-top: 8px;  /* tighter */
 }
 
-/* Orange bullet list (not default UL bullets) */
+/* Orange bullet list */
 .orange-points{
   list-style: none;
   padding-left: 0;
-  margin: 12px 0 0;
+  margin: 8px 0 0;   /* tighter */
   display: grid;
-  gap: 10px;
+  gap: 8px;          /* tighter */
 }
 
 .orange-points li{
@@ -540,7 +535,7 @@ input[type="email"]:focus{
   grid-template-columns: 260px 1fr;
   gap: 22px;
   align-items: start;
-  margin-top: 10px;
+  margin-top: 0; /* was 10px - removes extra dead space */
 }
 
 .coming-layout{
@@ -548,7 +543,7 @@ input[type="email"]:focus{
   grid-template-columns: 280px 1fr;
   grid-template-rows: auto 1fr;
   column-gap: 22px;
-  row-gap: 12px;
+  row-gap: 10px;  /* slightly tighter */
   align-items: start;
 }
 
@@ -569,6 +564,7 @@ input[type="email"]:focus{
   align-self: start;
 }
 
+/* Ensure the text doesn't have a sneaky top margin */
 .coming-content > *:first-child{
   margin-top: 0;
 }
