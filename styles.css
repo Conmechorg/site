@@ -458,6 +458,45 @@ input[type="email"]:focus{
 }
 
 /* ============================
+   Life-scale background
+   ("What's coming" panel only)
+   ============================ */
+
+.wide-panel.panel{
+  position: relative;
+  overflow: hidden; /* contain background */
+  z-index: 0;            /* <-- key: creates reliable stacking context */
+}
+
+/* Atmospheric evolutionary backdrop */
+.wide-panel.panel::before{
+  content: "";
+  position: absolute;
+  inset: 0;                 /* fills the entire white panel */
+  
+  background-image: url("/assets/life_scale.png");
+  background-repeat: no-repeat;
+
+  /* Full width watermark behaviour */
+  background-size: 100% auto;     /* span full width */
+  background-position: center 68%; /* tweak this % to move up/down */
+
+  pointer-events: none;
+  z-index: 0;
+
+  /* Leave opacity to you */
+  opacity: 0.3;
+  filter: grayscale(100%) contrast(1.1);
+}
+
+/* Ensure all content renders above background */
+.wide-panel.panel > *{
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ============================
    What’s coming: image + text grid
    ============================ */
 .coming-grid{
