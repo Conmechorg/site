@@ -8,51 +8,76 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <title>Consciousness Mechanics (CM) — Coming Soon</title>
-  <meta name="description" content="Consciousness Mechanics (CM): a mechanistic framework for cognition and control. Join the list to be notified on release." />
+  <title>Consciousness Mechanics (CM) & Consciousness Component Model (CCM) — Coming Soon</title>
+  <meta name="description" content="Consciousness Mechanics (CM) and the Consciousness Component Model (CCM): a biology-first, mechanistic framework defining layered control architectures across all life. Join the notify list for release updates." />
   <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://conmech.org/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Consciousness Mechanics (CM) & CCM — Coming Soon" />
+  <meta property="og:description" content="A biology-first, mechanistic framework defining layered control architectures across all life. Get notified when public material launches." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://conmech.org/" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Consciousness Mechanics (CM) & CCM — Coming Soon" />
+  <meta name="twitter:description" content="A biology-first, mechanistic framework defining layered control architectures across all life. Get notified when public material launches." />
 
   <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Minimal structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Consciousness Mechanics",
+    "url": "https://conmech.org/",
+    "description": "Consciousness Mechanics (CM) and the Consciousness Component Model (CCM): a biology-first, mechanistic framework for consciousness as control across life.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Consciousness Mechanics",
+      "url": "https://conmech.org/"
+    }
+  }
+  </script>
 </head>
 
 <body>
 
-  <!-- SaaS-style header -->
- <header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="#about" aria-label="Consciousness Mechanics">
-      <img class="brand-logo" src="./assets/logo/cm-logo.png" alt="CM logo" />
-      <span class="brand-name">
-        Consciousness<br><span class="brand-name-lite">Mechanics</span>
-      </span>
-    </a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#overview" aria-label="Consciousness Mechanics">
+        <img class="brand-logo" src="./assets/logo/cm-logo.png" alt="Consciousness Mechanics logo" />
+        <span class="brand-name">
+          Consciousness<br><span class="brand-name-lite">Mechanics</span>
+        </span>
+      </a>
 
-    <nav class="nav" aria-label="Primary">
-      <a class="nav-link" href="#about">About</a>
-      <a class="nav-link" href="#notify">Notify</a>
-      <a class="nav-link" href="#contact">Contact</a>
-    </nav>
-
-    <a class="header-cta" href="#notify">Notify me</a>
-  </div>
-</header>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="#overview">Overview</a>
+        <a class="nav-link" href="#approach">Approach</a>
+        <a class="nav-link" href="#notify">Notify</a>
+      </nav>
+    </div>
+  </header>
 
   <main class="main">
     <div class="container main-grid">
-      <section class="hero" id="about">
-        <div class="kicker"><span class="kicker-chip" aria-hidden="true"></span> CM — a mechanistic framework for cognition &amp; control</div>
+      <section class="hero" id="overview">
 
         <h1 class="hero-title">Consciousness Mechanics (CM)</h1>
 
+        <!-- Reworked hero copy (short, connected, biology-first, non-repetitive) -->
         <p class="hero-sub">
-          A rigor-first model that treats cognition as a layered control architecture.
-          CM focuses on discrete capabilities, gating, and mechanistic build-up — designed for clarity, not mystique.
+          A biology-first framework for understanding consciousness as control — from simple organism–environment coupling to reflective awareness.
         </p>
 
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#notify">Get launch updates</a>
-          <a class="btn" href="#contact">Ask a question</a>
-        </div>
+        <p class="hero-sub" style="margin-top:-8px; margin-bottom:0;">
+          The <strong>Consciousness Component Model (CCM)</strong> defines a layered ladder of control capabilities (CL1…CLn), introduced only when required by evidence and specified as explicit mechanism.
+          <strong>Consciousness Mechanics (CM)</strong> is where the framework is applied: comparative biology, theory testing, and disciplined discussion of what the model does — and does not — claim.
+        </p>
+
       </section>
 
       <aside class="panel" id="notify">
@@ -67,46 +92,96 @@
         <h2 class="panel-title">Be notified on release</h2>
         <p class="panel-text">Leave your email and I’ll send a single update when the public material goes live.</p>
 
-        <form id="notifyForm" class="form-row">
+        <!-- Formspree AJAX form -->
+        <form id="notifyForm" action="https://formspree.io/f/mlgwdkka" method="POST" class="form-row" novalidate>
           <div class="field">
-            <input name="email" id="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+            <input
+              name="email"
+              id="email"
+              type="email"
+              autocomplete="email"
+              placeholder="you@example.com"
+              required
+              aria-describedby="fineprint status"
+            />
           </div>
-          <button class="btn-submit" type="submit">Notify me</button>
+          <button class="btn-submit" type="submit" id="notifyBtn">Notify me</button>
         </form>
 
         <div class="fine" id="fineprint">
           No spam. No tracking pixels. Just a launch notification.
-          If you later want a full privacy policy, add a page and link it in the footer.
         </div>
 
         <div class="status" id="status" aria-live="polite"></div>
       </aside>
     </div>
+
+    <!-- Approach section -->
+    <section class="below" id="approach">
+      <div class="container">
+        <div class="features" style="margin-bottom:16px;">
+          <!-- Stronger, sharper tiles -->
+          <div class="feature-card">
+            <div class="feature-badge">1</div>
+            <h3>Mechanism over metaphor</h3>
+            <p>Explicit control architecture, defined variables, and no hand-waving.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-badge">2</div>
+            <h3>Scales across all life</h3>
+            <p>One ladder of capabilities — different ceilings, conservative claims.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-badge">3</div>
+            <h3>Scope discipline built in</h3>
+            <p>Ceiling rules, boundary conditions, and testable discriminators.</p>
+          </div>
+        </div>
+
+        <!-- What's coming panel with image + text layout -->
+        <div class="panel wide-panel">
+          <h2 class="panel-title">What’s coming</h2>
+
+          <div class="coming-grid">
+            <div class="coming-media">
+              <img
+                src="/assets/CLnHK_cube.png"
+                alt="CCM classification space: Components (CL) by Temporal Horizon (H) and Structural Capacity (K)"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+
+            <div class="coming-content">
+              <p class="panel-text">
+                This is a holding page while we complete the CCM build. The initial public release will include:
+              </p>
+
+              <ul class="panel-text" style="margin-top:-6px; padding-left: 18px;">
+                <li>A clear overview of CCM and its layered component hierarchy (CL1…CLn).</li>
+                <li>Mechanistic definitions of control capabilities grounded in whole-organism behaviour.</li>
+                <li>Explicit treatment of temporal horizon (H) and structural capacity (K) as classification axes.</li>
+                <li>Diagrams and pseudocode illustrating how control architectures scale across life.</li>
+                <li>Defined scope boundaries — what the model explains, and what it explicitly does not.</li>
+              </ul>
+
+              <p class="panel-text" style="margin-bottom:0;">
+                CM will document applications, critiques, and extensions of the framework as this work progresses.
+                <br><br>
+                If you want to collaborate, cite, or follow along: use the notify list or email us directly at
+                <a href="mailto:info@conmech.org">info@conmech.org</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
   </main>
 
-  <section class="below">
-    <div class="container features">
-      <div class="feature-card">
-        <div class="feature-badge">1</div>
-        <h3>Mechanistic, not mystical</h3>
-        <p>Flat claims, explicit constraints, and architecture-first definitions.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-badge">2</div>
-        <h3>Layered control stack</h3>
-        <p>Capabilities build incrementally, with clear gating and scope boundaries.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-badge">3</div>
-        <h3>Designed for publication</h3>
-        <p>Readable figures, consistent terms, and traceable component evolution.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer" id="contact">
+  <footer class="site-footer">
     <div class="container footer-inner">
       <div>© <span id="year"></span> Consciousness Mechanics</div>
       <div><a href="mailto:info@conmech.org">info@conmech.org</a></div>
@@ -116,21 +191,63 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Demo-only form behaviour
+    // Formspree AJAX submit (no redirect)
     const form = document.getElementById("notifyForm");
+    const emailInput = document.getElementById("email");
     const statusEl = document.getElementById("status");
+    const btn = document.getElementById("notifyBtn");
+
+    function setStatus(message, kind) {
+      statusEl.style.display = "block";
+      statusEl.textContent = message;
+      if (kind === "success") statusEl.style.color = "#0a6d72";
+      else if (kind === "error") statusEl.style.color = "#b42318";
+      else statusEl.style.color = "#5a6b73";
+    }
 
     if (form) {
-      form.addEventListener("submit", (e) => {
+      form.addEventListener("submit", async (e) => {
         e.preventDefault();
-        const email = document.getElementById("email").value.trim();
-        if (!email || !email.includes("@")) return;
+        statusEl.style.display = "none";
 
-        statusEl.style.display = "block";
-        statusEl.textContent = "Thanks — you’re on the list. (Demo mode: no email was actually submitted.)";
-        statusEl.style.color = "#0a6d72";
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
 
-        form.reset();
+        const email = (emailInput.value || "").trim();
+        if (!email) return;
+
+        btn.disabled = true;
+        btn.setAttribute("aria-busy", "true");
+        setStatus("Submitting…", "info");
+
+        try {
+          const formData = new FormData(form);
+
+          const res = await fetch(form.action, {
+            method: "POST",
+            body: formData,
+            headers: { "Accept": "application/json" }
+          });
+
+          if (res.ok) {
+            setStatus("Thanks — you’re on the list.", "success");
+            form.reset();
+          } else {
+            let data = null;
+            try { data = await res.json(); } catch (_) {}
+            const msg =
+              (data && data.errors && data.errors.length && data.errors[0].message) ||
+              "Something went wrong. Please try again in a moment.";
+            setStatus(msg, "error");
+          }
+        } catch (err) {
+          setStatus("Network error — please check your connection and try again.", "error");
+        } finally {
+          btn.disabled = false;
+          btn.removeAttribute("aria-busy");
+        }
       });
     }
   </script>
