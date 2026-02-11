@@ -18,89 +18,46 @@
   <meta property="og:description" content="A biology-first, mechanistic framework defining layered control architectures across all life. Get notified when public material launches." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://conmech.org/" />
+  <meta property="og:image" content="https://conmech.org/assets/og/og-logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Consciousness Mechanics — A biology-first framework for consciousness as control." />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Consciousness Mechanics (CM) & CCM — Coming Soon" />
   <meta name="twitter:description" content="A biology-first, mechanistic framework defining layered control architectures across all life. Get notified when public material launches." />
-
+  <meta name="twitter:image" content="https://conmech.org/assets/og/og-logo.png" />
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- NEW: small page-local helpers for bullets / dividers -->
-  <style>
-    /* Subtle section divider that matches your soft aesthetic */
-    .section-divider {
-      height: 1px;
-      opacity: 0.12;
-      margin: 20px 0;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
-    }
-
-    /* Orange “bullet dots” that read as intentional UI, not default ul bullets */
-    .orange-points {
-      list-style: none;
-      padding-left: 0;
-      margin: 12px 0 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .orange-points li {
-      display: grid;
-      grid-template-columns: 14px 1fr;
-      align-items: start;
-      column-gap: 10px;
-    }
-
-    .orange-points li::before {
-      content: "";
-      width: 10px;
-      height: 10px;
-      margin-top: 6px;
-      border-radius: 999px;
-      background: #f59e0b; /* orange accent */
-      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.18);
-    }
-
-    /* Small kicker text to avoid “wall of words” */
-    .kicker {
-      font-weight: 600;
-      letter-spacing: 0.2px;
-      opacity: 0.95;
-      margin-bottom: 8px;
-    }
-
-    /* Two-column chunk layout that collapses nicely on mobile */
-    .chunk-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-top: 12px;
-    }
-
-    @media (max-width: 880px) {
-      .chunk-grid { grid-template-columns: 1fr; }
-    }
-
-    /* Make anchor jumps feel less “hard” under sticky header */
-    :target { scroll-margin-top: 90px; }
-  </style>
-
   <!-- Minimal structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ResearchProject",
+  "@id": "https://conmech.org/#cm-project",
+  "name": "Consciousness Mechanics",
+  "alternateName": ["CM"],
+  "url": "https://conmech.org/",
+  "description": "A biology-first framework for understanding consciousness as control through the Consciousness Component Model (CCM).",
+  "about": ["Consciousness science", "Comparative biology", "Cognitive architecture"],
+  "keywords": [
+    "Consciousness Mechanics",
+    "Consciousness Component Model",
+    "CCM model",
+    "control architecture",
+    "consciousness framework"
+  ],
+  "inLanguage": "en-GB",
+  "isPartOf": {
     "@type": "WebSite",
+    "@id": "https://conmech.org/#website",
     "name": "Consciousness Mechanics",
-    "url": "https://conmech.org/",
-    "description": "Consciousness Mechanics (CM) and the Consciousness Component Model (CCM): a biology-first, mechanistic framework for consciousness as control across life.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Consciousness Mechanics",
-      "url": "https://conmech.org/"
-    }
+    "url": "https://conmech.org/"
   }
-  </script>
+}
+</script>
+
 </head>
 
 <body>
@@ -108,7 +65,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#overview" aria-label="Consciousness Mechanics">
-        <img class="brand-logo" src="./assets/logo/cm-logo.png" alt="Consciousness Mechanics logo" />
+        <img class="brand-logo" src="./assets/logo/cm-logo-white.png" alt="Consciousness Mechanics logo" />
         <span class="brand-name">
           Consciousness<br><span class="brand-name-lite">Mechanics</span>
         </span>
@@ -180,13 +137,13 @@
     <section class="below" id="overview">
       <div class="container">
         <div class="panel wide-panel">
-          <h2 class="panel-title">Overview</h2>
+          <h2 class="section-title">Overview</h2>
           <p class="panel-text" style="margin-bottom:0;">
             CM is the public home of an in-progress research framework — built to be <strong>explicit</strong>, <strong>conservative</strong>, and <strong>mechanistically checkable</strong>.
             It is not a finished theory, and not a position statement.
           </p>
 
-          <div class="section-divider"></div>
+          <!-- <div class="section-divider"></div> -->
 
           <div class="chunk-grid">
             <div>
@@ -224,32 +181,32 @@
         <div class="features" style="margin-bottom:16px;">
           <div class="feature-card">
             <div class="feature-badge">1</div>
-            <h3>Mechanism over metaphor</h3>
-            <p>Explicit control architecture, defined variables, and no hand-waving.</p>
+            <h3>Read as spec</h3>
+            <p>State variables, gates, and update rules — not narrative exposition.</p>
           </div>
 
           <div class="feature-card">
             <div class="feature-badge">2</div>
-            <h3>Scales across all life</h3>
-            <p>One ladder of capabilities — different ceilings, conservative claims.</p>
+            <h3>Check ceilings</h3>
+            <p>Each component defines its boundary: what it explains and what it does not.</p>
           </div>
 
           <div class="feature-card">
             <div class="feature-badge">3</div>
-            <h3>Scope discipline built in</h3>
-            <p>Ceiling rules, boundary conditions, and testable discriminators.</p>
+            <h3>Use discriminators</h3>
+            <p>Anchors and tests clarify what would count as evidence for or against.</p>
           </div>
         </div>
 
         <!-- NEW: Approach content panel (digestible chunks, orange bullets) -->
         <div class="panel wide-panel" style="margin-bottom:16px;">
-          <h2 class="panel-title">Approach</h2>
+          <h2 class="section-title">Approach</h2>
           <p class="panel-text" style="margin-bottom:0;">
             The framework is developed under constraints designed to prevent conceptual drift and over-claim.
             These are “rules of the build”, not rhetoric.
           </p>
 
-          <div class="section-divider"></div>
+         <!-- <div class="section-divider"></div> -->
 
           <div class="chunk-grid">
             <div>
@@ -282,7 +239,7 @@
         <!-- What's coming panel with image + text layout -->
         <div class="panel wide-panel">
           <div class="coming-layout">
-            <h2 class="panel-title coming-title">What’s coming</h2>
+            <h2 class="section-title">What’s coming</h2>
 
             <div class="coming-media">
               <img
