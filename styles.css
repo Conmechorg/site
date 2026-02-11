@@ -27,8 +27,9 @@
   --gutter: 22px;
 
   /* Header tuning */
-  --header-logo: 112px;
+  --header-logo: 84px;
   --header-nav-size: 14.5px;
+  --header-offset: 68px;
 
   /* Layout rhythm */
   --rhythm: 18px;
@@ -42,18 +43,23 @@ html,body{ height:100%; }
 html{ scroll-behavior: smooth; }
 
 /* Make anchor jumps feel clean under header */
-:target{ scroll-margin-top: 90px; }
+:target{
+   scroll-margin-top: 90px; 
+  }
 
 body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
   color: var(--ink);
 
-  /* Lifted background treatment */
+  /* Lighter, smoother background with no hard stop */
   background:
-    radial-gradient(1100px 700px at 18% 12%, rgba(11,127,132,.34), transparent 62%),
-    radial-gradient(900px 650px at 82% 28%, rgba(245,155,0,.13), transparent 58%),
-    linear-gradient(180deg, var(--bg-mid), var(--bg-deep) 55%, #133c49);
+    radial-gradient(1200px 760px at 18% 10%, rgba(11,127,132,.26), transparent 68%),
+    radial-gradient(1000px 720px at 82% 26%, rgba(245,155,0,.10), transparent 70%),
+    linear-gradient(180deg, #2f6f7d 0%, #2a616d 50%, #245662 100%);
+
+  /* Prevent “repaint seams” / banding feel on scroll */
+  background-attachment: fixed, fixed, fixed;
 }
 
 /* Never let images blow out layout */
@@ -75,8 +81,19 @@ img, svg{
    Header (SaaS-style)
    ============================ */
 .site-header{
-  padding-top: var(--rhythm);
-  padding-bottom: calc(var(--rhythm) * 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  /* reduced thickness */
+  padding-top: 10px;
+  padding-bottom: 6px;
+
+  background: rgba(47, 111, 125, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(255,255,255,.10);
 }
 
 .header-inner{
@@ -93,6 +110,10 @@ img, svg{
   gap: 14px;
   text-decoration: none;
   min-width: 0;
+}
+
+.site-header .brand-logo{
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,.22));
 }
 
 .brand-logo{
@@ -123,7 +144,7 @@ img, svg{
   gap: 22px;
   margin: 0;
   padding: 0;
-  transform: translateY(10px);
+  transform: none;
 }
 
 .nav-link{
@@ -164,7 +185,7 @@ img, svg{
    Hero card
    ============================ */
 .hero{
-  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.045));
+  background: rgba(255,255,255,.06);   /* same feel as tiles */
   border: 1px solid rgba(255,255,255,.14);
   border-radius: var(--radius);
   padding: 28px;
@@ -180,17 +201,6 @@ img, svg{
   min-height: 100%;
 }
 
-.hero:before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  background:
-    radial-gradient(640px 260px at 18% 0%, rgba(245,155,0,.17), transparent 62%),
-    radial-gradient(760px 320px at 82% 20%, rgba(11,127,132,.25), transparent 62%);
-  pointer-events:none;
-  opacity:.92;
-}
-
 .hero > *{ position: relative; }
 
 .hero-title{
@@ -198,7 +208,7 @@ img, svg{
   line-height: 1.05;
   font-size: clamp(34px, 4vw, 56px);
   letter-spacing: -0.03em;
-  color: #f2fbfc;
+  color: rgba(255,255,255,.94);
 }
 
 .hero-sub{
@@ -326,10 +336,15 @@ input[type="email"]:focus{
    Below fold sections
    ============================ */
 .below{
-  padding-top: var(--section-pad);
-  padding-bottom: var(--section-pad);
+  padding: var(--section-pad) 0;
 }
 
+/* Prevent “double padding” when two .below sections are back-to-back */
+.below + .below{
+  padding-top: 0;
+}
+
+/* Consistent spacing between blocks inside a section */
 .below .container > * + *{
   margin-top: var(--stack-gap);
 }
@@ -408,6 +423,66 @@ input[type="email"]:focus{
 
 .wide-panel.panel{
   box-shadow: 0 18px 44px rgba(0,0,0,.18);
+}
+
+/* ============================
+   CCM marker (non-invasive)
+   Put the CCM logo IN the flow so it can’t overlap text.
+   ============================ */
+
+/* Tune these two values if you want slightly bigger/smaller */
+:root{
+  --ccm-icon-h: 1.05em;   /* height relative to heading text */
+  --ccm-icon-w: 2.05em;   /* width relative to heading text */
+  --ccm-icon-gap: 0.45em; /* gap between icon and title */
+  --ccm-icon-opacity: .65;
+}
+
+.section-title{
+  display: inline-flex;          /* keeps heading height tidy */
+  align-items: center;
+  gap: var(--ccm-icon-gap);
+
+  position: relative;
+  padding-left: 0;               /* IMPORTANT: no padding hack needed */
+  margin-top: 0;
+}
+
+.section-title::before{
+  content: "";
+  display: inline-block;
+  width: var(--ccm-icon-w);
+  height: var(--ccm-icon-h);
+  flex: 0 0 auto;
+
+  background-image: url("/assets/logo/ccm-logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  opacity: var(--ccm-icon-opacity);
+  transform: translateY(0.06em); /* tiny optical alignment */
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,.35));
+}
+
+/* ============================
+   CCM subtle hover lift
+   ============================ */
+
+/* smooth transition for icon */
+.section-title::before{
+  transition:
+    opacity .18s ease,
+    transform .18s ease,
+    filter .18s ease;
+}
+
+/* VERY subtle hover/focus response */
+.section-title:hover::before,
+.section-title:focus-within::before{
+  opacity: .85; /* slightly brighter */
+  transform: translateY(0.06em) scale(1.02); /* tiny lift */
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.12));
 }
 
 /* ============================
@@ -492,6 +567,15 @@ input[type="email"]:focus{
   margin-top: 0;
 }
 
+.hero,
+.feature-card,
+.panel,
+.wide-panel.panel{
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.18),
+    inset 0 1px 0 rgba(255,255,255,.08); /* subtle white lift */
+}
+
 /* ============================
    Footer
    ============================ */
@@ -532,6 +616,7 @@ input[type="email"]:focus{
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    min-height: 56px;
   }
 
   .nav{
@@ -550,7 +635,10 @@ input[type="email"]:focus{
 }
 
 @media (max-width: 720px){
-  :root{ --gutter: 16px; }
+  :root{ 
+    --gutter: 16px;
+    --header-offset: 62px;
+  }
 
   .brand-logo{
     width: 92px;
