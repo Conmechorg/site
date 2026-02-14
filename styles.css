@@ -178,6 +178,43 @@ img, svg{
 }
 
 /* ============================
+   Hero layout helpers
+   ============================ */
+
+/* Use on pages like Signals/Origins when you want title + narrative on one row */
+.hero-inline-hero{
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-start;
+  gap: 22px;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+/* Keep title tight in inline hero */
+.hero-inline-hero .hero-title{
+  margin: 0;
+}
+
+/* Narrative block beside title */
+.hero-inline{
+  max-width: 78ch; /* widen so “limits explicit” doesn’t wrap early */
+  margin: 0;
+  opacity: .92;
+}
+
+/* On small screens, stack naturally */
+@media (max-width: 720px){
+  .hero-inline-hero{
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero-inline{
+    max-width: 100%;
+  }
+}
+
+/* ============================
    Hero card
    ============================ */
 .hero{
