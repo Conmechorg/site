@@ -106,7 +106,7 @@
       <section class="hero">
 
         <h1 class="hero-title">Consciousness Mechanics (CM)</h1>
-        <p class="hero-sub" style="margin-top:-8px; margin-bottom:0;">
+        <p class="hero-sub hero-sub-tight">
           <strong>Consciousness Mechanics (CM)</strong> is a structured research framework.
           It develops and applies the <strong>Consciousness Component Model (CCM)</strong> — a formal ladder of control capabilities (CL1…CLn) expressed as explicit mechanism.
         </p>
@@ -115,7 +115,7 @@
           A biology-first research framework modelling consciousness as control architecture.
         </p>
 
-        <p class="hero-sub" style="margin-top:-8px; margin-bottom:0;">
+        <p class="hero-sub hero-sub-tight">
           The <strong>Consciousness Component Model (CCM)</strong> introduces capabilities only when required by evidence — each defined as bounded mechanism (CL1…CLn).
         </p>
 
@@ -197,185 +197,95 @@
       </div>
     </section>
 
-    <!-- NEW: Updates panel -->
-    <section class="below" id="updates">
-      <div class="container">
-        <div class="panel wide-panel">
-          <div class="updates-header">
-            <h2 class="section-title">Updates</h2>
+  <!-- NEW: Updates panel -->
+  <section class="below" id="updates">
+    <div class="container">
+      <div class="panel wide-panel">
+        <div class="updates-header">
+          <h2 class="section-title">Updates</h2>
 
-            <div class="updates-link">
-              View all <a href="/signals.html">updates</a>
-            </div>
+          <div class="updates-link">
+            View all <a href="/signals.html">updates</a>
           </div>
+        </div>
 
+        <p class="panel-text" style="margin-bottom:12px;">
+          Latest updates from CM/CCM: releases, site changes, and media.
+        </p>
 
-          <p class="panel-text" style="margin-bottom:12px;">
-            Latest updates from CM/CCM: releases, site changes, and media.
-          </p>
+        <!-- Reuse Signals card system (same CSS as signals.html) -->
+        <div class="signals-list">
 
-          <div style="display:grid; gap:12px;">
-
-            <!-- Update card -->
-            <article
-              onmouseenter="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 14px 28px rgba(0,0,0,.10)';"
-              onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 22px rgba(0,0,0,.06)';"
-              style="
-                border:1px solid rgba(11,127,132,.28);
-                border-radius:14px;
-                padding:12px 14px;
-                background: linear-gradient(180deg, rgba(11,127,132,.22), rgba(11,127,132,.10));
-                box-shadow: 0 10px 22px rgba(0,0,0,.06);
-                transition: transform .18s ease, box-shadow .18s ease;
-                transform: translateY(0);
-              "
-            >
-              <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px;">
+          <!-- Update card -->
+          <article class="signal-card" data-type="video">
+            <div class="signal-top">
+              <div class="signal-main">
                 <div style="display:flex; align-items:flex-start; gap:10px; min-width:0;">
-                  <span style="
-                    font-size:12px;
-                    font-weight:850;
-                    padding:4px 10px;
-                    border-radius:999px;
-                    background: rgba(245,155,0,.20);
-                    border: 1px solid rgba(245,155,0,.38);
-                    color: rgba(20,33,39,.92);
-                    white-space:nowrap;
-                    margin-top:1px;
-                  ">VIDEO</span>
+                  <span class="signal-chip is-video">VIDEO</span>
 
                   <div style="min-width:0;">
-                    <div style="
-                      font-weight:850;
-                      letter-spacing:-0.01em;
-                      color: rgba(14,23,27,.92);
-                      white-space:nowrap;
-                      overflow:hidden;
-                      text-overflow:ellipsis;
-                    ">Introduction video published</div>
+                    <div class="signal-title">Introduction video published</div>
 
-                    <div class="panel-text" style="margin:4px 0 0; font-size:13.5px;">
+                    <div class="signal-text">
                       Consciousness Mechanics (CM) intro now live on
-                      <a href="https://youtu.be/TWDtbOKV7pg" style="color: rgba(11,127,132,.95); text-decoration:none; border-bottom:1px solid rgba(245,155,0,.40);">YouTube</a>.
+                      <a href="https://youtu.be/TWDtbOKV7pg">YouTube</a>.
                     </div>
                   </div>
                 </div>
-
-                <time style="font-size:12.5px; color: rgba(20,33,39,.60); white-space:nowrap;">
-                  2026-02-11
-                </time>
               </div>
-            </article>
 
-            <!-- Update card (UPDATED: Origins + Updates pages) -->
-            <article
-              onmouseenter="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 14px 28px rgba(0,0,0,.10)';"
-              onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 22px rgba(0,0,0,.06)';"
-              style="
-                border:1px solid rgba(11,127,132,.28);
-                border-radius:14px;
-                padding:12px 14px;
-                background: linear-gradient(180deg, rgba(11,127,132,.20), rgba(11,127,132,.09));
-                box-shadow: 0 10px 22px rgba(0,0,0,.06);
-                transition: transform .18s ease, box-shadow .18s ease;
-                transform: translateY(0);
-              "
-            >
-              <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px;">
+              <time class="signal-date">2026-02-11</time>
+            </div>
+          </article>
+
+          <!-- Update card -->
+          <article class="signal-card" data-type="site">
+            <div class="signal-top">
+              <div class="signal-main">
                 <div style="display:flex; align-items:flex-start; gap:10px; min-width:0;">
-                  <span style="
-                    font-size:12px;
-                    font-weight:850;
-                    padding:4px 10px;
-                    border-radius:999px;
-                    background: rgba(11,127,132,.18);
-                    border: 1px solid rgba(11,127,132,.30);
-                    color: rgba(20,33,39,.92);
-                    white-space:nowrap;
-                    margin-top:1px;
-                  ">SITE</span>
+                  <span class="signal-chip is-site">SITE</span>
 
                   <div style="min-width:0;">
-                    <div style="
-                      font-weight:850;
-                      letter-spacing:-0.01em;
-                      color: rgba(14,23,27,.92);
-                      white-space:nowrap;
-                      overflow:hidden;
-                      text-overflow:ellipsis;
-                    ">New pages added: Origins + Updates</div>
+                    <div class="signal-title">New pages added: Origins + Updates</div>
 
-                    <div class="panel-text" style="margin:4px 0 0; font-size:13.5px;">
-                      Read the
-                      <a href="/origins.html" style="color: rgba(11,127,132,.95); text-decoration:none; border-bottom:1px solid rgba(245,155,0,.40);">Origins</a>
-                      story, or view all
-                      <a href="/signals.html" style="color: rgba(11,127,132,.95); text-decoration:none; border-bottom:1px solid rgba(245,155,0,.40);">updates</a>.
+                    <div class="signal-text">
+                      Read the <a href="/origins.html">Origins</a> story, or view all
+                      <a href="/signals.html">updates</a>.
                     </div>
                   </div>
                 </div>
-
-                <time style="font-size:12.5px; color: rgba(20,33,39,.60); white-space:nowrap;">
-                  2026-02-10
-                </time>
               </div>
-            </article>
 
-            <!-- Update card -->
-            <article
-              onmouseenter="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 14px 28px rgba(0,0,0,.10)';"
-              onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 22px rgba(0,0,0,.06)';"
-              style="
-                border:1px solid rgba(11,127,132,.28);
-                border-radius:14px;
-                padding:12px 14px;
-                background: linear-gradient(180deg, rgba(11,127,132,.20), rgba(11,127,132,.09));
-                box-shadow: 0 10px 22px rgba(0,0,0,.06);
-                transition: transform .18s ease, box-shadow .18s ease;
-                transform: translateY(0);
-              "
-            >
-              <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px;">
+              <time class="signal-date">2026-02-10</time>
+            </div>
+          </article>
+
+          <!-- Update card -->
+          <article class="signal-card" data-type="doc">
+            <div class="signal-top">
+              <div class="signal-main">
                 <div style="display:flex; align-items:flex-start; gap:10px; min-width:0;">
-                  <span style="
-                    font-size:12px;
-                    font-weight:850;
-                    padding:4px 10px;
-                    border-radius:999px;
-                    background: rgba(20,33,39,.09);
-                    border: 1px solid rgba(20,33,39,.14);
-                    color: rgba(20,33,39,.92);
-                    white-space:nowrap;
-                    margin-top:1px;
-                  ">DOC</span>
+                  <span class="signal-chip is-doc">DOC</span>
 
                   <div style="min-width:0;">
-                    <div style="
-                      font-weight:850;
-                      letter-spacing:-0.01em;
-                      color: rgba(14,23,27,.92);
-                      white-space:nowrap;
-                      overflow:hidden;
-                      text-overflow:ellipsis;
-                    ">CCM scaffolding work continues</div>
+                    <div class="signal-title">CCM scaffolding work continues</div>
 
-                    <div class="panel-text" style="margin:4px 0 0; font-size:13.5px;">
+                    <div class="signal-text">
                       Ongoing component-by-component build toward public release.
                     </div>
                   </div>
                 </div>
-
-                <time style="font-size:12.5px; color: rgba(20,33,39,.60); white-space:nowrap;">
-                  2026-02-09
-                </time>
               </div>
-            </article>
 
-          </div>
-
+              <time class="signal-date">2026-02-09</time>
+            </div>
+          </article>
 
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+
 
     <!-- Approach section -->
     <section class="below" id="approach">
@@ -476,9 +386,6 @@
   </main>
 
 <div data-include="footer"></div>
-
-<!-- Floating back-to-top -->
-<button class="to-top" id="toTop" type="button" aria-label="Back to top">↑</button>
 
 <!-- Shared CM UI script -->
 <script defer src="/scripts/ui.js"></script>
