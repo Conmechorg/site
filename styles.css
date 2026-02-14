@@ -35,6 +35,12 @@
   --rhythm: 18px;
   --section-pad: 18px;
   --stack-gap: 14px;
+
+  /* CCM marker */
+  --ccm-icon-h: 1.05em;
+  --ccm-icon-w: 2.05em;
+  --ccm-icon-gap: 0.45em;
+  --ccm-icon-opacity: .65;
 }
 
 /* ---------- Base Reset / Safety ---------- */
@@ -42,34 +48,27 @@
 html,body{ height:100%; }
 html{ scroll-behavior: smooth; }
 
-/* Make anchor jumps feel clean under header */
-:target{
-   scroll-margin-top: 90px; 
-  }
+:target{ scroll-margin-top: 90px; }
 
 body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
   color: var(--ink);
 
-  /* Lighter, smoother background with no hard stop */
   background:
     radial-gradient(1200px 760px at 18% 10%, rgba(11,127,132,.26), transparent 68%),
     radial-gradient(1000px 720px at 82% 26%, rgba(245,155,0,.10), transparent 70%),
     linear-gradient(180deg, #2f6f7d 0%, #2a616d 50%, #245662 100%);
 
-  /* Prevent “repaint seams” / banding feel on scroll */
   background-attachment: fixed, fixed, fixed;
 }
 
-/* Never let images blow out layout */
 img, svg{
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* Utility container */
 .container{
   max-width: var(--max);
   margin: 0 auto;
@@ -85,7 +84,6 @@ img, svg{
   top: 0;
   z-index: 1000;
 
-  /* reduced thickness */
   padding-top: 10px;
   padding-bottom: 6px;
 
@@ -103,7 +101,6 @@ img, svg{
   gap: 22px;
 }
 
-/* Brand: logo + two-line name */
 .brand{
   display:flex;
   align-items:center;
@@ -137,7 +134,6 @@ img, svg{
   opacity: .95;
 }
 
-/* Nav: simple text links */
 .nav{
   display:flex;
   align-items:center;
@@ -185,7 +181,7 @@ img, svg{
    Hero card
    ============================ */
 .hero{
-  background: rgba(255,255,255,.06);   /* same feel as tiles */
+  background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.14);
   border-radius: var(--radius);
   padding: 28px;
@@ -219,8 +215,73 @@ img, svg{
   line-height: 1.55;
 }
 
-/* IMPORTANT: min-height should NOT apply to every panel */
 .hero{ min-height: 420px; }
+
+/* Signals page: compact hero helpers */
+.hero-compact{ min-height: auto; padding: 22px; }
+.hero-title-sm{ margin: 4px 0 8px; font-size: clamp(28px, 3.2vw, 44px); }
+.hero-sub-tight{ margin: 0; }
+
+/* ============================
+   Signals hero INLINE layout
+   (You are using hero-inline-hero in signals.html)
+   ============================ */
+
+/* Your current HTML class */
+.hero.hero-inline-hero{
+  display: flex;
+  flex-direction: row;         /* override base .hero column */
+  align-items: center;
+  justify-content: flex-start; /* override space-between */
+  gap: 18px;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+/* Keep title tight */
+.hero.hero-inline-hero .hero-title{
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+/* Let the blurb fill remaining space */
+.hero.hero-inline-hero .hero-inline{
+  max-width: 92ch;
+  margin: 0;
+  opacity: .92;
+  flex: 1 1 520px;
+}
+
+/* Legacy/alternate class (if you ever use it) */
+.hero.hero-row{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap: 18px;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.hero.hero-row.hero-compact{
+  min-height: auto;
+}
+
+.hero.hero-row .hero-title{
+  margin: 0;
+}
+
+.hero-inline{
+  max-width: 72ch;
+  margin: 0;
+  opacity: .92;
+}
+
+.hero-actions{
+  margin-left: auto;
+  display:flex;
+  gap: 10px;
+  align-items:center;
+}
 
 /* ============================
    Panels
@@ -234,12 +295,9 @@ img, svg{
 
   display:flex;
   flex-direction: column;
-
-  /* FIX: default panels should stack normally (no giant empty voids) */
   justify-content: flex-start;
 }
 
-/* Only the signup panel should “fill” vertically */
 .panel-signup{
   min-height: 420px;
   justify-content: space-between;
@@ -282,9 +340,7 @@ img, svg{
   align-items: stretch;
 }
 
-.field{
-  flex: 1 1 220px;
-}
+.field{ flex: 1 1 220px; }
 
 input[type="email"]{
   width: 100%;
@@ -335,19 +391,9 @@ input[type="email"]:focus{
 /* ============================
    Below fold sections
    ============================ */
-.below{
-  padding: var(--section-pad) 0;
-}
-
-/* Prevent “double padding” when two .below sections are back-to-back */
-.below + .below{
-  padding-top: 0;
-}
-
-/* Consistent spacing between blocks inside a section */
-.below .container > * + *{
-  margin-top: var(--stack-gap);
-}
+.below{ padding: var(--section-pad) 0; }
+.below + .below{ padding-top: 0; }
+.below .container > * + *{ margin-top: var(--stack-gap); }
 
 /* ============================
    Feature tiles
@@ -415,36 +461,18 @@ input[type="email"]:focus{
   box-shadow: 0 18px 40px rgba(0,0,0,.22);
 }
 
-/* Wide content panel */
-.wide-panel{
-  width: 100%;
-  margin-top: 0;
-}
-
-.wide-panel.panel{
-  box-shadow: 0 18px 44px rgba(0,0,0,.18);
-}
+.wide-panel{ width: 100%; margin-top: 0; }
+.wide-panel.panel{ box-shadow: 0 18px 44px rgba(0,0,0,.18); }
 
 /* ============================
-   CCM marker (non-invasive)
-   Put the CCM logo IN the flow so it can’t overlap text.
+   Section title with CCM marker
    ============================ */
-
-/* Tune these two values if you want slightly bigger/smaller */
-:root{
-  --ccm-icon-h: 1.05em;   /* height relative to heading text */
-  --ccm-icon-w: 2.05em;   /* width relative to heading text */
-  --ccm-icon-gap: 0.45em; /* gap between icon and title */
-  --ccm-icon-opacity: .65;
-}
-
 .section-title{
-  display: inline-flex;          /* keeps heading height tidy */
+  display: inline-flex;
   align-items: center;
   gap: var(--ccm-icon-gap);
-
   position: relative;
-  padding-left: 0;               /* IMPORTANT: no padding hack needed */
+  padding-left: 0;
   margin-top: 0;
 }
 
@@ -461,32 +489,21 @@ input[type="email"]:focus{
   background-size: contain;
 
   opacity: var(--ccm-icon-opacity);
-  transform: translateY(0.06em); /* tiny optical alignment */
+  transform: translateY(0.06em);
   filter: drop-shadow(0 1px 0 rgba(255,255,255,.35));
+
+  transition: opacity .18s ease, transform .18s ease, filter .18s ease;
 }
 
-/* ============================
-   CCM subtle hover lift
-   ============================ */
-
-/* smooth transition for icon */
-.section-title::before{
-  transition:
-    opacity .18s ease,
-    transform .18s ease,
-    filter .18s ease;
-}
-
-/* VERY subtle hover/focus response */
 .section-title:hover::before,
 .section-title:focus-within::before{
-  opacity: .85; /* slightly brighter */
-  transform: translateY(0.06em) scale(1.02); /* tiny lift */
+  opacity: .85;
+  transform: translateY(0.06em) scale(1.02);
   filter: drop-shadow(0 2px 4px rgba(0,0,0,.12));
 }
 
 /* ============================
-   Overview / Approach helpers
+   Helpers
    ============================ */
 .section-divider{
   height: 1px;
@@ -534,6 +551,44 @@ input[type="email"]:focus{
   box-shadow: 0 0 0 3px rgba(245,155,0,.18);
 }
 
+.updates-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.updates-link{
+  font-size:13px;
+  font-weight:800;
+  color: rgba(20,33,39,.70);
+  white-space:nowrap;
+}
+
+.updates-link a{
+  color: var(--orange);
+  font-weight: 850;
+  text-decoration:none;
+  border-bottom:2px solid rgba(245,155,0,.55);
+  display:inline;
+}
+
+.updates-link a:hover{
+  border-bottom-color: rgba(245,155,0,.95);
+}
+
+/* Style action links inside normal panel text only */
+.panel-text a{
+  color: var(--orange);
+  font-weight: 850;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(245,155,0,.55);
+  display:inline;
+}
+.panel-text a:hover{
+  border-bottom-color: rgba(245,155,0,.95);
+}
+
 /* ============================
    What’s coming: image + text grid
    ============================ */
@@ -546,26 +601,10 @@ input[type="email"]:focus{
   align-items: start;
 }
 
-.coming-title{
-  grid-column: 1;
-  grid-row: 1;
-  margin: 0;
-}
-
-.coming-media{
-  grid-column: 1;
-  grid-row: 2;
-}
-
-.coming-content{
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  align-self: start;
-}
-
-.coming-content > *:first-child{
-  margin-top: 0;
-}
+.coming-title{ grid-column: 1; grid-row: 1; margin: 0; }
+.coming-media{ grid-column: 1; grid-row: 2; }
+.coming-content{ grid-column: 2; grid-row: 1 / span 2; align-self: start; }
+.coming-content > *:first-child{ margin-top: 0; }
 
 .hero,
 .feature-card,
@@ -573,7 +612,7 @@ input[type="email"]:focus{
 .wide-panel.panel{
   box-shadow:
     0 18px 40px rgba(0,0,0,.18),
-    inset 0 1px 0 rgba(255,255,255,.08); /* subtle white lift */
+    inset 0 1px 0 rgba(255,255,255,.08);
 }
 
 /* ============================
@@ -629,25 +668,17 @@ input[type="email"]:focus{
 
   .nav::-webkit-scrollbar{ height: 0; }
 
-  .chunk-grid{
-    grid-template-columns: 1fr;
-  }
+  .chunk-grid{ grid-template-columns: 1fr; }
 }
 
 @media (max-width: 720px){
-  :root{ 
+  :root{
     --gutter: 16px;
     --header-offset: 62px;
   }
 
-  .brand-logo{
-    width: 92px;
-    height: 92px;
-  }
-
-  .brand-name{
-    font-size: 18px;
-  }
+  .brand-logo{ width: 92px; height: 92px; }
+  .brand-name{ font-size: 18px; }
 
   .hero{ padding: 18px; }
 
@@ -664,6 +695,16 @@ input[type="email"]:focus{
     max-width: 60ch;
     margin-bottom: 14px;
   }
+
+  /* Signals hero: stack on mobile */
+  .hero.hero-row,
+  .hero.hero-inline-hero{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .hero-inline{ max-width: 100%; }
+  .hero-actions{ margin-left: 0; }
 
   .panel{
     padding: 16px;
@@ -687,4 +728,304 @@ input[type="email"]:focus{
   .coming-title{ grid-column: 1; grid-row: 1; }
   .coming-media{ grid-column: 1; grid-row: 2; }
   .coming-content{ grid-column: 1; grid-row: 3; }
+}
+
+/* ============================
+   Signals page (card list)
+   ============================ */
+
+.signals-list{
+  display: grid;
+  gap: 12px;
+}
+
+.signal-card{
+  border: 1px solid rgba(11,127,132,.28);
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: linear-gradient(180deg, rgba(11,127,132,.24), rgba(11,127,132,.12));
+  box-shadow: 0 10px 22px rgba(0,0,0,.06);
+  transition: border-color .18s ease;
+}
+
+.signal-card:hover{
+  border-color: rgba(11,127,132,.40);
+}
+
+.signal-top{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.signal-main{
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.signal-title{
+  font-weight: 850;
+  letter-spacing: -0.01em;
+  color: rgba(14,23,27,.92);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* IMPORTANT: NO grid here (grid caused full-width underlines) */
+.signal-text{
+  margin-top: 4px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: rgba(14,23,27,.78);
+}
+
+/* Orange action links ONLY in signals text/detail */
+.signal-text a,
+.signal-detail a{
+  color: var(--orange);
+  font-weight: 850;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(245,155,0,.55);
+  display: inline;
+}
+
+.signal-text a:hover,
+.signal-detail a:hover{
+  border-bottom-color: rgba(245,155,0,.95);
+}
+
+.signal-date{
+  font-size: 12.5px;
+  color: rgba(20,33,39,.60);
+  white-space: nowrap;
+}
+
+/* Chips */
+.signal-chip{
+  font-size: 12px;
+  font-weight: 850;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: rgba(20,33,39,.92);
+  white-space: nowrap;
+  margin-top: 1px;
+  flex: 0 0 auto;
+}
+
+.signal-chip.is-video{
+  background: rgba(245,155,0,.20);
+  border: 1px solid rgba(245,155,0,.38);
+}
+.signal-chip.is-site{
+  background: rgba(11,127,132,.18);
+  border: 1px solid rgba(11,127,132,.30);
+}
+.signal-chip.is-doc{
+  background: rgba(20,33,39,.09);
+  border: 1px solid rgba(20,33,39,.14);
+}
+
+/* Filter row */
+.signals-filters{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 6px 0 14px;
+}
+
+.signals-pills{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.signals-pill{
+  font-size:12px;
+  font-weight:850;
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid rgba(245,155,0,.35);
+  background: rgba(245,155,0,.10);
+  color: #162126;
+  cursor:pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.signals-pill:hover{
+  transform: translateY(-2px);
+  background: rgba(245,155,0,.18);
+  box-shadow:0 10px 18px rgba(0,0,0,.10);
+}
+
+.signals-pill.is-active{
+  background: var(--orange);
+  border-color: rgba(0,0,0,.15);
+  color:#162126;
+  box-shadow:0 8px 18px rgba(245,155,0,.35);
+}
+
+.signals-controls{
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.signals-ctl{
+  border:1px solid rgba(245,155,0,.45);
+  background: rgba(245,155,0,.12);
+  color:#162126;
+  padding:7px 12px;
+  border-radius:999px;
+  font-weight:850;
+  font-size:13px;
+  cursor:pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.signals-ctl:hover{
+  transform: translateY(-2px);
+  background: rgba(245,155,0,.20);
+  box-shadow:0 10px 18px rgba(0,0,0,.10);
+}
+
+/* More button: always on its own line */
+.signal-more{
+  display: block;
+  margin-top: 6px;
+
+  border: 0;
+  background: transparent;
+  padding: 0;
+
+  color: var(--orange);
+  font-weight: 850;
+  border-bottom: 2px solid rgba(245,155,0,.55);
+  cursor: pointer;
+
+  width: fit-content;
+  white-space: nowrap;
+}
+
+.signal-more:hover{
+  border-bottom-color: rgba(245,155,0,.95);
+}
+
+/* Expanded detail: NO box, NO indent */
+.signal-detail{
+  margin-top: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.signal-detail-p{
+  margin: 0 0 8px;
+  color: rgba(14, 23, 27, 0.78);
+  line-height: 1.55;
+  font-size: 13.5px;
+}
+
+/* Back to top: centered + orange action */
+.to-top{
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(0,0,0,.12);
+  background: var(--orange);
+  color: #162126;
+  font-weight: 950;
+  cursor: pointer;
+
+  box-shadow: 0 14px 30px rgba(0,0,0,.22);
+
+  opacity: 0;
+  transform: translate(-50%, 10px);
+  pointer-events: none;
+  transition: .18s ease;
+}
+
+.to-top.is-visible{
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+.to-top:hover{
+  transform: translate(-50%, -2px);
+  box-shadow: 0 16px 34px rgba(0,0,0,.24);
+}
+
+/* ============================
+   Origins page: timeline
+   ============================ */
+.timeline{
+  position: relative;
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+/* vertical spine */
+.timeline::before{
+  content:"";
+  position:absolute;
+  left: 18px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: rgba(11,127,132,.22);
+  border-radius: 999px;
+}
+
+.timeline-item{
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  column-gap: 14px;
+  align-items: start;
+}
+
+.timeline-dot{
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  margin-left: 12px;
+  margin-top: 18px;
+  background: var(--orange);
+  box-shadow: 0 0 0 4px rgba(245,155,0,.18);
+  border: 1px solid rgba(0,0,0,.10);
+}
+
+.timeline-card.panel{
+  padding: 18px;
+}
+
+.timeline-title{
+  margin: 0 0 8px;
+  font-size: 18px;
+  letter-spacing: -0.015em;
+}
+
+@media (max-width: 720px){
+  .timeline::before{ left: 14px; }
+  .timeline-item{ grid-template-columns: 36px 1fr; column-gap: 12px; }
+  .timeline-dot{ margin-left: 8px; }
+}
+
+@media (max-width: 720px){
+  .signal-top{
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .signal-date{ margin-left: auto; }
+  .signal-title{ white-space: normal; }
 }
