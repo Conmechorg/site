@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Origins — Consciousness Mechanics</title>
+  <meta name="description" content="Why Consciousness Mechanics exists: the personal and intellectual origins behind CM and the Consciousness Component Model (CCM)." />
+
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body id="top">
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/index.html#top" aria-label="Consciousness Mechanics">
+        <img class="brand-logo" src="/assets/logo/cm-logo-white.png" alt="Consciousness Mechanics logo" />
+        <span class="brand-name">
+          Consciousness<br><span class="brand-name-lite">Mechanics</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="/index.html#overview">Overview</a>
+        <a class="nav-link" href="/index.html#updates">Updates</a>
+        <a class="nav-link" href="/index.html#approach">Approach</a>
+        <a class="nav-link" href="/origins.html" aria-current="page">Origins</a>
+        <a class="nav-link" href="/signals.html">Updates</a>
+        <a class="nav-link" href="/index.html#notify">Notify</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page intro -->
+    <section class="below">
+      <div class="container">
+        <section class="hero hero-compact hero-inline-hero">
+          <h1 class="hero-title hero-title-sm">Origins</h1>
+          <p class="hero-sub hero-sub-tight hero-inline">
+                Why CM exists — and why the CCM is built the way it is. It begins with lived experience,
+                and it sets a design constraint: <strong>make cognition describable as mechanism</strong>,
+                and make its limits explicit.
+          </p>
+        </section>
+      </div>
+    </section>
+
+    <section class="below">
+      <div class="container">
+
+        <div class="wide-panel panel">
+          <h2 class="section-title">The short version</h2>
+          <p class="panel-text">
+            CM began after a 2019 road traffic collision and subsequent post-concussion / mild traumatic brain injury.
+            The lived experience wasn’t “mystery” — it was a sudden, practical loss of capacity: shortened temporal horizon,
+            reduced complexity handling, and difficulty articulating what had changed.
+          </p>
+          <p class="panel-text">
+            The CCM language (H: temporal horizon, K: structural capacity) is partly a response to that: a way to describe
+            cognitive limits without metaphors, and without over-claim.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card panel">
+              <h3 class="timeline-title">2019 — Impact</h3>
+              <p class="panel-text">
+                A side-impact collision resulted in head impact and lasting cognitive disruption.
+                The problem wasn’t just symptoms — it was lack of vocabulary to describe <em>what</em> had changed.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card panel">
+              <h3 class="timeline-title">2020 — Finding language</h3>
+              <p class="panel-text">
+                Podcasts and brain-injury material provided terms that made symptoms legible.
+                Better articulation enabled better support, and reduced the “invisible” nature of the impairment.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card panel">
+              <h3 class="timeline-title">Systems thinking meets biology</h3>
+              <p class="panel-text">
+                Years of systems design / architecture pushed the curiosity into a build impulse:
+                if cognition is layered control, then we should be able to specify it as incremental mechanisms
+                with boundaries, gates, and update rules.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card panel">
+              <h3 class="timeline-title">CCM begins</h3>
+              <p class="panel-text">
+                The model forms around a strict rule: start from whole-organism control problems and
+                only add higher capability when lower levels cannot explain the observed behaviour.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="wide-panel panel">
+          <h2 class="section-title">Why this matters</h2>
+
+          <div class="chunk-grid">
+            <div>
+              <div class="kicker">A practical motivation</div>
+              <p class="panel-text">
+                Cognitive change is often described narratively. CM aims to provide a way to talk about
+                capacity, limits, and recovery in mechanically grounded terms — without implying “mystical” gaps.
+              </p>
+            </div>
+
+            <div>
+              <div class="kicker">A scientific constraint</div>
+              <p class="panel-text">
+                If a capability can’t be specified in mechanism, it can’t be tested or falsified.
+                CCM is built to be checkable — and conservative about what it claims.
+              </p>
+            </div>
+          </div>
+
+          <!-- <div class="section-divider"></div> -->
+
+          <p class="panel-text" style="margin-bottom:0;">
+            If you want the running updates trail, see <a href="/signals.html">Updates</a>.
+          </p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Consciousness Mechanics</div>
+      <div><a href="mailto:info@conmech.org">info@conmech.org</a></div>
+    </div>
+  </footer>
+
+  <!-- Floating back-to-top -->
+  <button class="to-top" id="toTop" type="button" aria-label="Back to top">↑</button>
+
+  <script>
+    // Floating "Back to top"
+    const toTop = document.getElementById("toTop");
+
+    function toggleToTop(){
+      if (!toTop) return;
+      const show = window.scrollY > 60;
+      toTop.classList.toggle("is-visible", show);
+    }
+
+    window.addEventListener("scroll", toggleToTop, { passive: true });
+    toggleToTop();
+
+    if (toTop){
+      toTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+  </script>
+
+  <script>
+    const y = document.getElementById("year");
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
