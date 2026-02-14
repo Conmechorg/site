@@ -1,18 +1,33 @@
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/index.html#top" aria-label="Consciousness Mechanics">
-      <img class="brand-logo" src="/assets/logo/cm-logo-white.png" alt="Consciousness Mechanics logo" />
-      <span class="brand-name">
-        Consciousness<br><span class="brand-name-lite">Mechanics</span>
-      </span>
-    </a>
 
-    <nav class="nav" aria-label="Primary">
-      <a class="nav-link" href="/index.html">Overview</a>
+    <div class="header-top">
+      <a class="brand" href="/index.html#top" aria-label="Consciousness Mechanics">
+        <img class="brand-logo" src="/assets/logo/cm-logo-white.png" alt="Consciousness Mechanics logo" />
+        <span class="brand-name">
+          Consciousness<br><span class="brand-name-lite">Mechanics</span>
+        </span>
+      </a>
+
+      <!-- Mobile nav toggle -->
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="Menu"
+        aria-controls="primaryNav"
+        aria-expanded="false"
+      >
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <a class="nav-link" href="/index.html#overview">Overview</a>
       <a class="nav-link" href="/index.html#approach">Approach</a>
       <a class="nav-link" href="/origins.html">Origins</a>
       <a class="nav-link" href="/signals.html">Updates</a>
       <a class="nav-link" href="/index.html#notify" data-keep-active>Notify</a>
     </nav>
+
   </div>
 </header>
