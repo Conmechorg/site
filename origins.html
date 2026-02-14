@@ -1,240 +1,144 @@
-/* ============================
-   CM Site UI — shared behaviors
-   /scripts/ui.js
-   ============================ */
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Origins — Consciousness Mechanics</title>
+  <meta name="description" content="Why Consciousness Mechanics exists: the personal and intellectual origins behind CM and the Consciousness Component Model (CCM)." />
+  <meta name="theme-color" content="#245662">
 
-(function () {
-  "use strict";
+  <style>
+    html, body { background: #245662; }
+  </style>
+  <meta name="theme-color" content="#245662">
 
-  // ---------- Helpers ----------
-  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
-  const $ = (sel, root = document) => root.querySelector(sel);
 
-  // ---------- Footer year ----------
-  function initYear() {
-    const yById = document.getElementById("year");
-    if (yById) yById.textContent = new Date().getFullYear();
+  <link rel="stylesheet" href="/styles.css" />
+</head>
 
-    const yByData = document.querySelector("[data-year]");
-    if (yByData) yByData.textContent = new Date().getFullYear();
-  }
+<body id="top">
 
-  // ---------- Back to top ----------
-  function initBackToTop() {
-    const btn = document.getElementById("toTop") || document.querySelector("[data-to-top]");
-    if (!btn) return;
 
-    const threshold = 60;
+  <div data-include="header"></div>
 
-    function toggle() {
-      const show = window.scrollY > threshold;
-      btn.classList.toggle("is-visible", show);
-    }
+  <main class="main">
 
-    window.addEventListener("scroll", toggle, { passive: true });
-    toggle();
+    <!-- Page intro -->
+    <section class="below">
+      <div class="container">
+        <section class="hero hero-compact hero-inline-hero">
+          <h1 class="hero-title hero-title-sm">Origins</h1>
+          <p class="hero-sub hero-sub-tight hero-inline">
+            Why CM exists — and why the CCM is built the way it is. This is the personal hook, but also the design constraint:
+            <strong>make cognition describable as mechanism</strong>, and make its limits explicit.
+          </p>
+        </section>
+      </div>
+    </section>
 
-    btn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  }
+    <section class="below">
+      <div class="container">
 
-  // ---------- Partials ----------
-  async function initPartials() {
-    const headerHost = document.querySelector('[data-include="header"]');
-    const footerHost = document.querySelector('[data-include="footer"]');
-    if (!headerHost && !footerHost) return;
+        <div class="wide-panel panel">
+          <h2 class="section-title">The short version</h2>
+          <p class="panel-text">
+            CM began after a 2019 road traffic collision and subsequent post-concussion / mild traumatic brain injury.
+            The lived experience wasn’t “mystery” — it was a sudden, practical loss of capacity: shortened temporal horizon,
+            reduced complexity handling, and difficulty articulating what had changed.
+          </p>
+          <p class="panel-text">
+            The CCM language (H: temporal horizon, K: structural capacity) is partly a response to that: a way to describe
+            cognitive limits without metaphors, and without over-claim.
+          </p>
+        </div>
 
-    async function loadInto(host, url) {
-      if (!host) return;
-      try {
-        const res = await fetch(url, { cache: "no-store" });
-        if (!res.ok) return;
-        host.innerHTML = await res.text();
-      } catch (e) { /* silent */ }
-    }
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card panel">
+              <h3 class="timeline-title">2019 — Impact</h3>
+              <p class="panel-text">
+                A side-impact collision resulted in head impact and lasting cognitive disruption.
+                The problem wasn’t just symptoms — it was lack of vocabulary to describe <em>what</em> had changed.
+              </p>
+            </div>
+          </article>
 
-    await Promise.all([
-      loadInto(headerHost, "/partials/header.html"),
-      loadInto(footerHost, "/partials/footer.html"),
-    ]);
-  }
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card panel">
+              <h3 class="timeline-title">2020 — Finding language</h3>
+              <p class="panel-text">
+                Podcasts and brain-injury material provided terms that made symptoms legible.
+                Better articulation enabled better support, and reduced the “invisible” nature of the impairment.
+              </p>
+            </div>
+          </article>
 
-  // ---------- Mobile nav toggle ----------
-  function initMobileNav() {
-    const header = document.querySelector(".site-header");
-    const toggle = document.querySelector(".nav-toggle");
-    const nav = document.getElementById("primaryNav") || document.querySelector(".nav");
-    if (!header || !toggle || !nav) return;
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card panel">
+              <h3 class="timeline-title">Systems thinking meets biology</h3>
+              <p class="panel-text">
+                Years of systems design / architecture pushed the curiosity into a build impulse:
+                if cognition is layered control, then we should be able to specify it as incremental mechanisms
+                with boundaries, gates, and update rules.
+              </p>
+            </div>
+          </article>
 
-    const close = () => {
-      header.classList.remove("is-nav-open");
-      nav.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
-    };
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card panel">
+              <h3 class="timeline-title">CCM begins</h3>
+              <p class="panel-text">
+                The model forms around a strict rule: start from whole-organism control problems and
+                only add higher capability when lower levels cannot explain the observed behaviour.
+              </p>
+            </div>
+          </article>
+        </div>
 
-    const open = () => {
-      header.classList.add("is-nav-open");
-      nav.classList.add("is-open");
-      toggle.setAttribute("aria-expanded", "true");
-    };
+        <div class="wide-panel panel">
+          <h2 class="section-title">Why this matters</h2>
 
-    const isOpen = () => toggle.getAttribute("aria-expanded") === "true";
+          <div class="chunk-grid">
+            <div>
+              <div class="kicker">A practical motivation</div>
+              <p class="panel-text">
+                Cognitive change is often described narratively. CM aims to provide a way to talk about
+                capacity, limits, and recovery in mechanically grounded terms — without implying “mystical” gaps.
+              </p>
+            </div>
 
-    toggle.addEventListener("click", (e) => {
-      e.preventDefault();
-      isOpen() ? close() : open();
-    });
+            <div>
+              <div class="kicker">A scientific constraint</div>
+              <p class="panel-text">
+                If a capability can’t be specified in mechanism, it can’t be tested or falsified.
+                CCM is built to be checkable — and conservative about what it claims.
+              </p>
+            </div>
+          </div>
 
-    nav.addEventListener("click", (e) => {
-      const a = e.target.closest("a");
-      if (!a) return;
-      close();
-    });
+          <!-- <div class="section-divider"></div> -->
 
-    document.addEventListener("click", (e) => {
-      if (!isOpen()) return;
-      if (e.target.closest(".site-header")) return;
-      close();
-    });
+          <p class="panel-text" style="margin-bottom:0;">
+            If you want the running updates trail, see <a href="/signals.html">Updates</a>.
+          </p>
+        </div>
 
-    window.addEventListener(
-      "resize",
-      () => {
-        if (window.matchMedia("(min-width: 721px)").matches) close();
-      },
-      { passive: true }
-    );
+      </div>
+    </section>
+  </main>
 
-    close();
-  }
+<div data-include="footer"></div>
 
-  // ---------- Nav active ----------
-  function initActiveNav() {
-    const links = $$(".nav .nav-link");
-    if (!links.length) return;
+<!-- Floating back-to-top (global) -->
+<button class="to-top" data-to-top type="button" aria-label="Back to top">↑</button>
 
-    const normalise = (p) => {
-      const x = (p || "/").toLowerCase();
-      if (x === "/") return "/index.html";
-      return x;
-    };
 
-    const curPath = normalise(location.pathname || "/");
+<!-- Shared CM UI script -->
+<script defer src="/scripts/ui.js"></script>
 
-    // If home page, do not highlight any nav item
-    if (curPath === "/index.html") {
-      links.forEach((a) => {
-        a.removeAttribute("aria-current");
-        a.classList.remove("is-current");
-      });
-      return;
-    }
-
-    // Clear previous
-    links.forEach((a) => {
-      a.removeAttribute("aria-current");
-      a.classList.remove("is-current");
-    });
-
-    let best = null;
-
-    links.forEach((a) => {
-      if (a.hasAttribute("data-keep-active")) return;
-
-      const href = (a.getAttribute("href") || "").trim();
-      if (!href || href.startsWith("http") || href.startsWith("mailto:")) return;
-
-      let u;
-      try { u = new URL(href, location.origin); } catch { return; }
-
-      const linkPath = normalise(u.pathname || "/");
-      if (linkPath === curPath) best = a;
-    });
-
-    if (best) {
-      best.setAttribute("aria-current", "page");
-      best.classList.add("is-current");
-    }
-  }
-
-  // ---------- Signals ----------
-  function initSignals() {
-    const cards = $$(".signal-card");
-    const pills = $$(".signals-pill");
-    const expandAllBtn = document.getElementById("expandAll");
-    const collapseAllBtn = document.getElementById("collapseAll");
-
-    if (!cards.length || !pills.length) return;
-
-    function applyFilter(filter) {
-      cards.forEach((card) => {
-        const t = (card.getAttribute("data-type") || "").toLowerCase();
-        const show = filter === "all" || t === filter;
-        card.style.display = show ? "" : "none";
-      });
-    }
-
-    function setExpanded(card, expanded) {
-      const moreBtn = $(".signal-more", card);
-      const detail = $(".signal-detail", card);
-      if (!moreBtn || !detail) return;
-
-      moreBtn.setAttribute("aria-expanded", expanded ? "true" : "false");
-      detail.hidden = !expanded;
-
-      const chev = $(".chev", moreBtn);
-      if (chev) chev.textContent = expanded ? "▲" : "▼";
-    }
-
-    pills.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        pills.forEach((p) => p.classList.remove("is-active"));
-        btn.classList.add("is-active");
-        applyFilter((btn.getAttribute("data-filter") || "all").toLowerCase());
-      });
-    });
-
-    document.addEventListener("click", (e) => {
-      const btn = e.target.closest(".signal-more");
-      if (!btn) return;
-
-      const card = btn.closest(".signal-card");
-      if (!card) return;
-
-      const isOpen = btn.getAttribute("aria-expanded") === "true";
-      setExpanded(card, !isOpen);
-    });
-
-    if (expandAllBtn) {
-      expandAllBtn.addEventListener("click", () => {
-        cards.forEach((card) => {
-          if (card.style.display === "none") return;
-          setExpanded(card, true);
-        });
-      });
-    }
-
-    if (collapseAllBtn) {
-      collapseAllBtn.addEventListener("click", () => {
-        cards.forEach((card) => {
-          if (card.style.display === "none") return;
-          setExpanded(card, false);
-        });
-      });
-    }
-
-    applyFilter("all");
-  }
-
-  // ---------- Boot ----------
-  document.addEventListener("DOMContentLoaded", async () => {
-    await initPartials();
-
-    initMobileNav();
-    initActiveNav();
-    initYear();
-    initBackToTop();
-    initSignals();
-  });
-})();
+</body>
+</html>
