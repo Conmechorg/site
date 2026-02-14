@@ -55,9 +55,8 @@
     }
 
     await Promise.all([
-      const v = "20260214-1"; // bump when you deploy
-      loadInto(headerHost, `/partials/header.html?v=${v}`),
-      loadInto(footerHost, `/partials/footer.html?v=${v}`),
+      loadInto(headerHost, "/partials/header.html"),
+      loadInto(footerHost, "/partials/footer.html"),
     ]);
   }
 
