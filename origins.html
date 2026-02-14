@@ -11,25 +11,7 @@
 
 <body id="top">
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="/index.html#top" aria-label="Consciousness Mechanics">
-        <img class="brand-logo" src="/assets/logo/cm-logo-white.png" alt="Consciousness Mechanics logo" />
-        <span class="brand-name">
-          Consciousness<br><span class="brand-name-lite">Mechanics</span>
-        </span>
-      </a>
-
-      <nav class="nav" aria-label="Primary">
-        <a class="nav-link" href="/index.html#overview">Overview</a>
-        <a class="nav-link" href="/index.html#updates">Updates</a>
-        <a class="nav-link" href="/index.html#approach">Approach</a>
-        <a class="nav-link" href="/origins.html" aria-current="page">Origins</a>
-        <a class="nav-link" href="/signals.html">Updates</a>
-        <a class="nav-link" href="/index.html#notify">Notify</a>
-      </nav>
-    </div>
-  </header>
+  <div data-include="header"></div>
 
   <main class="main">
 
@@ -39,9 +21,8 @@
         <section class="hero hero-compact hero-inline-hero">
           <h1 class="hero-title hero-title-sm">Origins</h1>
           <p class="hero-sub hero-sub-tight hero-inline">
-                Why CM exists — and why the CCM is built the way it is. It begins with lived experience,
-                and it sets a design constraint: <strong>make cognition describable as mechanism</strong>,
-                and make its limits explicit.
+            Why CM exists — and why the CCM is built the way it is. This is the personal hook, but also the design constraint:
+            <strong>make cognition describable as mechanism</strong>, and make its limits explicit.
           </p>
         </section>
       </div>
@@ -142,40 +123,13 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>© <span id="year"></span> Consciousness Mechanics</div>
-      <div><a href="mailto:info@conmech.org">info@conmech.org</a></div>
-    </div>
-  </footer>
+<div data-include="footer"></div>
 
-  <!-- Floating back-to-top -->
-  <button class="to-top" id="toTop" type="button" aria-label="Back to top">↑</button>
+<!-- Floating back-to-top -->
+<button class="to-top" id="toTop" type="button" aria-label="Back to top">↑</button>
 
-  <script>
-    // Floating "Back to top"
-    const toTop = document.getElementById("toTop");
-
-    function toggleToTop(){
-      if (!toTop) return;
-      const show = window.scrollY > 60;
-      toTop.classList.toggle("is-visible", show);
-    }
-
-    window.addEventListener("scroll", toggleToTop, { passive: true });
-    toggleToTop();
-
-    if (toTop){
-      toTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-    }
-  </script>
-
-  <script>
-    const y = document.getElementById("year");
-    if (y) y.textContent = new Date().getFullYear();
-  </script>
+<!-- Shared CM UI script -->
+<script defer src="/scripts/ui.js"></script>
 
 </body>
 </html>
