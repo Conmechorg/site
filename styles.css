@@ -1038,6 +1038,10 @@ input[type="email"]:focus{
   background: rgba(20,33,39,.09);
   border: 1px solid rgba(20,33,39,.14);
 }
+.signal-chip.is-model{
+  background: rgba(42, 94, 116, .18); 
+  border: 1px solid rgba(42, 94, 116, .34);
+}
 
 /* Filter row */
 .signals-filters{
