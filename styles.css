@@ -722,8 +722,8 @@ input[type="email"]:focus{
   padding: 10px 14px;
   border-radius: 10px;
   border: 0;
-  background: rgb(47, 143, 139);
-  color: #fff;
+  background: #f59b00;
+  color: #111;
   font-weight: 700;
   cursor: pointer;
 }
