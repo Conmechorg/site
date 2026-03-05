@@ -135,24 +135,27 @@
         <h2 class="panel-title">Be notified on release</h2>
         <p class="panel-text">Leave your email and I’ll send a single update when the public material goes live.</p>
 
-        <!-- Formspree AJAX form -->
-        <form id="notifyForm" action="https://formspree.io/f/mlgwdkka" method="POST" class="form-row" novalidate>
-          <div class="field">
-            <input
-              name="email"
-              id="email"
-              type="email"
-              autocomplete="email"
-              placeholder="you@example.com"
-              required
-              aria-describedby="fineprint status"
-            />
-          </div>
-          <button class="btn-submit" type="submit" id="notifyBtn">Notify me</button>
+        <form
+          action="https://buttondown.com/api/emails/embed-subscribe/rtipple01"
+          method="post"
+          class="embeddable-buttondown-form"
+          referrerpolicy="unsafe-url"
+        >
+          <label for="bd-email">Enter your email</label>
+          <input type="email" name="email" id="bd-email" />
+          <input type="submit" value="Subscribe" />
+          <p>
+            <a href="https://buttondown.com/refer/rtipple01" target="_blank">
+              Powered by Buttondown.
+            </a>
+          </p>
         </form>
 
         <div class="fine" id="fineprint">
-          No spam. No tracking pixels. Just a launch notification.
+          <p class="subscribe-note">
+          Subscribe to receive occasional updates on Consciousness Mechanics research.
+          You can unsubscribe at any time.
+          </p>
         </div>
 
         <div class="status" id="status" aria-live="polite"></div>
