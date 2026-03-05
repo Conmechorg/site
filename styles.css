@@ -688,6 +688,28 @@ input[type="email"]:focus{
 .updates-link a:hover{
   border-bottom-color: rgba(245,155,0,.95);
 }
+/* -- CSS for Buttondown form -- */
+.cm-subscribe-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.cm-subscribe-form input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.cm-subscribe-form button {
+  background: #2F8F8B;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
 /* --- FIX: home page Updates cards causing horizontal overflow --- */
 
