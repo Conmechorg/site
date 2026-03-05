@@ -728,6 +728,19 @@ input[type="email"]:focus{
   cursor: pointer;
 }
 
+#notify .cm-signals-msg {
+  margin-top: 8px;
+  font-size: 0.95rem;
+}
+
+#notify .cm-signals-msg.is-ok {
+  color: rgb(47, 143, 139);
+}
+
+#notify .cm-signals-msg.is-error {
+  color: #b00020;
+}
+
 /* Hover/active */
 #notify .embeddable-buttondown-form input[type="submit"]:hover {
   filter: brightness(0.95);
