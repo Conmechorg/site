@@ -135,15 +135,11 @@
         <h2 class="panel-title">Be notified on release</h2>
         <p class="panel-text">Leave your email and I’ll send a single update when the public material goes live.</p>
 
-        <form
-          action="https://buttondown.com/api/emails/embed-subscribe/rtipple01"
-          method="post"
-          class="embeddable-buttondown-form"
-          referrerpolicy="unsafe-url"
-        >
+        <form id="cm-signals-form" class="embeddable-buttondown-form">
           <label for="bd-email">Enter your email</label>
-          <input type="email" name="email" id="bd-email" />
-          <input type="submit" value="Subscribe" />
+          <input type="email" name="email" id="bd-email" required>
+          <input type="submit" value="Notify me">
+          <div id="cm-signals-msg" class="cm-signals-msg" aria-live="polite"></div>
         </form>
 
         <div class="fine" id="fineprint">
