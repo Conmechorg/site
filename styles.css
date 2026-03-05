@@ -729,16 +729,23 @@ input[type="email"]:focus{
 }
 
 #notify .cm-signals-msg {
-  margin-top: 8px;
+  margin-top: 12px;
+  padding: 10px 14px;
   font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
 }
 
 #notify .cm-signals-msg.is-ok {
-  color: rgb(47, 143, 139);
+  color: #1e6d69;
+  background: rgba(47,143,139,0.12);
+  border: 1px solid rgba(47,143,139,0.35);
 }
 
 #notify .cm-signals-msg.is-error {
-  color: #b00020;
+  color: #8b1f1f;
+  background: rgba(176,0,32,0.08);
+  border: 1px solid rgba(176,0,32,0.35);
 }
 
 /* Hover/active */
