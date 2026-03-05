@@ -270,7 +270,7 @@
       // Buttondown returns 200 on success in most cases.
       if (!res.ok) throw new Error('Request failed');
 
-      msg.textContent = 'Thanks — check your inbox to confirm your subscription.';
+      msg.textContent = '✓ Thanks — check your inbox to confirm your subscription.';
       msg.classList.add('is-ok');
       form.reset();
     } catch (err) {
