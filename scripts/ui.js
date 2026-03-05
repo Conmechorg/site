@@ -238,3 +238,44 @@
     initSignals();
   });
 })();
+
+(() => {
+  const form = document.getElementById('cm-signals-form');
+  if (!form) return;
+
+  const emailInput = form.querySelector('input[name="email"]');
+  const msg = document.getElementById('cm-signals-msg');
+
+  // Buttondown endpoint (your username)
+  const endpoint = 'https://buttondown.email/api/emails/embed-subscribe/rtipple01';
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = (emailInput.value || '').trim();
+    if (!email) return;
+
+    msg.textContent = 'Submitting…';
+    msg.classList.remove('is-error', 'is-ok');
+
+    try {
+      const body = new URLSearchParams({ email });
+
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body
+      });
+
+      // Buttondown returns 200 on success in most cases.
+      if (!res.ok) throw new Error('Request failed');
+
+      msg.textContent = 'Thanks — check your inbox to confirm your subscription.';
+      msg.classList.add('is-ok');
+      form.reset();
+    } catch (err) {
+      msg.textContent = 'Something went wrong. Please try again in a moment.';
+      msg.classList.add('is-error');
+    }
+  });
+})();
