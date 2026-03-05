@@ -737,11 +737,12 @@ input[type="email"]:focus{
 }
 
 /* Optional: hide the “Powered by Buttondown” line */
-#notify .embeddable-buttondown-form + a,
-#notify a[href*="buttondown.email"] {
+#notify form.embeddable-buttondown-form p {
+  margin: 0;
+}
+#notify form.embeddable-buttondown-form p > a[href*="buttondown.com/refer"] {
   display: none !important;
 }
-
 /* --- FIX: home page Updates cards causing horizontal overflow --- */
 
 /* Ensure updates container can't exceed viewport */
