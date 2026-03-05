@@ -689,26 +689,57 @@ input[type="email"]:focus{
   border-bottom-color: rgba(245,155,0,.95);
 }
 /* -- CSS for Buttondown form -- */
-.cm-subscribe-form {
+/* CM Signals — Buttondown embed styling */
+#notify .embeddable-buttondown-form {
   display: flex;
+  flex-direction: column;
   gap: 10px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
-.cm-subscribe-form input {
-  flex: 1;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+#notify .embeddable-buttondown-form label {
+  font-weight: 600;
 }
 
-.cm-subscribe-form button {
-  background: #2F8F8B;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
+#notify .embeddable-buttondown-form input[type="email"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.18);
+  background: rgba(255,255,255,0.85);
+  color: #111;
+  outline: none;
+}
+
+#notify .embeddable-buttondown-form input[type="email"]:focus {
+  border-color: rgba(47,143,139,0.85);
+  box-shadow: 0 0 0 4px rgba(47,143,139,0.18);
+}
+
+/* IMPORTANT: Buttondown uses input[type="submit"], not a button */
+#notify .embeddable-buttondown-form input[type="submit"] {
+  width: 180px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 0;
+  background: rgb(47, 143, 139);
+  color: #fff;
+  font-weight: 700;
   cursor: pointer;
+}
+
+/* Hover/active */
+#notify .embeddable-buttondown-form input[type="submit"]:hover {
+  filter: brightness(0.95);
+}
+#notify .embeddable-buttondown-form input[type="submit"]:active {
+  transform: translateY(1px);
+}
+
+/* Optional: hide the “Powered by Buttondown” line */
+#notify .embeddable-buttondown-form + a,
+#notify a[href*="buttondown.email"] {
+  display: none !important;
 }
 
 /* --- FIX: home page Updates cards causing horizontal overflow --- */
