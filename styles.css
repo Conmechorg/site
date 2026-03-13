@@ -278,6 +278,20 @@ img, svg{
   opacity: .92;
 }
 
+/* Content-page hero titles */
+.hero-title-aoe{
+  max-width: 10ch;
+  line-height: 1.02;
+}
+
+.hero.hero-inline-hero .hero-title{
+  margin-bottom: 6px;
+}
+
+.hero.hero-inline-hero .hero-inline{
+  max-width: 64ch;
+}
+
 /* On small screens, stack naturally */
 @media (max-width: 720px){
   .hero-inline-hero{
@@ -305,10 +319,10 @@ img, svg{
 
   display:flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   min-height: 100%;
+  gap: 14px;
 }
-
 .hero > *{ position: relative; }
 
 .hero-title{
@@ -395,6 +409,16 @@ img, svg{
   align-items:center;
 }
 
+/* Hide empty form feedback areas until needed */
+#notify .cm-signals-msg:empty,
+#notify .status:empty{
+  display: none;
+}
+
+#notify input::placeholder{
+  color: rgba(20,33,39,.38);
+}
+
 /* ============================
    Panels
    ============================ */
@@ -443,6 +467,14 @@ img, svg{
   color: rgba(14, 23, 27, 0.78);
   line-height: 1.55;
   font-size: 14.5px;
+}
+
+#notify .panel-text{
+  margin-bottom: 8px;
+}
+
+#notify input[type="email"]{
+  margin-top: 4px;
 }
 
 .form-row{
@@ -763,6 +795,27 @@ input[type="email"]:focus{
 #notify form.embeddable-buttondown-form p > a[href*="buttondown.com/refer"] {
   display: none !important;
 }
+
+/* Signup layout improvement */
+.notify-row{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-top:6px;
+}
+
+.notify-row input[type="submit"]{
+  flex:0 0 auto;
+}
+
+.notify-row .fine{
+  margin:0;
+  font-size:12.5px;
+  line-height:1.4;
+  color: rgba(20,33,39,.72);
+}
+
+
 /* --- FIX: home page Updates cards causing horizontal overflow --- */
 
 /* Ensure updates container can't exceed viewport */
@@ -805,6 +858,16 @@ input[type="email"]:focus{
   .updates-card{
     flex-wrap: wrap;
   }
+}
+
+@media (max-width:720px){
+
+  .notify-row{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
+
 }
 
 /* Style action links inside normal panel text only */

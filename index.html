@@ -136,18 +136,23 @@
         <p class="panel-text">Leave your email and I’ll send a single update when the public material goes live.</p>
 
         <form id="cm-signals-form" class="embeddable-buttondown-form">
-          <label for="bd-email">Enter your email</label>
-          <input type="email" name="email" id="bd-email" required>
-          <input type="submit" value="Notify me">
-          <div id="cm-signals-msg" class="cm-signals-msg" aria-live="polite"></div>
-        </form>
+          <input
+              type="email"
+              name="email"
+              id="bd-email"
+              placeholder="Enter your email"
+              required
+            >
+            <div class="notify-row">
+              <input type="submit" value="Notify me">
 
-        <div class="fine" id="fineprint">
-          <p class="subscribe-note">
-          Subscribe to receive occasional updates on Consciousness Mechanics research.
-          You can unsubscribe at any time.
-          </p>
-        </div>
+              <div class="fine" id="fineprint">
+                Subscribe to receive occasional updates on Consciousness Mechanics research.
+                You can unsubscribe at any time.
+              </div>
+            </div>
+
+            <div id="cm-signals-msg" class="cm-signals-msg" aria-live="polite"></div>
 
         <div class="status" id="status" aria-live="polite"></div>
       </aside>
