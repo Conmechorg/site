@@ -83,7 +83,7 @@
   <div data-include="header"></div>
 
   <main class="main">
-    <div class="container main-grid">
+    <div class="container main-grid model-main-grid">
 
       <section class="hero hero-compact hero-inline-hero">
         <h1 class="hero-title hero-title-sm">Consciousness<br>Mechanics (CM)</h1>
@@ -109,29 +109,60 @@
         </div>
       </section>
 
-      <aside class="panel">
-        <h2 class="panel-title">On this page</h2>
+      <aside class="panel model-side-panel">
+        <h2 class="panel-title">Model navigation</h2>
         <p class="panel-text">
-          This page introduces CM as the umbrella architecture within which CCM and AoE sit.
+          CM is the umbrella framework for the wider model. Use the model map to jump directly to related pages.
         </p>
 
-        <ul class="orange-points" style="margin-top:4px;">
-          <li><span>What CM explains</span></li>
-          <li><span>The core framing</span></li>
-          <li><span>What CM is and is not</span></li>
-          <li><span>How CM relates to CCM</span></li>
-          <li><span>How CM relates to AoE</span></li>
-          <li><span>Paper and next reading</span></li>
-        </ul>
+        <div class="model-path-card" aria-label="Current path and full model map access">
+          <div class="model-path-left">
+            <div class="model-mini-title">Current path</div>
 
-        <div class="section-divider"></div>
+            <div class="model-mini-tree">
+              <a class="model-mini-node is-action" href="/model.html">Model</a>
 
-        <p class="panel-text" style="margin-bottom:0;">
-          Read the framework paper:
-          <a href="https://doi.org/10.5281/zenodo.18874286" target="_blank" rel="noopener">
-            10.5281/zenodo.18874286
+              <div class="model-mini-branch">
+                <span class="model-mini-arrow" aria-hidden="true">↳</span>
+                <a class="model-mini-node is-action" href="/model.html#framework">Framework</a>
+              </div>
+
+              <div class="model-mini-branch model-mini-branch-deeper">
+                <span class="model-mini-arrow" aria-hidden="true">↳</span>
+                <a class="model-mini-node is-current" href="/cm.html" aria-current="page">CM</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="model-path-right">
+            <div class="model-path-cta-title">Full model map</div>
+            <p class="model-path-cta-text">
+              Open the complete structure and jump directly to any page.
+            </p>
+
+            <button
+              class="model-map-open model-map-open-compact"
+              type="button"
+              data-model-map-open
+              aria-controls="modelDrawer"
+              aria-expanded="false"
+            >
+              Open full map <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="model-side-seq model-side-seq-buttons">
+          <a class="model-side-navbtn is-prev" href="/model.html">
+            <span class="model-side-navlabel">Previous</span>
+            <span class="model-side-navtitle">← Model overview</span>
           </a>
-        </p>
+
+          <a class="model-side-navbtn is-next" href="/ccm.html">
+            <span class="model-side-navlabel">Next</span>
+            <span class="model-side-navtitle">CCM →</span>
+          </a>
+        </div>
       </aside>
     </div>
 
@@ -272,7 +303,7 @@
         </div>
 
         <div class="panel wide-panel">
-          <h2 class="section-title">Read next</h2>
+          <h2 class="section-title">Related Content</h2>
 
           <div class="signals-list">
 
@@ -331,12 +362,129 @@
           </div>
         </div>
 
+        <!-- Bottom prev / next -->
+        <div class="panel wide-panel model-seq-nav">
+          <div class="model-seq-row">
+            <a class="model-seq-link is-prev" href="/model.html">
+              <span class="model-seq-label">Previous</span>
+              <span class="model-seq-title">← Model overview</span>
+            </a>
+
+            <a class="model-seq-link is-next" href="/ccm.html">
+              <span class="model-seq-label">Next</span>
+              <span class="model-seq-title">CCM →</span>
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
 
+  <!-- Slide-out model map -->
+  <div class="model-drawer-backdrop" data-model-map-backdrop hidden></div>
+
+  <aside
+    class="model-drawer"
+    id="modelDrawer"
+    aria-hidden="true"
+    aria-labelledby="modelDrawerTitle"
+  >
+    <div class="model-drawer-head">
+      <h2 id="modelDrawerTitle" class="panel-title" style="margin:0;">Model map</h2>
+      <button class="model-drawer-close" type="button" data-model-map-close aria-label="Close model map">
+        ×
+      </button>
+    </div>
+
+    <p class="panel-text">
+      Quick navigation across framework, experience, and related system pages.
+    </p>
+
+    <div class="model-branch">
+      <div class="kicker">Framework</div>
+      <div class="model-list">
+        <a class="model-link is-current" href="/cm.html" aria-current="page">Consciousness Mechanics (CM)</a>
+        <a class="model-link" href="/ccm.html">Consciousness Component Model (CCM)</a>
+        <a class="model-link" href="/temporal-horizon.html">Temporal Horizon (H)</a>
+        <a class="model-link" href="/structural-capacity.html">Structural Capacity (K)</a>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="model-branch">
+      <div class="kicker">Experience</div>
+      <div class="model-list">
+        <a class="model-link" href="/architecture-of-experience.html">Architecture of Experience (AoE)</a>
+        <a class="model-link" href="/global-state.html">Global State (GS)</a>
+        <a class="model-link" href="/feeling.html">Feeling</a>
+        <a class="model-link" href="/valence.html">Valence</a>
+        <a class="model-link" href="/awareness.html">Awareness</a>
+        <a class="model-link" href="/cognition.html">Cognition</a>
+        <a class="model-link" href="/emotion.html">Emotion</a>
+        <a class="model-link" href="/sentience.html">Sentience and qualitative experience</a>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="model-branch">
+      <div class="kicker">System behaviour</div>
+      <div class="model-list">
+        <a class="model-link" href="/perception.html">Perception and viability-relevant signals</a>
+        <a class="model-link" href="/agency.html">Agency and action selection</a>
+        <a class="model-link" href="/organism-level-control.html">Organism-level control</a>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <p class="panel-text" style="margin-bottom:0;">
+      Back to the <a href="/model.html">Model overview</a>.
+    </p>
+  </aside>
+
   <div data-include="footer"></div>
 
   <script defer src="/scripts/ui.js"></script>
+  <script>
+    (function () {
+      const openBtn = document.querySelector("[data-model-map-open]");
+      const closeBtn = document.querySelector("[data-model-map-close]");
+      const drawer = document.getElementById("modelDrawer");
+      const backdrop = document.querySelector("[data-model-map-backdrop]");
+
+      if (!openBtn || !closeBtn || !drawer || !backdrop) return;
+
+      function openDrawer() {
+        drawer.setAttribute("aria-hidden", "false");
+        backdrop.hidden = false;
+        requestAnimationFrame(() => backdrop.classList.add("is-open"));
+        openBtn.setAttribute("aria-expanded", "true");
+        document.body.classList.add("is-model-drawer-open");
+      }
+
+      function closeDrawer() {
+        drawer.setAttribute("aria-hidden", "true");
+        backdrop.classList.remove("is-open");
+        openBtn.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("is-model-drawer-open");
+        setTimeout(() => {
+          if (drawer.getAttribute("aria-hidden") === "true") backdrop.hidden = true;
+        }, 180);
+      }
+
+      openBtn.addEventListener("click", openDrawer);
+      closeBtn.addEventListener("click", closeDrawer);
+      backdrop.addEventListener("click", closeDrawer);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && drawer.getAttribute("aria-hidden") === "false") {
+          closeDrawer();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

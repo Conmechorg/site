@@ -12,7 +12,7 @@
   <link rel="dns-prefetch" href="//conmech.org">
 
   <title>Model — Consciousness Mechanics</title>
-  <meta name="description" content="A structured map of the CM / CCM architecture and related conceptual layers, including AoE, global state, experience, control, and formal source material." />
+  <meta name="description" content="A structured map of the CM / CCM architecture and related conceptual layers, including AoE, global state, experience, system behaviour, and formal source material." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://conmech.org/model.html" />
 
@@ -67,7 +67,7 @@
   <div data-include="header"></div>
 
   <main class="main">
-    <div class="container main-grid">
+    <div class="container main-grid model-main-grid">
 
       <section class="hero hero-compact hero-inline-hero">
         <h1 class="hero-title hero-title-sm">Model</h1>
@@ -75,42 +75,67 @@
         <div class="hero-inline">
           <p class="hero-sub hero-sub-tight">
             The <strong>Model</strong> section provides a structured map of the major conceptual parts of
-            <strong>Consciousness Mechanics (CM)</strong> and the
-            <strong>Consciousness Component Model (CCM)</strong>.
+            <strong>Consciousness Mechanics (CM)</strong>.
           </p>
 
           <p class="hero-sub" style="margin-top:10px;">
-            It is designed as a public explanatory layer: a clear route into the framework, its major concepts,
-            and their relations. The site pages are not a substitute for the papers. They are intended to make the
-            architecture easier to navigate, understand, and evaluate.
+            Within this framework, <strong>CCM</strong> describes the cumulative hierarchy of control capabilities,
+            while <strong>AoE</strong> describes the layered structure of experience grounded in global state.
+            Together they sit within the broader CM architecture.
           </p>
 
           <p class="hero-sub hero-sub-tight">
-            Use this page as a conceptual index into the framework, experiential structure, organism-level control,
-            and formal source material.
+            This section is organised into the two main model branches —
+            <strong>Framework</strong> and <strong>Experience</strong> —
+            followed by related pages on system behaviour and links to formal source material.
           </p>
         </div>
       </section>
 
-      <aside class="panel">
-        <h2 class="panel-title">In this section</h2>
+      <aside class="panel model-side-panel">
+        <h2 class="panel-title">Model navigation</h2>
         <p class="panel-text">
-          The model pages are grouped into a small number of conceptual branches.
+          Use this panel to move through the model structure and jump directly to any major page.
         </p>
 
-        <ul class="orange-points" style="margin-top:4px;">
-          <li><span><strong>Framework</strong> — the overall architecture and classification logic</span></li>
-          <li><span><strong>Experience</strong> — the Architecture of Experience and its layers</span></li>
-          <li><span><strong>Control</strong> — perception, regulation, and action within the wider system</span></li>
-          <li><span><strong>Formal material</strong> — papers, diagrams, and archived outputs</span></li>
-        </ul>
+        <div class="model-path-card" aria-label="Current path and full model map access">
+          <div class="model-path-left">
+            <div class="model-mini-title">Current path</div>
 
-        <div class="section-divider"></div>
+            <div class="model-mini-tree">
+              <a class="model-mini-node is-current" href="/model.html" aria-current="page">Model</a>
+            </div>
+          </div>
 
-        <p class="panel-text" style="margin-bottom:0;">
-          Start with <a href="/aoe.html">Architecture of Experience</a>,
-          or return to the <a href="/">CM overview</a>.
-        </p>
+          <div class="model-path-right">
+            <div class="model-path-cta-title">Full model map</div>
+            <p class="model-path-cta-text">
+              Open the complete structure and jump directly to any page.
+            </p>
+
+            <button
+              class="model-map-open model-map-open-compact"
+              type="button"
+              data-model-map-open
+              aria-controls="modelDrawer"
+              aria-expanded="false"
+            >
+              Open full map <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="model-side-seq model-side-seq-buttons">
+          <a class="model-side-navbtn is-prev" href="/approach.html">
+            <span class="model-side-navlabel">Previous</span>
+            <span class="model-side-navtitle">← Approach</span>
+          </a>
+
+          <a class="model-side-navbtn is-next" href="/cm.html">
+            <span class="model-side-navlabel">Next</span>
+            <span class="model-side-navtitle">CM →</span>
+          </a>
+        </div>
       </aside>
     </div>
 
@@ -118,13 +143,35 @@
       <div class="container">
 
         <div class="panel wide-panel">
-          <h2 class="section-title">How to use this page</h2>
+          <h2 class="section-title">How to navigate the model</h2>
 
           <p class="panel-text">
-            The model section is organised to make conceptual boundaries explicit.
-            Each page explains one part of the framework, what it contributes, how it relates to neighbouring ideas,
-            and what it does not claim.
+            The model section is organised to make conceptual boundaries explicit. Each page explains one part of
+            the framework, what it contributes, how it relates to neighbouring ideas, and what it does not claim.
           </p>
+
+          <div class="chunk-grid">
+            <div>
+              <div class="kicker">Main branches</div>
+              <ul class="orange-points">
+                <li><span><strong>Framework</strong> — the overall architecture and classification logic</span></li>
+                <li><span><strong>Experience</strong> — AoE, global state, and the layered structure of experience</span></li>
+                <li><span><strong>System behaviour</strong> — perception, regulation, and action emerging within the wider CM framework</span></li>
+                <li><span><strong>Formal material</strong> — papers, diagrams, and archived outputs</span></li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="kicker">How to use this section</div>
+              <ul class="orange-points">
+                <li><span>Use this page as the main index into the framework</span></li>
+                <li><span>Use the model navigation panel to move linearly or open the full map</span></li>
+                <li><span>Use concept pages to clarify scope and relation, not to replace the formal papers</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="section-divider"></div>
 
           <p class="panel-text" style="margin-bottom:0;">
             That structure matters. One of the central aims of CM / CCM is to reduce conceptual conflation by
@@ -150,9 +197,7 @@
                       <div class="signal-title">Consciousness Mechanics (CM)</div>
                       <div class="signal-text">
                         The organism-level control architecture within which the wider framework is defined.
-                        <button class="signal-more" type="button" disabled>
-                          Coming soon
-                        </button>
+                        <a href="/cm.html">Read page</a>
                       </div>
                     </div>
                   </div>
@@ -239,7 +284,7 @@
                       <div class="signal-title">Architecture of Experience (AoE)</div>
                       <div class="signal-text">
                         A layered account of experience grounded in perturbations of global state.
-                        <a href="/architecture-of-experience.html">Read page</a>
+                        <a href="/aoe.html">Read page</a>
                       </div>
                     </div>
                   </div>
@@ -384,11 +429,10 @@
         </div>
 
         <div class="panel wide-panel">
-          <h2 class="section-title">Control</h2>
+          <h2 class="section-title">System behaviour</h2>
 
           <p class="panel-text">
-            These pages address broader organism-level function outside the strict scope of AoE,
-            including perception, regulation, and action within the wider CM architecture.
+            These pages address organism-level behaviour emerging from the interaction between control architecture (CCM) and experiential structure (AoE), including perception, regulation, and action within the wider CM framework.
           </p>
 
           <div class="signals-list">
@@ -480,13 +524,133 @@
             </div>
           </div>
         </div>
+        <!-- Bottom prev / next -->
+                <div class="panel wide-panel model-seq-nav">
+                  <div class="model-seq-row">
+                    <a class="model-seq-link is-prev" href="/approach.html">
+                      <span class="model-seq-label">Previous</span>
+                      <span class="model-seq-title">← Approach</span>
+                    </a>
 
+                    <a class="model-seq-link is-next" href="/cm.html">
+                      <span class="model-seq-label">Next</span>
+                      <span class="model-seq-title">CM →</span>
+                    </a>
+                  </div>
+                </div>
       </div>
     </section>
   </main>
 
+  <!-- Slide-out model map -->
+  <div class="model-drawer-backdrop" data-model-map-backdrop hidden></div>
+
+  <aside
+    class="model-drawer"
+    id="modelDrawer"
+    aria-hidden="true"
+    aria-labelledby="modelDrawerTitle"
+  >
+    <div class="model-drawer-head">
+      <h2 id="modelDrawerTitle" class="panel-title" style="margin:0;">Model map</h2>
+      <button class="model-drawer-close" type="button" data-model-map-close aria-label="Close model map">
+        ×
+      </button>
+    </div>
+
+    <p class="panel-text">
+      Quick navigation across framework, experience, and related system pages.
+    </p>
+
+    <div class="model-branch">
+      <div class="kicker">Framework</div>
+      <div class="model-list">
+        <a class="model-link" href="/cm.html">Consciousness Mechanics (CM)</a>
+        <a class="model-link" href="/ccm.html">Consciousness Component Model (CCM)</a>
+        <a class="model-link" href="/temporal-horizon.html">Temporal Horizon (H)</a>
+        <a class="model-link" href="/structural-capacity.html">Structural Capacity (K)</a>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="model-branch">
+      <div class="kicker">Experience</div>
+      <div class="model-list">
+        <a class="model-link" href="/aoe.html">Architecture of Experience (AoE)</a>
+        <a class="model-link" href="/global-state.html">Global State (GS)</a>
+        <a class="model-link" href="/feeling.html">Feeling</a>
+        <a class="model-link" href="/valence.html">Valence</a>
+        <a class="model-link" href="/awareness.html">Awareness</a>
+        <a class="model-link" href="/cognition.html">Cognition</a>
+        <a class="model-link" href="/emotion.html">Emotion</a>
+        <a class="model-link" href="/sentience.html">Sentience and qualitative experience</a>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="model-branch">
+      <div class="kicker">System behaviour</div>
+      <div class="model-list">
+        <a class="model-link" href="/perception.html">Perception and viability-relevant signals</a>
+        <a class="model-link" href="/agency.html">Agency and action selection</a>
+        <a class="model-link" href="/organism-level-control.html">Organism-level control</a>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="model-branch">
+      <div class="kicker">Formal material</div>
+      <div class="model-list">
+        <a class="model-link" href="https://doi.org/10.5281/zenodo.18874286" target="_blank" rel="noopener">CM / CCM framework paper</a>
+        <a class="model-link" href="https://doi.org/10.5281/zenodo.18975528" target="_blank" rel="noopener">Architecture of Experience paper</a>
+        <a class="model-link" href="/signals.html">Updates and release history</a>
+      </div>
+    </div>
+  </aside>
+
   <div data-include="footer"></div>
 
   <script defer src="/scripts/ui.js"></script>
+  <script>
+    (function () {
+      const openBtn = document.querySelector("[data-model-map-open]");
+      const closeBtn = document.querySelector("[data-model-map-close]");
+      const drawer = document.getElementById("modelDrawer");
+      const backdrop = document.querySelector("[data-model-map-backdrop]");
+
+      if (!openBtn || !closeBtn || !drawer || !backdrop) return;
+
+      function openDrawer() {
+        drawer.setAttribute("aria-hidden", "false");
+        backdrop.hidden = false;
+        requestAnimationFrame(() => backdrop.classList.add("is-open"));
+        openBtn.setAttribute("aria-expanded", "true");
+        document.body.classList.add("is-model-drawer-open");
+      }
+
+      function closeDrawer() {
+        drawer.setAttribute("aria-hidden", "true");
+        backdrop.classList.remove("is-open");
+        openBtn.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("is-model-drawer-open");
+        setTimeout(() => {
+          if (drawer.getAttribute("aria-hidden") === "true") backdrop.hidden = true;
+        }, 180);
+      }
+
+      openBtn.addEventListener("click", openDrawer);
+      closeBtn.addEventListener("click", closeDrawer);
+      backdrop.addEventListener("click", closeDrawer);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && drawer.getAttribute("aria-hidden") === "false") {
+          closeDrawer();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

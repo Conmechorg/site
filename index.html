@@ -135,8 +135,8 @@
         <h2 class="panel-title">Be notified on release</h2>
         <p class="panel-text">Leave your email and I’ll send a single update when the public material goes live.</p>
 
-        <form id="cm-signals-form" class="embeddable-buttondown-form">
-          <input
+          <form id="cm-signals-form" class="embeddable-buttondown-form">
+            <input
               type="email"
               name="email"
               id="bd-email"
@@ -153,8 +153,11 @@
             </div>
 
             <div id="cm-signals-msg" class="cm-signals-msg" aria-live="polite"></div>
+          </form>
 
-        <div class="status" id="status" aria-live="polite"></div>
+          <div class="status" id="status" aria-live="polite">
+            
+          </div>
       </aside>
     </div>
 
@@ -340,23 +343,29 @@
     <section class="below" id="approach">
       <div class="container">
         <div class="features" style="margin-bottom:16px;">
-          <div class="feature-card">
+          <a href="/approach.html" class="feature-card feature-link">
             <div class="feature-badge">1</div>
-            <h3>Read as spec</h3>
-            <p>State variables, gates, and update rules — not narrative exposition.</p>
-          </div>
+            <div class="feature-text">
+              <h3>Approach</h3>
+              <p>The rules of the build: biology-first, mechanistic, conservative, and scope-disciplined.</p>
+            </div>
+          </a>
 
-          <div class="feature-card">
+          <a href="/model.html" class="feature-card feature-link">
             <div class="feature-badge">2</div>
-            <h3>Check ceilings</h3>
-            <p>Each component defines its boundary: what it explains and what it does not.</p>
-          </div>
+            <div class="feature-text">
+              <h3>Model</h3>
+              <p>The structured map of CM, CCM, AoE, and the wider conceptual architecture.</p>
+            </div>
+          </a>
 
-          <div class="feature-card">
+          <a href="/signals.html" class="feature-card feature-link">
             <div class="feature-badge">3</div>
-            <h3>Use discriminators</h3>
-            <p>Anchors and tests clarify what would count as evidence for or against.</p>
-          </div>
+            <div class="feature-text">
+              <h3>Formal Papers & Sources</h3>
+              <p>The formal academic record: preprints, diagrams, and linked source material.</p>
+            </div>
+          </a>
         </div>
 
         <div class="panel wide-panel" style="margin-bottom:16px;">
@@ -388,15 +397,18 @@
 
           <div class="section-divider"></div>
 
-          <p class="panel-text" style="margin-bottom:0;">
+          <p class="panel-text" style="margin-bottom:10px;">
             The goal is a framework that stays falsifiable, extensible, and comparable across life —
-            without importing human-specific assumptions as default explanations.
-          </p>
+            without importing human-specific assumptions as default explanations.   
+            </p>
+            <a href="/approach.html" class="nav-btn">
+              Explore the full approach →
+            </a>
         </div>
 
         <div class="panel wide-panel">
           <div class="coming-layout">
-            <h2 class="section-title">What’s coming</h2>
+            <h2 class="section-title">Content Summary</h2>
 
             <div class="coming-media">
               <img
@@ -409,21 +421,21 @@
 
             <div class="coming-content">
               <p class="panel-text">
-                This is a holding page while we complete the CCM build. The initial public release will include:
+                The site now acts as the public conceptual map of the framework, alongside the formal papers.
               </p>
 
               <ul class="panel-text" style="margin-top:-6px; padding-left: 18px;">
-                <li>A clear overview of CCM and its layered component hierarchy (CL1…CLn).</li>
-                <li>Mechanistic definitions of control capabilities grounded in whole-organism behaviour.</li>
-                <li>Explicit treatment of temporal horizon (H) and structural capacity (K) as classification axes.</li>
-                <li>Diagrams and pseudocode illustrating how control architectures scale across life.</li>
-                <li>Defined scope boundaries — what the model explains, and what it explicitly does not.</li>
+                <li>Method pages explaining how the framework is built and why its constraints matter.</li>
+                <li>Model pages clarifying the structure of CM, CCM, AoE, and related concepts.</li>
+                <li>Links from conceptual pages back to formal source material and archived preprints.</li>
+                <li>A growing framework map designed to reduce conceptual conflation and improve navigability.</li>
+                <li>Ongoing updates as new components, diagrams, and explanatory pages are released.</li>
               </ul>
 
               <p class="panel-text" style="margin-bottom:0;">
-                CM will document applications, critiques, and extensions of the framework as this work progresses.
+                The papers remain the formal academic record. The site exists to explain, organise, and connect the framework more clearly for readers.
                 <br><br>
-                If you want to collaborate, cite, or follow along: use the notify list or email us directly at
+                To follow new releases or get in touch, use the notify list or email
                 <a href="mailto:info@conmech.org">info@conmech.org</a>.
               </p>
             </div>
