@@ -67,7 +67,7 @@
   <div data-include="header"></div>
 
   <main class="main">
-    <div class="container main-grid">
+    <div class="container main-grid model-main-grid">
 
       <section class="hero hero-compact hero-inline-hero">
         <h1 class="hero-title hero-title-sm">Approach</h1>
@@ -91,7 +91,7 @@
         </div>
       </section>
 
-      <aside class="panel">
+      <aside class="panel model-side-panel">
         <h2 class="panel-title">On this page</h2>
         <p class="panel-text">
           This page explains why the framework is built under constraints, what those constraints are,
@@ -145,6 +145,7 @@
 
         <div class="panel wide-panel">
           <h2 class="section-title">Approach</h2>
+
           <p class="panel-text" style="margin-bottom:0;">
             The framework is developed under constraints designed to prevent conceptual drift and over-claim.
             These are <strong>rules of the build</strong>, not rhetorical guidelines. Each rule exists to keep
@@ -338,115 +339,8 @@
     </section>
   </main>
 
-  <!-- Slide-out model map -->
-  <div class="model-drawer-backdrop" data-model-map-backdrop hidden></div>
-
-  <aside
-    class="model-drawer"
-    id="modelDrawer"
-    aria-hidden="true"
-    aria-labelledby="modelDrawerTitle"
-  >
-    <div class="model-drawer-head">
-      <h2 id="modelDrawerTitle" class="panel-title" style="margin:0;">Model map</h2>
-      <button class="model-drawer-close" type="button" data-model-map-close aria-label="Close model map">
-        ×
-      </button>
-    </div>
-
-    <p class="panel-text">
-      Quick navigation across framework, experience, and related system pages.
-    </p>
-
-    <div class="model-branch">
-      <div class="kicker">Framework</div>
-      <div class="model-list">
-        <a class="model-link" href="/cm.html">Consciousness Mechanics (CM)</a>
-        <a class="model-link" href="/ccm.html">Consciousness Component Model (CCM)</a>
-        <a class="model-link" href="/temporal-horizon.html">Temporal Horizon (H)</a>
-        <a class="model-link" href="/structural-capacity.html">Structural Capacity (K)</a>
-      </div>
-    </div>
-
-    <div class="section-divider"></div>
-
-    <div class="model-branch">
-      <div class="kicker">Experience</div>
-      <div class="model-list">
-        <a class="model-link" href="/aoe.html">Architecture of Experience (AoE)</a>
-        <a class="model-link" href="/global-state.html">Global State (GS)</a>
-        <a class="model-link" href="/feeling.html">Feeling</a>
-        <a class="model-link" href="/valence.html">Valence</a>
-        <a class="model-link" href="/awareness.html">Awareness</a>
-        <a class="model-link" href="/cognition.html">Cognition</a>
-        <a class="model-link" href="/emotion.html">Emotion</a>
-        <a class="model-link" href="/sentience.html">Sentience and qualitative experience</a>
-      </div>
-    </div>
-
-    <div class="section-divider"></div>
-
-    <div class="model-branch">
-      <div class="kicker">System behaviour</div>
-      <div class="model-list">
-        <a class="model-link" href="/perception.html">Perception and viability-relevant signals</a>
-        <a class="model-link" href="/agency.html">Agency and action selection</a>
-        <a class="model-link" href="/organism-level-control.html">Organism-level control</a>
-      </div>
-    </div>
-
-    <div class="section-divider"></div>
-
-    <div class="model-branch">
-      <div class="kicker">Formal material</div>
-      <div class="model-list">
-        <a class="model-link" href="https://doi.org/10.5281/zenodo.18874286" target="_blank" rel="noopener">CM / CCM framework paper</a>
-        <a class="model-link" href="https://doi.org/10.5281/zenodo.18975528" target="_blank" rel="noopener">Architecture of Experience paper</a>
-        <a class="model-link" href="/signals.html">Updates and release history</a>
-      </div>
-    </div>
-  </aside>
-
   <div data-include="footer"></div>
 
   <script defer src="/scripts/ui.js"></script>
-  <script>
-    (function () {
-      const openBtn = document.querySelector("[data-model-map-open]");
-      const closeBtn = document.querySelector("[data-model-map-close]");
-      const drawer = document.getElementById("modelDrawer");
-      const backdrop = document.querySelector("[data-model-map-backdrop]");
-
-      if (!openBtn || !closeBtn || !drawer || !backdrop) return;
-
-      function openDrawer() {
-        drawer.setAttribute("aria-hidden", "false");
-        backdrop.hidden = false;
-        requestAnimationFrame(() => backdrop.classList.add("is-open"));
-        openBtn.setAttribute("aria-expanded", "true");
-        document.body.classList.add("is-model-drawer-open");
-      }
-
-      function closeDrawer() {
-        drawer.setAttribute("aria-hidden", "true");
-        backdrop.classList.remove("is-open");
-        openBtn.setAttribute("aria-expanded", "false");
-        document.body.classList.remove("is-model-drawer-open");
-        setTimeout(() => {
-          if (drawer.getAttribute("aria-hidden") === "true") backdrop.hidden = true;
-        }, 180);
-      }
-
-      openBtn.addEventListener("click", openDrawer);
-      closeBtn.addEventListener("click", closeDrawer);
-      backdrop.addEventListener("click", closeDrawer);
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && drawer.getAttribute("aria-hidden") === "false") {
-          closeDrawer();
-        }
-      });
-    })();
-  </script>
 </body>
 </html>

@@ -10,13 +10,16 @@
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   const $ = (sel, root = document) => root.querySelector(sel);
 
+  const normalise = (p) => {
+    const x = (p || "/").toLowerCase();
+    if (x === "/") return "/index.html";
+    return x;
+  };
+
   // ---------- Footer year ----------
   function initYear() {
-    const yById = document.getElementById("year");
-    if (yById) yById.textContent = new Date().getFullYear();
-
-    const yByData = document.querySelector("[data-year]");
-    if (yByData) yByData.textContent = new Date().getFullYear();
+    const el = document.querySelector("[data-year]");
+    if (el) el.textContent = new Date().getFullYear();
   }
 
   // ---------- Back to top ----------
@@ -41,23 +44,30 @@
 
   // ---------- Partials ----------
   async function initPartials() {
-    const headerHost = document.querySelector('[data-include="header"]');
-    const footerHost = document.querySelector('[data-include="footer"]');
-    if (!headerHost && !footerHost) return;
+    const partialMap = {
+      header: "/partials/header.html",
+      footer: "/partials/footer.html",
+      model_menu: "/partials/model_menu.html"
+    };
 
-    async function loadInto(host, url) {
-      if (!host) return;
+    const hosts = $$("[data-include]");
+    if (!hosts.length) return;
+
+    async function loadInto(host) {
+      const key = (host.getAttribute("data-include") || "").trim();
+      const url = partialMap[key];
+      if (!url) return;
+
       try {
-        const res = await fetch(url, { cache: "no-store" });
+        const res = await fetch(url);
         if (!res.ok) return;
         host.innerHTML = await res.text();
-      } catch (e) { /* silent */ }
+      } catch (e) {
+        /* silent */
+      }
     }
 
-    await Promise.all([
-      loadInto(headerHost, "/partials/header.html"),
-      loadInto(footerHost, "/partials/footer.html"),
-    ]);
+    await Promise.all(hosts.map(loadInto));
   }
 
   // ---------- Mobile nav toggle ----------
@@ -114,15 +124,8 @@
     const links = $$(".nav .nav-link");
     if (!links.length) return;
 
-    const normalise = (p) => {
-      const x = (p || "/").toLowerCase();
-      if (x === "/") return "/index.html";
-      return x;
-    };
-
     const curPath = normalise(location.pathname || "/");
 
-    // If home page, do not highlight any nav item
     if (curPath === "/index.html") {
       links.forEach((a) => {
         a.removeAttribute("aria-current");
@@ -131,7 +134,6 @@
       return;
     }
 
-    // Clear previous
     links.forEach((a) => {
       a.removeAttribute("aria-current");
       a.classList.remove("is-current");
@@ -146,7 +148,11 @@
       if (!href || href.startsWith("http") || href.startsWith("mailto:")) return;
 
       let u;
-      try { u = new URL(href, location.origin); } catch { return; }
+      try {
+        u = new URL(href, location.origin);
+      } catch {
+        return;
+      }
 
       const linkPath = normalise(u.pathname || "/");
       if (linkPath === curPath) best = a;
@@ -156,6 +162,116 @@
       best.setAttribute("aria-current", "page");
       best.classList.add("is-current");
     }
+  }
+
+  // ---------- Model drawer ----------
+  function initModelDrawer() {
+    function getBits() {
+      return {
+        drawer: document.getElementById("modelDrawer"),
+        backdrop: document.querySelector("[data-model-map-backdrop]"),
+        openBtns: $$("[data-model-map-open]"),
+        closeBtn: document.querySelector("[data-model-map-close]")
+      };
+    }
+
+    function markCurrentLink() {
+      const drawer = document.getElementById("modelDrawer");
+      if (!drawer) return;
+
+      const currentPath = normalise(window.location.pathname || "/");
+      const links = $$(".model-link", drawer);
+
+      links.forEach((link) => {
+        const href = (link.getAttribute("href") || "").trim();
+        if (!href || href.startsWith("http") || href.startsWith("mailto:")) {
+          link.classList.remove("is-current");
+          link.removeAttribute("aria-current");
+          return;
+        }
+
+        let url;
+        try {
+          url = new URL(href, location.origin);
+        } catch {
+          link.classList.remove("is-current");
+          link.removeAttribute("aria-current");
+          return;
+        }
+
+        const isCurrent = normalise(url.pathname || "/") === currentPath;
+        link.classList.toggle("is-current", isCurrent);
+
+        if (isCurrent) {
+          link.setAttribute("aria-current", "page");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    }
+
+    function openDrawer() {
+      const { drawer, backdrop, openBtns } = getBits();
+      if (!drawer || !backdrop) return;
+
+      drawer.setAttribute("aria-hidden", "false");
+      backdrop.hidden = false;
+      requestAnimationFrame(() => backdrop.classList.add("is-open"));
+
+      openBtns.forEach((btn) => btn.setAttribute("aria-expanded", "true"));
+      document.body.classList.add("is-model-drawer-open");
+    }
+
+    function closeDrawer() {
+      const { drawer, backdrop, openBtns } = getBits();
+      if (!drawer || !backdrop) return;
+
+      drawer.setAttribute("aria-hidden", "true");
+      backdrop.classList.remove("is-open");
+
+      openBtns.forEach((btn) => btn.setAttribute("aria-expanded", "false"));
+      document.body.classList.remove("is-model-drawer-open");
+
+      window.setTimeout(() => {
+        if (drawer.getAttribute("aria-hidden") === "true") {
+          backdrop.hidden = true;
+        }
+      }, 180);
+    }
+
+    document.addEventListener("click", (e) => {
+      const openTrigger = e.target.closest("[data-model-map-open]");
+      const closeTrigger = e.target.closest("[data-model-map-close]");
+      const backdropTrigger = e.target.closest("[data-model-map-backdrop]");
+      const modelLink = e.target.closest("#modelDrawer .model-link");
+
+      if (openTrigger) {
+        e.preventDefault();
+        openDrawer();
+        return;
+      }
+
+      if (closeTrigger || backdropTrigger) {
+        e.preventDefault();
+        closeDrawer();
+        return;
+      }
+
+      if (modelLink) {
+        closeDrawer();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      const drawer = document.getElementById("modelDrawer");
+      if (!drawer) return;
+
+      if (e.key === "Escape" && drawer.getAttribute("aria-hidden") === "false") {
+        closeDrawer();
+      }
+    });
+
+    markCurrentLink();
   }
 
   // ---------- Signals ----------
@@ -235,47 +351,46 @@
     initActiveNav();
     initYear();
     initBackToTop();
+    initModelDrawer();
     initSignals();
   });
 })();
 
 (() => {
-  const form = document.getElementById('cm-signals-form');
+  const form = document.getElementById("cm-signals-form");
   if (!form) return;
 
   const emailInput = form.querySelector('input[name="email"]');
-  const msg = document.getElementById('cm-signals-msg');
+  const msg = document.getElementById("cm-signals-msg");
 
-  // Buttondown endpoint (your username)
-  const endpoint = 'https://buttondown.email/api/emails/embed-subscribe/rtipple01';
+  const endpoint = "https://buttondown.email/api/emails/embed-subscribe/rtipple01";
 
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const email = (emailInput.value || '').trim();
+    const email = (emailInput.value || "").trim();
     if (!email) return;
 
-    msg.textContent = 'Submitting…';
-    msg.classList.remove('is-error', 'is-ok');
+    msg.textContent = "Submitting…";
+    msg.classList.remove("is-error", "is-ok");
 
     try {
       const body = new URLSearchParams({ email });
 
       const res = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
         body
       });
 
-      // Buttondown returns 200 on success in most cases.
-      if (!res.ok) throw new Error('Request failed');
+      if (!res.ok) throw new Error("Request failed");
 
-      msg.textContent = '✓ Thanks — check your inbox to confirm your subscription.';
-      msg.classList.add('is-ok');
+      msg.textContent = "✓ Thanks — check your inbox to confirm your subscription.";
+      msg.classList.add("is-ok");
       form.reset();
     } catch (err) {
-      msg.textContent = 'Something went wrong. Please try again in a moment.';
-      msg.classList.add('is-error');
+      msg.textContent = "Something went wrong. Please try again in a moment.";
+      msg.classList.add("is-error");
     }
   });
 })();
