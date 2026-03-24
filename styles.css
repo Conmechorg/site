@@ -1754,6 +1754,7 @@ body.is-model-drawer-open{ overflow:hidden; }
   }
 
   .header-inner{
+    flex-direction:column;
     gap:4px;
     min-height:0;
   }
