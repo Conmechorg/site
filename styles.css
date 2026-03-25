@@ -39,7 +39,7 @@
 
 *{ box-sizing:border-box; }
 
-html, body{ height:100%; }
+html, body{ min-height:100%; }
 html{ scroll-behavior:smooth; }
 :target{ scroll-margin-top:90px; }
 
@@ -52,6 +52,7 @@ body{
     radial-gradient(1200px 760px at 18% 10%, rgba(11,127,132,.26), transparent 68%),
     radial-gradient(1000px 720px at 82% 26%, rgba(245,155,0,.10), transparent 70%),
     linear-gradient(180deg, #2f6f7d 0%, #2a616d 50%, #245662 100%);
+  background-repeat:no-repeat, no-repeat, no-repeat;
   background-attachment:fixed, fixed, fixed;
 }
 
@@ -1493,7 +1494,7 @@ body.is-model-drawer-open{ overflow:hidden; }
   grid-area:intro;
   grid-column:1 / -1;
   width:100%;
-  max-width:none !important;
+  max-width:none;
   margin-bottom:0;
 }
 
@@ -1957,11 +1958,6 @@ body.is-model-drawer-open{ overflow:hidden; }
 
   .timeline-dot{ margin-left:8px; }
 
-  .ccm-figure-actions{
-    grid-template-columns:1fr;
-    flex-direction:column;
-  }
-
   .model-side-seq-buttons{
     grid-template-columns:1fr 1fr;
     gap:10px;
@@ -1984,28 +1980,19 @@ body.is-model-drawer-open{ overflow:hidden; }
     padding:10px 12px;
   }
 
-  .model-side-navlabel{
-    font-size:11px;
-  }
-
-  .model-side-navtitle{
-    font-size:14px;
-  }
-
-  .model-side-navbtn.is-next{
-    text-align:right;
-  }
-
-  .model-seq-link.is-next{
-    text-align:right;
-  }
-
+  .model-side-navlabel,
   .model-seq-label{
     font-size:11px;
   }
 
+  .model-side-navtitle,
   .model-seq-title{
     font-size:14px;
+  }
+
+  .model-side-navbtn.is-next,
+  .model-seq-link.is-next{
+    text-align:right;
   }
 
   .model-path-card{ grid-template-columns:1fr; }
@@ -2031,10 +2018,6 @@ body.is-model-drawer-open{ overflow:hidden; }
   .ccm-cube-feature,
   .ccm-full-figure{
     padding:12px;
-  }
-
-  .ccm-figure-actions .model-side-navtitle{
-    white-space:normal;
   }
 
   .ccm-figure-actions{
@@ -2102,9 +2085,6 @@ body.is-model-drawer-open{ overflow:hidden; }
   grid-row:2;
 }
 
-.ccm-side-note-block .panel-text{
-  margin-bottom:0;
-}
 
 .ccm-side-note-block{
   margin-top:auto;
