@@ -1716,15 +1716,24 @@ body.is-model-drawer-open{ overflow:hidden; }
   }
 
   .coming-layout{
-    grid-template-columns:1fr;
-    grid-template-rows:auto auto auto;
+    grid-template-columns:1fr !important;
+    grid-template-rows:auto auto auto !important;
   }
 
-  .coming-layout .section-title,
-  .coming-media,
+  .coming-layout .section-title{
+    grid-column:1 !important;
+    grid-row:1 !important;
+  }
+
+  .coming-media{
+    grid-column:1 !important;
+    grid-row:2 !important;
+  }
+
   .coming-content{
-    grid-column:1;
-    grid-row:auto;
+    grid-column:1 !important;
+    grid-row:3 !important;
+    min-width:0;
   }
 
   .coming-media img{
@@ -1948,16 +1957,55 @@ body.is-model-drawer-open{ overflow:hidden; }
 
   .timeline-dot{ margin-left:8px; }
 
-  .model-side-seq-buttons,
-  .model-seq-row,
   .ccm-figure-actions{
     grid-template-columns:1fr;
     flex-direction:column;
   }
 
-  .model-side-navbtn.is-next,
+  .model-side-seq-buttons{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .model-seq-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .model-seq-link{
+    flex:unset;
+    min-height:44px;
+    padding:10px 12px;
+  }
+
+  .model-side-navbtn{
+    min-height:44px;
+    padding:10px 12px;
+  }
+
+  .model-side-navlabel{
+    font-size:11px;
+  }
+
+  .model-side-navtitle{
+    font-size:14px;
+  }
+
+  .model-side-navbtn.is-next{
+    text-align:right;
+  }
+
   .model-seq-link.is-next{
-    text-align:left;
+    text-align:right;
+  }
+
+  .model-seq-label{
+    font-size:11px;
+  }
+
+  .model-seq-title{
+    font-size:14px;
   }
 
   .model-path-card{ grid-template-columns:1fr; }
@@ -1986,6 +2034,27 @@ body.is-model-drawer-open{ overflow:hidden; }
   }
 
   .ccm-figure-actions .model-side-navtitle{
+    white-space:normal;
+  }
+
+  .ccm-figure-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .ccm-figure-actions .model-side-navbtn{
+    flex:unset;
+    min-height:44px;
+    padding:10px 12px;
+  }
+
+  .ccm-figure-actions .model-side-navlabel{
+    font-size:11px;
+  }
+
+  .ccm-figure-actions .model-side-navtitle{
+    font-size:14px;
     white-space:normal;
   }
 
