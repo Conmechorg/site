@@ -244,6 +244,25 @@ img, svg{
   min-width:0;
 }
 
+.main-grid-stretch{
+  align-items:stretch;
+}
+
+.main-grid-stretch > .hero,
+.main-grid-stretch > .panel{
+  height:100%;
+}
+
+.index-hero-grid{
+  grid-template-columns:1fr 1fr;
+  align-items:stretch;
+}
+
+.index-hero-grid > *{
+  height:100%;
+  align-self:stretch;
+}
+
 /* ---------- Hero ---------- */
 
 .hero{
