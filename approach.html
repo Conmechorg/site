@@ -38,6 +38,71 @@
 
   <link rel="stylesheet" href="/styles.css" />
 
+  <style>
+    .timeline-card{
+      overflow:hidden;
+    }
+
+    .timeline-inner{
+      display:grid;
+      grid-template-columns: 104px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .timeline-icon{
+      padding-top: 2px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+    }
+
+    .timeline-icon img{
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+      display:block;
+      filter: drop-shadow(0 5px 12px rgba(0,0,0,.12));
+      opacity: .98;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .timeline-card:hover .timeline-icon img{
+      transform: translateY(-2px);
+      opacity: 1;
+    }
+
+    .timeline-copy > :last-child{
+      margin-bottom:0;
+    }
+
+    .timeline-title{
+      margin-top:0;
+      margin-bottom:8px;
+    }
+
+    .approach-logic-intro{
+      margin-bottom:0;
+    }
+
+    @media (max-width: 680px){
+      .timeline-inner{
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .timeline-icon{
+        justify-content:flex-start;
+        padding-top:0;
+      }
+
+      .timeline-icon img{
+        width: 84px;
+        height: 84px;
+      }
+    }
+  </style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -74,19 +139,18 @@
 
         <div class="hero-inline">
           <p class="hero-sub hero-sub-tight">
-            The <strong>Approach</strong> page explains the methodological rules used to build
-            <strong>Consciousness Mechanics (CM)</strong> and the
-            <strong>Consciousness Component Model (CCM)</strong>.
+            CM is built under a strict methodological discipline.
+            It begins from a simple claim:
+            <strong>consciousness is the mechanism by which an organism perceives and interacts with its environment in order to sustain its own viability.</strong>
           </p>
 
           <p class="hero-sub" style="margin-top:10px;">
-            The framework is developed under explicit constraints designed to prevent conceptual drift,
-            reduce over-claim, and keep explanatory commitments tied to mechanism rather than metaphor.
+            The role of the approach is to keep that claim anchored to biology, tied to explicit mechanism,
+            and protected from conceptual drift.
           </p>
 
           <p class="hero-sub hero-sub-tight">
-            These are not stylistic preferences. They are the rules that determine how components are introduced,
-            how scope is bounded, and how the architecture remains comparable across life.
+            This page shows the logic of the build, step by step.
           </p>
         </div>
       </section>
@@ -94,23 +158,21 @@
       <aside class="panel model-side-panel">
         <h2 class="panel-title">On this page</h2>
         <p class="panel-text">
-          This page explains why the framework is built under constraints, what those constraints are,
-          and how they shape CM, CCM, and AoE.
+          The framework is not assembled by intuition or metaphor.
+          It is built through a constrained sequence of decisions.
         </p>
 
         <ul class="orange-points" style="margin-top:4px;">
-          <li><span>Why a constrained approach is necessary</span></li>
-          <li><span>Grounding and mechanism</span></li>
-          <li><span>Discipline and scope</span></li>
-          <li><span>How these rules shape the architecture</span></li>
-          <li><span>What the framework deliberately avoids</span></li>
-          <li><span>How this page relates to the rest of the site</span></li>
+          <li><span>Start from organism-level biology</span></li>
+          <li><span>Define the control problem</span></li>
+          <li><span>Specify explicit mechanism</span></li>
+          <li><span>Add capability only when required</span></li>
+          <li><span>Set hard scope boundaries</span></li>
+          <li><span>Keep the result comparable across life</span></li>
         </ul>
 
-        <div class="section-divider"></div>
-
         <p class="panel-text" style="margin-bottom:0;">
-          Continue to the <a href="/model.html">Model</a> section for the resulting architecture.
+          Continue to the <a href="/model.html">Model</a> section to see the resulting architecture.
         </p>
       </aside>
     </div>
@@ -119,159 +181,217 @@
       <div class="container">
 
         <div class="panel wide-panel">
-          <h2 class="section-title">Why this approach exists</h2>
+          <h2 class="section-title">Why this approach is needed</h2>
 
           <p class="panel-text">
-            Consciousness research often suffers from conceptual drift. Terms such as
-            <strong>awareness</strong>, <strong>experience</strong>, <strong>agency</strong>, and
-            <strong>cognition</strong> are frequently used interchangeably, or defined only by informal
-            description. That makes comparison across theories difficult and allows explanations to expand
-            without clear architectural commitments.
+            Consciousness research often becomes unstable because key terms drift.
+            <strong>Consciousness</strong>, <strong>awareness</strong>, <strong>experience</strong>,
+            <strong>agency</strong>, and <strong>cognition</strong> are often blurred together,
+            then treated as if they explain one another.
           </p>
 
           <p class="panel-text">
-            CM / CCM is designed to avoid that problem. It adopts a disciplined methodological approach in which
-            explanatory claims must correspond to identifiable control commitments. Rather than beginning with
-            subjective phenomena and searching for mechanisms afterwards, the framework begins with
-            <strong>organism-level control problems</strong>.
+            CM is designed to resist that drift. Rather than starting from human subjective description
+            and searching for support afterwards, it starts from the biological problem an organism must solve:
+            <strong>maintaining viability through perception and interaction under constraint.</strong>
           </p>
 
           <p class="panel-text" style="margin-bottom:0;">
-            On this view, consciousness is not introduced as an additional property layered on top of biology.
-            It is analysed as part of the control machinery through which living systems regulate their
-            relationship with the environment while maintaining viability under evolutionary constraint.
+            From there, explanatory claims must resolve into architecture:
+            variables, gates, update rules, timing, and bounded control commitments.
           </p>
         </div>
 
-        <div class="panel wide-panel">
-          <h2 class="section-title">Approach</h2>
-
-          <p class="panel-text" style="margin-bottom:0;">
-            The framework is developed under constraints designed to prevent conceptual drift and over-claim.
-            These are <strong>rules of the build</strong>, not rhetorical guidelines. Each rule exists to keep
-            explanations mechanistic, comparable across organisms, and resistant to narrative substitution.
+        <div class="wide-panel panel">
+          <h2 class="section-title">The logic of the build</h2>
+          <p class="panel-text approach-logic-intro">
+            The framework is developed as a disciplined flow.
+            Each stage constrains what can be claimed next.
           </p>
+        </div>
+
+        <div class="timeline">
+
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card panel">
+              <div class="timeline-inner">
+                <div class="timeline-icon">
+                  <img src="/assets/icons/app_step_01.png" alt="Biology grounding icon" loading="lazy" decoding="async" />
+                </div>
+                <div class="timeline-copy">
+                  <h3 class="timeline-title">1 — Start from biology</h3>
+                  <p class="panel-text">
+                    Begin with living systems as they are observed, not with human introspection as the default template.
+                    Frame the problem at the organism level, in terms of maintaining viability under real constraint.
+                    This grounding keeps the framework biology-first from the outset and comparable across life rather than anchored to human-specific assumptions.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card panel">
+              <div class="timeline-inner">
+                <div class="timeline-icon">
+                  <img src="/assets/icons/app_step_02.png" alt="Control problem icon" loading="lazy" decoding="async" />
+                </div>
+                <div class="timeline-copy">
+                  <h3 class="timeline-title">2 — Define the control problem</h3>
+                  <p class="panel-text">
+                    Ask what the organism must do to remain viable.
+                    That means identifying the control demands placed on perception, action, regulation, timing, and coordination with the environment.
+                    Consciousness is therefore framed as organism-level control, not as a late cognitive add-on or a mysterious extra property.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card panel">
+              <div class="timeline-inner">
+                <div class="timeline-icon">
+                  <img src="/assets/icons/app_step_03.png" alt="Mechanism icon" loading="lazy" decoding="async" />
+                </div>
+                <div class="timeline-copy">
+                  <h3 class="timeline-title">3 — Specify the mechanism</h3>
+                  <p class="panel-text">
+                    Explanations must cash out in explicit control architecture:
+                    state variables, thresholds, gates, update rules, and timing relations.
+                    Narrative description is not enough.
+                    Analogy, metaphor, or appeals to emergence do not explain the system unless the underlying control structure is made explicit.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card panel">
+              <div class="timeline-inner">
+                <div class="timeline-icon">
+                  <img src="/assets/icons/app_step_04.png" alt="Incremental build icon" loading="lazy" decoding="async" />
+                </div>
+                <div class="timeline-copy">
+                  <h3 class="timeline-title">4 — Add only what is required</h3>
+                  <p class="panel-text">
+                    New capability is introduced only when lower-level mechanisms cannot explain the observed behaviour.
+                    This is why CCM develops as a cumulative capability ladder rather than a descriptive list.
+                    The model remains conservative in what it adds, and conservative ceilings are meaningful rather than gaps to be filled by assumption.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card panel">
+              <div class="timeline-inner">
+                <div class="timeline-icon">
+                  <img src="/assets/icons/app_step_05.png" alt="Boundaries and constraints icon" loading="lazy" decoding="async" />
+                </div>
+                <div class="timeline-copy">
+                  <h3 class="timeline-title">5 — Set hard boundaries</h3>
+                  <p class="panel-text">
+                    Every component must state both what it does and what it does not do.
+                    Absence is meaningful. If a mechanism has not been introduced, the model does not smuggle it in by implication.
+                    Terms remain separated by function, preventing conceptual inflation and keeping awareness, cognition, experience, and consciousness from collapsing into one another.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card panel">
+              <div class="timeline-inner">
+                <div class="timeline-icon">
+                  <img src="/assets/icons/app_step_06.png" alt="Cross-organism comparison icon" loading="lazy" decoding="async" />
+                </div>
+                <div class="timeline-copy">
+                  <h3 class="timeline-title">6 — Keep it comparable across life</h3>
+                  <p class="panel-text">
+                    The result must scale across organisms without relying on human-specific assumptions.
+                    That is why CM is biology-first, architecture-first, and conservative in its claims.
+                    The payoff is clearer capability comparison, stronger ceilings, and more defensible interpretation across taxa.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="panel wide-panel">
+          <h2 class="section-title">What this means in practice</h2>
 
           <div class="chunk-grid">
             <div>
-              <div class="kicker">Grounding &amp; mechanism</div>
-              <ul class="orange-points">
-                <li><span><strong>Biology-first:</strong> define capabilities from whole-organism control problems.</span></li>
-                <li><span><strong>Operational spec:</strong> components are expressed as variables, gates, and update rules.</span></li>
-                <li><span><strong>No narrative substitution:</strong> explanation must cash out in mechanism.</span></li>
-              </ul>
+              <div class="kicker">For CM</div>
+              <p class="panel-text">
+                Consciousness is defined at the organism level as viability-regulated control,
+                rather than being treated as a late cognitive layer or an unexplained extra.
+              </p>
             </div>
 
             <div>
-              <div class="kicker">Discipline &amp; scope</div>
-              <ul class="orange-points">
-                <li><span><strong>Incremental ladder:</strong> add capability only when lower levels cannot explain the behaviour.</span></li>
-                <li><span><strong>Conservative ceilings:</strong> absence of a component is a meaningful claim.</span></li>
-                <li><span><strong>Scope boundaries:</strong> every component states what it does not claim.</span></li>
-              </ul>
+              <div class="kicker">For CCM</div>
+              <p class="panel-text">
+                Components are introduced only when required,
+                producing a structured capability hierarchy with meaningful limits at each stage.
+              </p>
+            </div>
+
+            <div>
+              <div class="kicker">For AoE</div>
+              <p class="panel-text">
+                Experience is not treated as one undifferentiated block.
+                Its layers can be separated and tied back to organism-level control and global state change.
+              </p>
+            </div>
+
+            <div>
+              <div class="kicker">For comparison</div>
+              <p class="panel-text">
+                Capability claims become clearer,
+                ceilings become more interpretable,
+                and cross-organism comparisons become more defensible.
+              </p>
             </div>
           </div>
-
-          <div class="section-divider"></div>
-
-          <p class="panel-text" style="margin-bottom:0;">
-            The goal is a framework that stays falsifiable, extensible, and comparable across life,
-            without importing human-specific assumptions as default explanations.
-          </p>
         </div>
 
         <div class="panel wide-panel">
-          <h2 class="section-title">How these rules shape CM / CCM</h2>
-
-          <p class="panel-text">
-            These constraints directly shape the architecture of CM and CCM. Because explanations must resolve
-            into mechanism, the framework is organised around <strong>explicit control components</strong>
-            rather than descriptive themes alone.
-          </p>
-
-          <p class="panel-text">
-            Each component is expected to specify the variables it operates on, the gating conditions under which
-            it activates, and the updates it performs on state. This is why the framework develops as a
-            <strong>cumulative capability ladder</strong>: higher-level commitments are introduced only when
-            lower-level mechanisms cannot account for the observed behaviour.
-          </p>
-
-          <p class="panel-text">
-            The same discipline also shapes the Architecture of Experience (AoE). Rather than treating
-            experience as a single undifferentiated phenomenon, AoE describes how different experiential layers
-            arise from perturbations of organism-level global state and how those layers relate to broader control
-            architecture.
-          </p>
-
-          <p class="panel-text" style="margin-bottom:0;">
-            In this way, the approach is not separate from the model. It is the reason the model takes the form
-            it does.
-          </p>
-        </div>
-
-        <div class="panel wide-panel">
-          <h2 class="section-title">What this approach deliberately avoids</h2>
+          <h2 class="section-title">How this page fits the site</h2>
 
           <div class="chunk-grid">
             <div>
-              <div class="kicker">What it avoids</div>
-              <ul class="orange-points">
-                <li><span><strong>Emergence without architecture:</strong> appealing to emergence without specifying the mechanisms that generate it.</span></li>
-                <li><span><strong>Narrative substitution:</strong> replacing mechanistic explanation with metaphor, imagery, or analogy.</span></li>
-                <li><span><strong>Human-centric projection:</strong> starting from human cognition and projecting its structure downward by default.</span></li>
-              </ul>
+              <div class="kicker">This page</div>
+              <p class="panel-text">
+                <strong>Approach</strong> explains the rules of the build.
+                It tells you how the framework is constructed and why its claims are constrained.
+              </p>
             </div>
 
             <div>
-              <div class="kicker">Why that matters</div>
-              <ul class="orange-points">
-                <li><span><strong>Comparability:</strong> theories become easier to compare when claims are explicit.</span></li>
-                <li><span><strong>Constraint:</strong> scope boundaries reduce inflation of explanatory commitments.</span></li>
-                <li><span><strong>Clarity:</strong> distinct terms remain tied to distinct architectural roles.</span></li>
-              </ul>
+              <div class="kicker">The next pages</div>
+              <p class="panel-text">
+                <strong>Model</strong>, <strong>CM</strong>, <strong>CCM</strong>, and <strong>AoE</strong>
+                show the architecture that results from those rules.
+              </p>
             </div>
           </div>
 
-          <div class="section-divider"></div>
-
           <p class="panel-text" style="margin-bottom:0;">
-            Avoiding these patterns helps maintain a framework that remains mechanistic, falsifiable,
-            and applicable across forms of life without collapsing into loose narrative description.
-          </p>
-        </div>
-
-        <div class="panel wide-panel">
-          <h2 class="section-title">Why the site is organised this way</h2>
-
-          <p class="panel-text">
-            The site mirrors the same methodological discipline used to build the framework.
-            Different pages are separated because they perform different explanatory jobs.
-          </p>
-
-          <div class="chunk-grid">
-            <div>
-              <div class="kicker">Method page</div>
-              <ul class="orange-points">
-                <li><span><strong>Approach:</strong> explains the rules used to build the framework.</span></li>
-                <li><span><strong>Model:</strong> shows the resulting architecture and conceptual map.</span></li>
-              </ul>
-            </div>
-
-            <div>
-              <div class="kicker">Architecture pages</div>
-              <ul class="orange-points">
-                <li><span><strong>CM:</strong> explains the organism-level control framing.</span></li>
-                <li><span><strong>CCM:</strong> explains the cumulative capability hierarchy.</span></li>
-                <li><span><strong>AoE:</strong> explains the layered structure of experience.</span></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="section-divider"></div>
-
-          <p class="panel-text" style="margin-bottom:0;">
-            This separation is intentional. One of the central aims of CM / CCM is to reduce conceptual conflation
-            by distinguishing explanatory layers rather than collapsing them into a single vague account.
+            In other words, the approach is not separate from the framework.
+            It is the reason the framework takes the form it does.
           </p>
         </div>
 
@@ -288,7 +408,7 @@
                     <div style="min-width:0;">
                       <div class="signal-title">Model</div>
                       <div class="signal-text">
-                        The structured map of the framework and its major conceptual branches.
+                        The structured conceptual map of the framework and its main branches.
                         <a href="/model.html">Read page</a>
                       </div>
                     </div>
@@ -307,6 +427,23 @@
                       <div class="signal-text">
                         The organism-level framing of consciousness as viability-regulated control.
                         <a href="/cm.html">Read page</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="signal-card" data-type="model">
+              <div class="signal-top">
+                <div class="signal-main">
+                  <div style="display:flex; align-items:flex-start; gap:10px; min-width:0;">
+                    <span class="signal-chip is-model">MODEL</span>
+                    <div style="min-width:0;">
+                      <div class="signal-title">Consciousness Component Model (CCM)</div>
+                      <div class="signal-text">
+                        The cumulative capability hierarchy built under these methodological constraints.
+                        <a href="/ccm.html">Read page</a>
                       </div>
                     </div>
                   </div>
