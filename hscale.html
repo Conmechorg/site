@@ -36,6 +36,14 @@
 
   <link rel="stylesheet" href="/styles.css" />
 
+  <style>
+    .h-page .orange-points li span{
+      font-size:12px;
+      line-height:1.45;
+      color:rgba(14,23,27,.78);
+    }
+  </style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -76,141 +84,102 @@
   </script>
 </head>
 
-<body id="top">
+<body id="top" class="h-page">
 
   <div data-include="header"></div>
 
   <main class="main">
     <div class="container main-grid model-main-grid">
 
-      <section class="hero hero-compact hero-inline-hero ccm-hero">
-        <div class="ccm-hero-copy">
-          <h1 class="hero-title hero-title-sm">H Scale - Temporal Horizon</h1>
+      <section class="hero hero-compact">
+        <h1 class="hero-title hero-title-sm">Temporal Horizon Scale (H)</h1>
 
-          <div class="hero-inline">
-            <p class="hero-sub hero-sub-tight">
-              <strong>H</strong> expresses how far ahead behaviour can be regulated in
-              <strong>behaviour-class tick units</strong>. It is the temporal horizon axis used within
-              <strong>CCM / SCCA</strong> to classify future-relevant control depth.
-            </p>
-
-            <p class="hero-sub">
-              The H scale is not a measure of intelligence, complexity, or generic planning ability.
-              It specifies the <strong>temporal reach of control</strong>: whether behaviour is governed only by
-              the present, by near-future extrapolation, by persistent state carried across episodes, by future
-              needs within the organism’s lifespan, or by representations of times beyond lived experience.
-            </p>
-
-            <p class="hero-sub hero-sub-tight">
-              H levels must be read as <strong>bounded architectural commitments</strong>. They describe how far
-              behaviour can be organised across time, not how cognitively sophisticated an organism appears in
-              human terms.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <aside class="panel model-side-panel">
-        <h2 class="panel-title">Framework navigation</h2>
-        <p class="panel-text">
-          H is one of the core classification axes within the wider model. Use the model map to move through related framework pages.
+        <p class="hero-sub cm-hero-sub">
+          <strong>H</strong> expresses how far ahead behaviour can be regulated in
+          <strong>behaviour-class tick units</strong>. It is the temporal horizon axis used within
+          <strong>CCM</strong> to classify future-relevant control depth.
         </p>
 
-        <div class="model-path-card" aria-label="Current path and full model map access">
-          <div class="model-path-left">
+        <p class="hero-sub cm-hero-sub">
+          The H scale is not a measure of intelligence, complexity, or generic planning ability.
+          It specifies the <strong>temporal reach of control</strong>, whether behaviour is governed only by
+          the present, by near-future extrapolation, by persistent state carried across episodes, by future
+          needs within the organism’s lifespan, or by representations of times beyond lived experience.
+        </p>
+
+        <p class="hero-sub hero-sub-tight cm-hero-sub">
+          H levels are read as <strong>bounded architectural commitments</strong>. They describe how far
+          behaviour can be organised across time, not how cognitively sophisticated an organism appears in
+          human terms.
+        </p>
+      </section>
+
+        <aside class="panel model-side-panel">
+        <h2 class="panel-title">Framework navigation</h2>
+
+        <div class="model-path-card" aria-label="Current path and CM map access">
+            <div class="model-path-left">
             <div class="model-mini-title">Current path</div>
 
-            <div class="model-mini-tree">
-              <a class="model-mini-node is-action" href="/model.html">Model</a>
+            <div class="model-current-path">
 
-              <div class="model-mini-branch">
-                <span class="model-mini-arrow" aria-hidden="true">↳</span>
-                <a class="model-mini-node is-action" href="/model.html#framework">Framework</a>
-              </div>
-
-              <div class="model-mini-branch model-mini-branch-deeper">
-                <span class="model-mini-arrow" aria-hidden="true">↳</span>
-                <a class="model-mini-node is-current" href="/hscale.html" aria-current="page">H Scale</a>
-              </div>
+            <div class="model-current-step">
+                <a class="model-current-link" href="/cm.html">CM</a>
             </div>
-          </div>
 
-          <div class="model-path-right">
-            <div class="model-path-cta-title">Full model map</div>
-            <p class="model-path-cta-text">
-              Open the complete structure and jump directly to any page.
-            </p>
+            <span class="model-current-sep" aria-hidden="true">→</span>
 
-            <button
-              class="model-map-open model-map-open-compact"
-              type="button"
-              data-model-map-open
-              aria-controls="modelDrawer"
-              aria-expanded="false"
-            >
-              Open full map <span aria-hidden="true">→</span>
-            </button>
-          </div>
+            <div class="model-current-step">
+                <a class="model-current-link" href="/ccm.html">CCM</a>
+            </div>
+
+            <span class="model-current-sep" aria-hidden="true">→</span>
+
+            <div class="model-current-step">
+                <span class="model-current-node" aria-current="page">H Scale</span>
+            </div>
+
+            </div>
+            </div>
+
+            <div class="model-path-right">
+            <div class="model-path-cta-title">CM map</div>
+
+            <div class="model-path-cta-row">
+                <p class="model-path-cta-text">
+                Open the full structure to jump to any branch.
+                </p>
+
+                <button
+                class="model-map-open model-map-open-compact"
+                type="button"
+                data-model-map-open
+                aria-controls="modelDrawer"
+                aria-expanded="false"
+                >
+                Open CM map <span aria-hidden="true">→</span>
+                </button>
+            </div>
+            </div>
         </div>
 
         <div class="model-side-seq model-side-seq-buttons">
-          <a class="model-side-navbtn is-prev" href="/ccm.html">
+            <a class="model-side-navbtn is-prev" href="/ccm.html">
             <span class="model-side-navlabel">Previous</span>
             <span class="model-side-navtitle">← CCM</span>
-          </a>
+            </a>
 
-          <a class="model-side-navbtn is-next" href="/kscale.html">
+            <a class="model-side-navbtn is-next" href="/kscale.html">
             <span class="model-side-navlabel">Next</span>
             <span class="model-side-navtitle">K Scale →</span>
-          </a>
+            </a>
         </div>
-      </aside>
+        </aside>
+
     </div>
 
     <section class="below">
       <div class="container">
-
-        <div class="panel wide-panel ccm-info-panel">
-          <h2 class="section-title">H scale infographic</h2>
-          <p class="panel-text ccm-glance-intro">
-            This visual summarises the current public interpretation of the H scale, from immediate reaction through short trajectory extrapolation, anticipatory state, post-event persistent state, long-horizon planning, and finally beyond-lifespan abstraction.
-          </p>
-
-          <figure class="ccm-full-figure">
-            <img
-              src="/assets/diagrams/H_scale_info_graph.png"
-              alt="H Scale infographic showing temporal horizons from H0 immediate reactive control to H5 plus higher-order abstraction beyond organism lifespan"
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-
-          <div class="ccm-figure-actions">
-            <a class="model-side-navbtn is-action" href="/assets/diagrams/H_scale_info_graph.png" target="_blank" rel="noopener">
-              <span class="model-side-navtitle">Open full size →</span>
-            </a>
-
-            <a class="model-side-navbtn is-action" href="/assets/diagrams/H_scale_info_graph.png" download>
-              <span class="model-side-navtitle">Download PNG →</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="panel wide-panel">
-          <h2 class="section-title">What H represents</h2>
-          <p class="panel-text">
-            The H scale represents <strong>temporal control reach</strong>. It expresses how far ahead an organism’s
-            control architecture can regulate behaviour for the behaviour class under analysis.
-          </p>
-          <p class="panel-text">
-            This is not primarily about physical duration, wall-clock time, or whether an organism can verbally describe
-            the future. It is about whether control is limited to the present <strong>tick</strong> — the organism’s minimum effective control update interval — or whether it extends into anticipated immediate outcomes, extrapolated future states, maintained anticipatory state across ticks, post-event carried-forward state shaped by delayed effects, future needs within the organism’s lifespan, or even representations of times outside lived experience.
-          </p>
-          <p class="panel-text">
-            H therefore provides a <strong>bounded comparative representation of future-relevant control depth</strong>,
-            expressed relative to the control cadence of the behavioural regime being analysed.
-          </p>
-        </div>
 
         <div class="panel wide-panel">
           <h2 class="section-title">How to read H</h2>
@@ -225,156 +194,31 @@
               </p>
             </div>
 
-          <div>
-            <div class="kicker">Bounded by architecture</div>
+            <div>
+              <div class="kicker">Bounded by architecture</div>
+              <p class="panel-text">
+                H levels are governed by <strong>K</strong>, the system’s structural capacity, and by component definitions.
+                An H assignment must be justified by the internal control commitments required for the behaviour, not by loose
+                interpretation of surface performance.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel wide-panel">
+            <h2 class="section-title">Why the distinctions matter</h2>
+
             <p class="panel-text">
-              H levels are governed by <strong>K</strong> — the system’s structural capacity — and by component definitions.
-              An H assignment must be justified by the internal control commitments required for the behaviour, not by loose
-              interpretation of surface performance.
+            The H scale prevents different forms of temporal control from being collapsed into a single vague idea of “planning” or “intelligence”.
             </p>
-          </div>
-          </div>
-        </div>
 
-        <div class="panel wide-panel">
-          <h2 class="section-title">The H levels</h2>
+            <p class="panel-text">
+            Immediate reaction, short-horizon extrapolation, anticipatory readiness across ticks, post-event carry-forward, preparation for future needs, and reasoning about times beyond one’s lifespan are not the same kind of temporal organisation.
+            </p>
 
-          <div class="signals-list">
-
-            <article class="signal-card" data-type="model">
-              <div class="signal-top">
-                <div class="signal-main">
-                  <div class="signal-card-row">
-                    <span class="signal-chip is-model">H0</span>
-                    <div class="signal-card-copy">
-                      <div class="signal-title">Immediate reactive (No horizon)</div>
-                      <div class="signal-text">
-                        Control is governed entirely by current sensory conditions (within-tick integration only).
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="signal-card" data-type="model">
-              <div class="signal-top">
-                <div class="signal-main">
-                  <div class="signal-card-row">
-                    <span class="signal-chip is-model">H1</span>
-                    <div class="signal-card-copy">
-                      <div class="signal-title">Short trajectory extrapolation (Short Horizon)</div>
-                      <div class="signal-text">
-                        Behaviour is modulated by a bounded single-trajectory imminence estimate for trigger timing within a limited number of ticks (no branching futures, no valuation).
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="signal-card" data-type="model">
-              <div class="signal-top">
-                <div class="signal-main">
-                  <div class="signal-card-row">
-                    <span class="signal-chip is-model">H2</span>
-                    <div class="signal-card-copy">
-                      <div class="signal-title">Anticipatory State (Extended Horizon)</div>
-                      <div class="signal-text">
-                        Behaviour may be regulated across multiple future tick cycles via anticipatory mobilisation and maintenance of persistent control state (e.g., global readiness) that shapes subsequent execution conditions, without requiring branching futures, valuation, or planning.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="signal-card" data-type="model">
-              <div class="signal-top">
-                <div class="signal-main">
-                  <div class="signal-card-row">
-                    <span class="signal-chip is-model">H3</span>
-                    <div class="signal-card-copy">
-                      <div class="signal-title">Post Event Persistent State (Extended effect-window horizon)</div>
-                      <div class="signal-text">
-                        Previously acquired information persists across episodes, shaping future responses even when the triggering stimulus is absent and reflecting the delayed effects of prior outcomes.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="signal-card" data-type="model">
-              <div class="signal-top">
-                <div class="signal-main">
-                  <div class="signal-card-row">
-                    <span class="signal-chip is-model">H4</span>
-                    <div class="signal-card-copy">
-                      <div class="signal-title">Long Horizon Planning (Extended organism-scale horizon)</div>
-                      <div class="signal-text">
-                        Behaviour may be influenced by anticipated outcomes spanning significant portions of the organism’s lifespan.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="signal-card" data-type="model">
-              <div class="signal-top">
-                <div class="signal-main">
-                  <div class="signal-card-row">
-                    <span class="signal-chip is-model">H5+</span>
-                    <div class="signal-card-copy">
-                      <div class="signal-title">Higher-order Abstraction (Beyond lifespan horizons)</div>
-                      <div class="signal-text">
-                        Behaviour influenced by futures beyond the organism’s lifespan (e.g. lineage, culture, abstract futures).
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-          </div>
-        </div>
-
-        <div class="panel wide-panel">
-          <h2 class="section-title">Why the distinctions matter</h2>
-          <p class="panel-text">
-            The H scale is useful because it prevents very different kinds of temporal control from being collapsed
-            into a single vague idea of “planning” or “intelligence”. Reacting to heat, extrapolating the future position of a moving target, maintaining anticipatory readiness across ticks, carrying forward a post-event persistent state, preparing for winter, and reasoning about times beyond one’s own life are not the same kind of temporal achievement.
-          </p>
-          <p class="panel-text">
-            Treating these as distinct horizons makes behavioural comparison more precise, and helps separate
-            temporal reach from other axes such as structural capacity or component depth.
-          </p>
-        </div>
-
-        <div class="panel wide-panel">
-          <h2 class="section-title">H and tick</h2>
-          <p class="panel-text">
-            H is expressed in <strong>tick units</strong>. Here, a tick is the organism’s
-            <strong>minimum effective control update interval</strong> for the behaviour class under analysis:
-            the shortest cadence at which control-relevant state can be sensed, integrated, and used to
-            commit or dispatch one or more response commands for that behavioural class.
-          </p>
-          <p class="panel-text">
-            Tick boundaries are therefore defined by <strong>control-cycle completion</strong> — commit or dispatch —
-            rather than by fixed external time slices, and not by requiring that a physical motor programme has finished.
-          </p>
-          <p class="panel-text">
-            A single organism may exhibit <strong>multiple effective tick scales</strong> across different behavioural classes,
-            such as fast defensive reflexes versus slower developmental, provisioning, or seasonal regulation.
-          </p>
-          <p class="panel-text">
-            In other words, H is always interpreted relative to the control cadence of the specific behavioural regime being analysed.
-          </p>
-        </div>
-
-        <div class="panel wide-panel">
-          <h2 class="section-title">What H is and is not</h2>
+            <p class="panel-text">
+            Treating these as distinct horizons makes behavioural comparison more precise, and keeps temporal reach separate from other axes such as structural capacity (K) or component depth (CLn).
+            </p>
 
           <div class="chunk-grid">
             <div>
@@ -397,81 +241,50 @@
           </div>
         </div>
 
-        <div class="panel wide-panel">
-          <h2 class="section-title">Related content</h2>
+        <div class="panel wide-panel ccm-info-panel">
+          <h2 class="section-title">H scale infographic</h2>
+          <p class="panel-text ccm-glance-intro">
+            This visual summarises the current public interpretation of the H scale, from immediate reaction through short trajectory extrapolation, anticipatory state, post-event persistent state, long-horizon planning, and beyond-lifespan abstraction.</br></br>
+          </p>
 
-          <div class="signals-list">
+          <figure class="ccm-full-figure">
+            <img
+              src="/assets/diagrams/h_scale_info_-graph.png"
+              alt="H Scale infographic showing temporal horizons from H0 immediate reactive control to H5 plus higher-order abstraction beyond organism lifespan"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
 
-            <article class="signal-card" data-type="model">
-              <div class="signal-top">
-                <div class="signal-main">
-                  <div class="signal-card-row">
-                    <span class="signal-chip is-model">MODEL</span>
-                    <div class="signal-card-copy">
-                      <div class="signal-title">Consciousness Component Model (CCM)</div>
-                      <div class="signal-text">
-                        The cumulative capability hierarchy within which H is used as a temporal axis.
-                        <a href="/ccm.html">Read page</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
+          <div class="ccm-figure-actions">
+            <a class="model-side-navbtn is-action" href="/assets/diagrams/H_scale_info_graph.png" target="_blank" rel="noopener">
+              <span class="model-side-navtitle">Open full size →</span>
+            </a>
 
-            <article class="signal-card" data-type="model">
-              <div class="signal-top">
-                <div class="signal-main">
-                  <div class="signal-card-row">
-                    <span class="signal-chip is-model">MODEL</span>
-                    <div class="signal-card-copy">
-                      <div class="signal-title">K Scale</div>
-                      <div class="signal-text">
-                        The structural axis governing how much persistent internal organisation is required to support a behavioural ceiling.
-                        <a href="/kscale.html">Read page</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="signal-card" data-type="model">
-              <div class="signal-top">
-                <div class="signal-main">
-                  <div class="signal-card-row">
-                    <span class="signal-chip is-model">MODEL</span>
-                    <div class="signal-card-copy">
-                      <div class="signal-title">Consciousness Mechanics (CM)</div>
-                      <div class="signal-text">
-                        The broader organism-level viability-regulated control framing within which the H scale is interpreted.
-                        <a href="/cm.html">Read page</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="signal-card" data-type="doc">
-              <div class="signal-top">
-                <div class="signal-main">
-                  <div class="signal-card-row">
-                    <span class="signal-chip is-doc">DOC</span>
-                    <div class="signal-card-copy">
-                      <div class="signal-title">CM / CCM framework paper</div>
-                      <div class="signal-text">
-                        <a href="https://doi.org/10.5281/zenodo.18874286" target="_blank" rel="noopener">
-                          Consciousness Mechanics (CM) and the Consciousness Component Model (CCM): A Biology-First Control Architecture for Conscious Systems
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
+            <a class="model-side-navbtn is-action" href="/assets/diagrams/H_scale_info_graph.png" download>
+              <span class="model-side-navtitle">Download PNG →</span>
+            </a>
           </div>
+        </div>
+
+        <div class="panel wide-panel">
+            <h2 class="section-title">H and tick</h2>
+
+            <p class="panel-text">
+            H is expressed in <strong>tick units</strong>. A tick is the organism’s <strong>minimum effective control update interval</strong> for the behavioural class under analysis, the shortest cadence at which control-relevant state can be sensed, integrated, and used to commit or dispatch response.
+            </p>
+
+            <p class="panel-text">
+            Tick boundaries are therefore defined by <strong>control-cycle completion</strong>, commit or dispatch, rather than fixed external time slices, and not by requiring that a physical motor programme has fully completed.
+            </p>
+
+            <p class="panel-text">
+            A single organism may exhibit <strong>multiple effective tick scales</strong> across different behavioural classes, for example fast defensive reflexes versus slower developmental, provisioning, or seasonal regulation.
+            </p>
+
+            <p class="panel-text">
+            In practical terms, H is always interpreted relative to the control cadence of the specific behavioural regime being analysed.
+            </p>
         </div>
 
         <div class="panel wide-panel model-seq-nav">

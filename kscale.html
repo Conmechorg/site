@@ -36,6 +36,14 @@
 
   <link rel="stylesheet" href="/styles.css" />
 
+  <style>
+    .k-page .orange-points li span{
+      font-size:12px;
+      line-height:1.45;
+      color:rgba(14,23,27,.78);
+    }
+  </style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -76,82 +84,80 @@
   </script>
 </head>
 
-<body id="top">
+<body id="top" class="k-page">
 
   <div data-include="header"></div>
 
   <main class="main">
     <div class="container main-grid model-main-grid">
 
-      <section class="hero hero-compact hero-inline-hero ccm-hero">
-        <div class="ccm-hero-copy">
-          <h1 class="hero-title hero-title-sm">K Scale - Structural Capacity</h1>
+      <section class="hero hero-compact">
+        <h1 class="hero-title hero-title-sm">K Scale - Structural Capacity</h1>
 
-          <div class="hero-inline">
-            <p class="hero-sub hero-sub-tight">
-              <strong>K</strong> is a <strong>conceptual scale</strong> indicating the level of
-              <strong>internal processing capability</strong> that must be present for an organism
-              to exhibit a given class of behaviour. Within <strong>CCM / SCCA</strong>, it functions
-              as the structural capacity axis.
-            </p>
+        <p class="hero-sub cm-hero-sub">
+          <strong>K</strong> expresses the <strong>structural capacity required for behaviour</strong>.
+          It is the axis used within <strong>CCM</strong> to classify what must persist internally
+          for a given behavioural class to be possible.
+        </p>
 
-            <p class="hero-sub">
-              K is not a direct measure of intelligence, neuron count, or generic complexity.
-              It is a way of asking what must persist internally for behaviour to move from
-              rigid same-input same-response patterns, through sensitivity shifts, differentiated
-              response by input type, internal-state control, learning from outcomes, regime switching,
-              and finally explicit internal modelling.
-            </p>
+        <p class="hero-sub cm-hero-sub">
+          Rather than measuring intelligence or complexity, K specifies the
+          <strong>internal processing and persistence commitments</strong> required for behaviour,
+          from rigid same-input responses through to learning, regime switching,
+          and explicit internal modelling. <strong>In practical terms: what must exist internally for this behaviour to be possible at all?</strong>
+        </p>
 
-            <p class="hero-sub hero-sub-tight">
-              K levels should be read as <strong>bounded capability commitments</strong>. They do not
-              rank organisms by worth or smartness. They indicate the level of internal structural and
-              processing organisation required for the behaviour being considered.
-            </p>
-          </div>
-        </div>
+        <p class="hero-sub hero-sub-tight cm-hero-sub">
+          K levels are read as <strong>bounded architectural commitments</strong>,
+          describing what must exist internally for the behaviour to occur,
+          not how impressive an organism appears.
+        </p>
       </section>
 
       <aside class="panel model-side-panel">
         <h2 class="panel-title">Framework navigation</h2>
-        <p class="panel-text">
-          K is one of the core classification axes within the wider model. Use the model map to move through related framework pages.
-        </p>
 
-        <div class="model-path-card" aria-label="Current path and full model map access">
+        <div class="model-path-card" aria-label="Current path and CM map access">
           <div class="model-path-left">
             <div class="model-mini-title">Current path</div>
 
-            <div class="model-mini-tree">
-              <a class="model-mini-node is-action" href="/model.html">Model</a>
-
-              <div class="model-mini-branch">
-                <span class="model-mini-arrow" aria-hidden="true">↳</span>
-                <a class="model-mini-node is-action" href="/model.html#framework">Framework</a>
+            <div class="model-current-path">
+              <div class="model-current-step">
+                <a class="model-current-link" href="/cm.html">CM</a>
               </div>
 
-              <div class="model-mini-branch model-mini-branch-deeper">
-                <span class="model-mini-arrow" aria-hidden="true">↳</span>
-                <a class="model-mini-node is-current" href="/kscale.html" aria-current="page">K Scale</a>
+              <span class="model-current-sep" aria-hidden="true">→</span>
+
+              <div class="model-current-step">
+                <a class="model-current-link" href="/ccm.html">CCM</a>
+              </div>
+
+              <span class="model-current-sep" aria-hidden="true">→</span>
+
+              <div class="model-current-step">
+                <span class="model-current-node" aria-current="page">K Scale</span>
               </div>
             </div>
           </div>
 
           <div class="model-path-right">
-            <div class="model-path-cta-title">Full model map</div>
-            <p class="model-path-cta-text">
-              Open the complete structure and jump directly to any page.
-            </p>
+            <div class="model-path-cta-title">CM map</div>
 
-            <button
-              class="model-map-open model-map-open-compact"
-              type="button"
-              data-model-map-open
-              aria-controls="modelDrawer"
-              aria-expanded="false"
-            >
-              Open full map <span aria-hidden="true">→</span>
-            </button>
+            <div class="model-path-cta-row">
+              <p class="model-path-cta-text">
+                Open the full structure to jump to any branch.
+              </p>
+
+              <button
+                class="model-map-open model-map-open-compact"
+                type="button"
+                data-model-map-open
+                aria-controls="modelDrawer"
+                aria-expanded="false"
+              >
+                Open CM map <span aria-hidden="true">→</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -161,16 +167,73 @@
             <span class="model-side-navtitle">← H Scale</span>
           </a>
 
-          <a class="model-side-navbtn is-next" href="/experience.html">
-            <span class="model-side-navlabel">Next</span>
-            <span class="model-side-navtitle">Experience →</span>
-          </a>
+            <a class="model-seq-link is-next" href="/approach.html">
+              <span class="model-seq-label">Next</span>
+              <span class="model-seq-title">Approach →</span>
+            </a>
         </div>
       </aside>
     </div>
 
     <section class="below">
       <div class="container">
+
+        <div class="panel wide-panel">
+          <h2 class="section-title">How to read K</h2>
+
+          <div class="chunk-grid">
+            <div>
+              <div class="kicker">Capability axis, not intelligence ladder</div>
+              <p class="panel-text">
+                K is a <strong>capability axis</strong>, not an intelligence ladder.
+                A higher K level means that more demanding internal structure must be present
+                for the behaviour under consideration.
+              </p>
+            </div>
+
+            <div>
+              <div class="kicker">Behaviour-first interpretation</div>
+              <p class="panel-text">
+                Read K by asking what new behavioural flexibility appears at each step:
+                from identical responses, to sensitivity shifts, to differentiated responses,
+                then internal-state control, outcome-based learning, regime switching,
+                and finally explicit evaluation of future outcomes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+                <div class="panel wide-panel">
+          <h2 class="section-title">Why the distinctions matter</h2>
+          <p class="panel-text">
+            The K scale matters because distinct forms of behavioural organisation are often grouped together under
+broad terms such as “intelligence”, “complexity”, or “learning”. But identical response, recent-history modulation, differentiated treatment of inputs,
+            internal-state control, outcome-based updating, regime change, switching, and explicit internal modelling are not the same thing.
+          </p>
+          <p class="panel-text">
+            By separating these levels, K helps make comparison more disciplined. It clarifies what class of internal capability is actually
+            being implied when we attribute a behaviour to an organism or system.
+          </p>
+          <div class="chunk-grid">
+            <div>
+              <div class="kicker">What it is</div>
+              <ul class="orange-points">
+                <li><span>A conceptual structural-capacity axis for behaviour</span></li>
+                <li><span>An indication of the internal processing capability required for a behavioural class</span></li>
+                <li><span>A way of distinguishing different kinds of persistent internal organisation</span></li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="kicker">What it is not</div>
+              <ul class="orange-points">
+                <li><span>Not an intelligence score</span></li>
+                <li><span>Not a neuron-count proxy or brain-size ranking</span></li>
+                <li><span>Not a claim that rich world models exist at all levels</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
         <div class="panel wide-panel ccm-info-panel">
           <h2 class="section-title">K scale infographic</h2>
@@ -202,52 +265,12 @@
         </div>
 
         <div class="panel wide-panel">
-          <h2 class="section-title">What K represents</h2>
-          <p class="panel-text">
-            The K scale represents <strong>structural capacity for behaviour</strong>. It is a conceptual way of
-            indicating the level of internal processing and persistence that must be available for a particular
-            class of behaviour to occur.
-          </p>
-          <p class="panel-text">
-            The emphasis is not on how impressive an organism looks, nor on raw brain size, hardware mass, or
-            neuron count. The question is simpler and more precise: <strong>what must exist internally for this
-            behaviour to be possible at all?</strong>
-          </p>
-          <p class="panel-text">
-            That is why K is framed through behavioural examples. It helps distinguish organisms or systems that
-            always respond the same way, from those that can modulate intensity, treat different inputs differently,
-            switch behaviour according to internal state or context, learn from outcomes, or explicitly evaluate
-            alternative futures before acting.
-          </p>
-        </div>
-
-        <div class="panel wide-panel">
-          <h2 class="section-title">How to read K</h2>
-
-          <div class="chunk-grid">
-            <div>
-              <div class="kicker">Capability axis, not intelligence ladder</div>
-              <p class="panel-text">
-                K is not a ladder of worth, intelligence, or consciousness in the everyday sense. A higher K level
-                only means that a more demanding class of internal processing capability must be present for the
-                behaviour under discussion.
-              </p>
-            </div>
-
-            <div>
-              <div class="kicker">Behaviour-first interpretation</div>
-              <p class="panel-text">
-                K is best understood by asking what new behavioural flexibility appears at each step: identical
-                response, then altered response strength, then differentiated response by input type, then internal
-                state control, then learning from outcomes, then regime-level changes, switching, and explicit
-                evaluation of future outcomes.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel wide-panel">
           <h2 class="section-title">The K levels</h2>
+
+          <p class="panel-text">
+            The following definitions specify the K levels as <strong>bounded structural commitments</strong>,
+            indicating what must exist internally for each class of behaviour.
+          </p>
 
           <div class="signals-list">
 
@@ -383,20 +406,7 @@
         </div>
 
         <div class="panel wide-panel">
-          <h2 class="section-title">Why the distinctions matter</h2>
-          <p class="panel-text">
-            The K scale matters because very different kinds of behavioural flexibility are often lumped together under vague words such as
-            “intelligence”, “complexity”, or “learning”. But identical response, recent-history modulation, differentiated treatment of inputs,
-            internal-state control, outcome-based updating, regime change, switching, and explicit internal modelling are not the same thing.
-          </p>
-          <p class="panel-text">
-            By separating these levels, K helps make comparison more disciplined. It clarifies what class of internal capability is actually
-            being implied when we attribute a behaviour to an organism or system.
-          </p>
-        </div>
-
-        <div class="panel wide-panel">
-          <h2 class="section-title">K and persistent internal capability</h2>
+          <h2 class="section-title">K and persistent internal state</h2>
           <p class="panel-text">
             K is about <strong>what must persist internally across time</strong> for behaviour to be shaped by more than the immediate present.
             At lower levels this may amount to little or no retained variation. At higher levels it includes state that can bias behaviour,
@@ -409,7 +419,7 @@
         </div>
 
         <div class="panel wide-panel">
-          <h2 class="section-title">K and world-model structure</h2>
+          <h2 class="section-title">K and explicit modelling</h2>
           <p class="panel-text">
             The K scale does <strong>not</strong> assume that organisms possess rich world models at low levels. Most of the scale is about
             simpler forms of persistence and behavioural organisation: repeated-response effects, input-specific differences, internal-state
@@ -421,107 +431,6 @@
           </p>
         </div>
 
-        <div class="panel wide-panel">
-          <h2 class="section-title">What K is and is not</h2>
-
-          <div class="chunk-grid">
-            <div>
-              <div class="kicker">What it is</div>
-              <ul class="orange-points">
-                <li><span>A conceptual structural-capacity axis for behaviour</span></li>
-                <li><span>An indication of the internal processing capability required for a behavioural class</span></li>
-                <li><span>A way of distinguishing different kinds of persistent internal organisation</span></li>
-              </ul>
-            </div>
-
-            <div>
-              <div class="kicker">What it is not</div>
-              <ul class="orange-points">
-                <li><span>Not an intelligence score</span></li>
-                <li><span>Not a neuron-count proxy or brain-size ranking</span></li>
-                <li><span>Not a claim that rich world models exist at all levels</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel wide-panel">
-          <h2 class="section-title">Related content</h2>
-
-          <div class="signals-list">
-
-            <article class="signal-card" data-type="model">
-              <div class="signal-top">
-                <div class="signal-main">
-                  <div class="signal-card-row">
-                    <span class="signal-chip is-model">MODEL</span>
-                    <div class="signal-card-copy">
-                      <div class="signal-title">Consciousness Component Model (CCM)</div>
-                      <div class="signal-text">
-                        The cumulative capability hierarchy within which K is used as a structural axis.
-                        <a href="/ccm.html">Read page</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="signal-card" data-type="model">
-              <div class="signal-top">
-                <div class="signal-main">
-                  <div class="signal-card-row">
-                    <span class="signal-chip is-model">MODEL</span>
-                    <div class="signal-card-copy">
-                      <div class="signal-title">H Scale</div>
-                      <div class="signal-text">
-                        The temporal axis used alongside K to classify how far ahead behaviour can be regulated.
-                        <a href="/hscale.html">Read page</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="signal-card" data-type="model">
-              <div class="signal-top">
-                <div class="signal-main">
-                  <div class="signal-card-row">
-                    <span class="signal-chip is-model">MODEL</span>
-                    <div class="signal-card-copy">
-                      <div class="signal-title">Consciousness Mechanics (CM)</div>
-                      <div class="signal-text">
-                        The broader organism-level viability-regulated control framing within which the K scale is interpreted.
-                        <a href="/cm.html">Read page</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="signal-card" data-type="doc">
-              <div class="signal-top">
-                <div class="signal-main">
-                  <div class="signal-card-row">
-                    <span class="signal-chip is-doc">DOC</span>
-                    <div class="signal-card-copy">
-                      <div class="signal-title">CM / CCM framework paper</div>
-                      <div class="signal-text">
-                        <a href="https://doi.org/10.5281/zenodo.18874286" target="_blank" rel="noopener">
-                          Consciousness Mechanics (CM) and the Consciousness Component Model (CCM): A Biology-First Control Architecture for Conscious Systems
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-          </div>
-        </div>
-
         <div class="panel wide-panel model-seq-nav">
           <div class="model-seq-row">
             <a class="model-seq-link is-prev" href="/hscale.html">
@@ -529,9 +438,9 @@
               <span class="model-seq-title">← H Scale</span>
             </a>
 
-            <a class="model-seq-link is-next" href="/experience.html">
+            <a class="model-seq-link is-next" href="/approach.html">
               <span class="model-seq-label">Next</span>
-              <span class="model-seq-title">Experience →</span>
+              <span class="model-seq-title">Approach →</span>
             </a>
           </div>
         </div>
